@@ -1,0 +1,25 @@
+\long\def\@makecaption#1#2{
+ \vskip 10pt 
+ \setbox\@tempboxa\hbox{\small #1. #2}
+ \ifdim \wd\@tempboxa >\hsize \small #1. #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil} 
+ \fi}
+
+% allow for silent captions
+\def\scaption{\refstepcounter\@captype \@dblarg{\@scaption\@captype}}
+
+\long\def\@scaption#1[#2]#3{\par\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname 
+  the#1\endcsname}{\ignorespaces #2}}\begingroup
+    \@parboxrestore
+    \normalsize
+    \@makescaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+
+\long\def\@makescaption#1#2{
+ \vskip 10pt 
+ \setbox\@tempboxa\hbox{\small #2}
+ \ifdim \wd\@tempboxa >\hsize \small #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil} 
+ \fi}
+

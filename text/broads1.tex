@@ -1,0 +1,50 @@
+\documentclass[oneside]{book}
+
+\usepackage{graphics}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage{gji}             % reference style
+\usepackage{small_caption}   % caption font
+\input{LGRenc.def}           % lower case sans serif Greek
+\input{LGRcmss.fd}           % lower case sans serif Greek
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                           %
+% Trying to match Tony's textures setup    %
+                                           %
+\setlength{\textwidth}{4.5in}              %
+\setlength\textheight{42\baselineskip}     %
+\setlength\topmargin{.75in}                %
+\setlength\oddsidemargin{1.0in}            %
+\setlength\evensidemargin{1.0in}           %
+\setlength\marginparwidth{.75in}           %
+                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{newcommands}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\setcounter{chapter}{16}
+\setcounter{figure}{19}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap16/fig07.eps}
+}
+\end{center}
+\caption[crustal]{
+Relative perturbation $\delta c/c$ in the phase speed
+of fundamental-mode Love waves ({\em left\/}) and
+Rayleigh waves ({\em right\/}) due to lateral variations
+in the thickness and structure of the Earth's crust.
+The perturbations are shown at two periods: 35~s
+({\em top\/}) and 75~s ({\em bottom\/}). Note that
+the grey scales differ from map to map.
+}
+\end{sidewaysfigure}
+
+\end{document}

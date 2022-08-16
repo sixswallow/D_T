@@ -1,0 +1,177 @@
+\documentclass[fleqn,openany]{book}
+
+\nofiles
+
+\usepackage{graphics}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage{gji}             % reference style
+\usepackage{small_caption}   % caption font
+\input{LGRenc.def}           % lower case sans serif Greek
+\input{LGRcmss.fd}           % lower case sans serif Greek
+\usepackage{makeidx}
+%\usepackage{showidx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% add by Hsin-Ying Yang for Chinese version
+\usepackage{CJKutf8}
+\usepackage{xcolor}
+\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                           %
+% Trying to match Tony's textures setup    %
+                                           %
+\setlength{\textwidth}{4.5in}              %
+\setlength\textheight{42\baselineskip}     %
+\setlength\topmargin{.75in}                %
+\setlength\oddsidemargin{1.0in}            %
+\setlength\evensidemargin{1.0in}           %
+\setlength\marginparwidth{.75in}           %
+                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{newcommands}
+
+\makeindex
+
+\setcounter{tocdepth}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\includeonly{preface,chapter1,appendixB}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%% added by H.-Y. Yang %%%%%%%%%%%%%%%
+\begin{CJK*}{UTF8}{gkai} 
+%{bsmi,bkai}:Traditional Chinese, {gbsm, gkai}: Simple Chinese
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{gji}
+
+\title{THEORETICAL GLOBAL SEISMOLOGY}
+\author{F. A. Dahlen\\
+Department of Geosciences\\
+Princeton University\\
+\and
+Jeroen Tromp\\
+Department of Earth \& Planetary Sciences\\
+Harvard University \\ \\
+}
+\date{To be published by Princeton University Press \\
+FINAL VERSION\\
+Printed June 26, 1998}
+\maketitle
+
+\pagenumbering{roman}
+\setcounter{page}{5}
+\tableofcontents
+\newpage{\pagestyle{empty}\cleardoublepage}
+\addcontentsline{toc}{chapter}{Preface}
+%\include{preface}
+%\include{chapter1}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+\thispagestyle{empty}
+\vspace*{22mm}
+\begin{center}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\begin{center}
+\huge{\textbf{Part I}}
+\end{center}
+\begin{center}
+\Huge{\textbf{Foundations}}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\addcontentsline{toc}{part}{Part I\hspace{1em}Foundations}
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+%\include{chapter2}
+%\include{chapter3}
+%\include{chapter4}
+%\include{chapter5}
+\include{chapter6}
+%\include{chapter7}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+\thispagestyle{empty}
+\vspace*{22mm}
+\begin{center}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\begin{center}
+\huge{\textbf{Part II}}
+\end{center}
+\begin{center}
+\Huge{\textbf{The Spherical Earth}}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\addcontentsline{toc}{part}{Part II\hspace{1em}The Spherical Earth}
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+%\include{chapter8}
+%\include{chapter9}
+%\include{chapter10}
+%\include{chapter11}
+%\include{chapter12}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+\thispagestyle{empty}
+\vspace*{22mm}
+\begin{center}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\begin{center}
+\huge{\textbf{Part III}}
+\end{center}
+\begin{center}
+\Huge{\textbf{The Aspherical Earth}}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\addcontentsline{toc}{part}{Part III\hspace{1em}The Aspherical Earth}
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+\include{chapter13}
+%\include{chapter14}
+%\include{chapter15}
+%\include{chapter16}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+\thispagestyle{empty}
+\vspace*{27mm}
+\begin{center}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\begin{center}
+\Huge{\textbf{Appendixes}}
+\rule{\linewidth}{0.5mm}
+\end{center}
+\addcontentsline{toc}{part}{Appendixes}
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+\appendix
+\renewcommand{\thesection}{\Alph{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\Alph{chapter}.\arabic{section}.\arabic{subsection}}
+%\include{appendixA}
+%\include{appendixB}
+%\include{appendixC}
+%\include{appendixD}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+\addcontentsline{toc}{chapter}{Bibliography}
+\small
+%\bibliography{references}
+\normalsize
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+\addcontentsline{toc}{chapter}{Index}
+\small
+\printindex
+\normalsize
+
+\end{CJK*}
+\end{document}

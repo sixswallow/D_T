@@ -1,0 +1,1078 @@
+%\chapter{Rayleigh-Ritz Method}
+\chapter{瑞利-里兹方法}
+
+到目前为止，我们一直把地球简正模式的本征频率和本征函数看作是积分-微分边值问题的解。
+我们在本章要讨论的{\em 瑞利-里兹方法\/}提供了一种只用线性代数而不用微积分来计算 $\omega$、$\bs$ 或$\nu$、$\bs$的方法。
+这个方法极其简单---我们将每个本征函数$\bs$表示为实的{\em 测试函数或基函数\/}的线性组合,
+\index{trial function}%
+\index{basis function}%
+\eq
+\label{7.RRexp}
+\bs=\sum_kq_k\bs_k,
+\en
+并求解展开系数$q_k$。
+我们暂且将基函数$\bs_k$视为是完全任意的；唯一要求的条件是，除了是实的之外，它们必须在$\earth$内处处连续，除了在固-液边界$\Sigma_{\rm FS}$上它们必须满足$[\bnh\cdot\bs_k]^+_-=0$。
+在第13章我们将用无自转球对称地球模型的本征函数对基函数集合加以扩充，来探讨地球的缓慢自转和微弱的横向不均匀性的影响。
+
+我们用无衬线的大写和小写字母分别表示在变分分析中使用的列矢量和矩阵。
+在任何实际应用中，这些矢量和矩阵的维度是有限的，而且当展开式~(\ref{7.RRexp})中的基函数$\bs_k$的数目为有限时，所得到的本征解仅仅是近似的。
+更一般地讲，我们可以把基函数集合看作是无限维且完备的，这样得到的结果可以认为是精确的。
+在下文中，我们将称列矢量为$\infty\times 1$的，矩阵为$\infty\times \infty$的，同时认识到在实际应用中必须对其进行截断。
+截断的结果可以被看作是对一个自由度数目有限系统的经典小振动理论的拓展(Rayleigh \citeyear{rayleigh77};
+Goldstein \citeyear{goldstein80})，将其以完全自洽的方式推广来处理自转和线性非弹性效应。
+本章中的大部分内容只是将前人得到的结果用矢量和矩阵的语言做一个复述；因此会比较简略。
+
+%\section{Non-Rotating Elastic Earth}
+\section{无自转弹性地球}
+\index{Rayleigh-Ritz method!non-rotating Earth|(}%
+\index{Earth model!non-rotating, elastic|(}%
+\label{7.sec.nrel}
+
+将展开式~(\ref{7.RRexp})代入公式~(\ref{4.Idef})或~(\ref{4.action2})，我们得到无自转弹性地球所具有的纯代数形式的作用量：
+\eq
+\label{7.Idef}
+\sI=\half\ssq^{\rm T}(\omega^2\ssT-\ssV)\ssq,
+\en
+其中
+\eq
+\label{7.qdef}
+\ssq=\left(\begin{array}{c}
+\vdots \\ q_k \\ \vdots
+\end{array}\right)
+\en
+是未知系数的实数$\infty\times 1$列矢量，上角标T代表转置。$\infty\times\infty$的{\em 动能和势能矩阵\/}
+\index{kinetic energy matrix}%
+\index{matrix!kinetic energy}%
+\index{potential energy matrix}%
+\index{matrix!potential energy}%
+\eq
+\label{7.TVdef}
+\ssT=\left(\begin{array}{ccc}
+       & \vdots  &        \\
+\cdots & T_{kk'} & \cdots \\
+       & \vdots  &        \\
+\end{array}\right),\qquad
+\ssV=\left(\begin{array}{ccc}
+       & \vdots  &        \\
+\cdots & V_{kk'} & \cdots \\
+       & \vdots  &        \\
+\end{array}\right)
+\en
+其分量的表达式为
+\eq
+\label{7.Tkkdef}
+T_{kk'}=\int_{\subearth}\rho^0\bs_k\cdot\bs_{k'}\,dV,
+\en
+\eqa
+\label{7.Vkkdef}
+\lefteqn{V_{kk'}
+=\int_{\subearth}[\bdel\bs_k\!:\!\bLambda\!:\!\bdel\bs_{k'}
++\half\rho^0(\bs_k\cdot\bdel\phi^{\rm E1}_{k'}
++\bs_{k'}\cdot\bdel\phi^{\rm E1}_k)} \nonumber \\
+&&\mbox{}\qquad\qquad+\rho^0
+\bs_k\cdot\bdel\bdel\phi^0\cdot\bs_{k'}]\,dV \\
+&&\mbox{}+\half\int_{\Sigma_{\rm FS}}
+[\varpi^0\bs_k\cdot(\bdel^{\Sigma}\bs_{k'})\cdot\bnh
++\varpi^0\bs_{k'}\cdot(\bdel^{\Sigma}\bs_k)\cdot\bnh \nonumber \\
+&&\mbox{}\qquad\qquad-(\bnh\cdot\bs_k)\bdel^{\Sigma}\cdot(\varpi^0\bs_{k'})
+-(\bnh\cdot\bs_{k'})\bdel^{\Sigma}\cdot(\varpi^0\bs_k)
+]^+_-\,d\/\Sigma. \nonumber
+\ena
+势函数的基函数$\phi^{\rm E1}_k$可以用位移基函数$\bs_k$以积分关系定义为
+\eq
+\label{7.phiE1def}
+\phi^{\rm E1}_k=
+-G\int_{\subearth}\frac{\rho^{0\prime}\bs_k^{\prime}\cdot
+(\bx-\bx')}{\|\bx-\bx'\|^3}\,dV',
+\en
+或者等价地用以下边值问题来定义
+\eq
+\label{7.bvprob1}
+\nabla^2\phi^{\rm E1}_k=-4\pi G_{\,}\bdel
+\cdot(\rho^0\bs_k)\quad\mbox{在 $\earth$ 内},
+\en
+\eq
+\label{7.bvprob2}
+\nabla^2\phi^{\rm E1}_k=0\quad\mbox{在 $\allspace -\earth$ 内},
+\en
+\eq
+\label{7.bvprob3}
+[\phi^{\rm E1}_k]^+_-=0\quad\mbox{在 $\Sigma$ 上},
+\en
+\eq
+\label{7.bvprob4}
+[\bnh\cdot\bdel\phi^{\rm E1}_k+4\pi G\rho^0\bnh\cdot\bs_k]^+_-=0
+\quad\mbox{在$\Sigma$上}.
+\en
+由于等式~(\ref{3.twoints})，从位移和位移-势函数形式的瑞利原理可以得到同样的关于展开系数矢量$\ssq$的代数变分原理。$\ssT$和$\ssV$两者均为实的且对称的:
+\eq
+\label{7.TVsymm}
+\ssT^{\rm T}=\ssT,\quad\ssV^{\rm T}=\ssV.
+\en
+此外，对于任何动态稳定的地球模型，动能矩阵为正定，势能矩阵为半正定，即对于所有 $\ssq\neq\sszero$，
+有$\ssq^{\rm T}\ssT\ssq > 0$
+和 $\ssq^{\rm T}\ssV\ssq \geq 0$。
+
+对于一个固定的本征频率值，利用对称性~(\ref{7.TVsymm})，其作用量$\sI$的变分为
+$\delta\sI=\ssdelta\ssq^{\rm T}(\omega^2\ssT-\ssV)\ssq$。
+对于任意变化$\ssdelta\ssq$，当且仅当
+\eq
+\label{7.VqTq}
+\ssV\ssq=\omega^2\ssT\ssq,
+\en
+时，该作用量的变分为零。
+方程~(\ref{7.VqTq})是一个广义代数本征值问题，
+\index{generalized eigenvalue problem}%
+对其求解可以得到地球模型的本征频率$\omega$和相应的本征矢量$\ssq$。
+\index{eigenvector}%
+本征频率是以下{\em 久期方程\/}的根
+\index{secular equation}%
+\eq
+\label{7.chareqn}
+{\rm det}_{\,}(\ssV-\omega^2\ssT)=0.
+\en
+或者我们也可以将{\em 瑞利商\/}
+\index{Rayleigh quotient!non-rotating Earth}%
+\eq
+\label{7.Rayquo}
+\omega^2=\frac{\ssq^{\rm T}\ssV\ssq}
+{\ssq^{\rm T}\ssT\ssq}
+\en
+而非作用量$\sI$视为稳定泛函。
+两种变分之间的关系是
+$\delta\omega^2=-2(\ssq^{\rm T}\ssT\ssq)^{-1}\delta\sI$，
+因而$\delta\omega^2=0$ 和 $\delta\sI=0$ 均导致相同的方程~(\ref{7.VqTq})。
+由于公式~(\ref{7.Rayquo})，作用量的稳定值在每个本征解$\om^2$、$\ssq$上为零$\sI=0$。
+
+由于动能矩阵$\ssT$是对称且正定的，其逆矩阵$\ssT^{-1}$存在。
+这使我们能够将~(\ref{7.VqTq})改写为下面的普通代数本征值问题
+\eq
+\label{7.TinvVq}
+(\ssT^{-1}\ssV)\ssq=\omega^2\ssq.
+\en
+由于$(\ssT^{-1}\ssV)^{\rm T}=\ssV\ssT^{-1}\neq\ssT^{-1}\ssV$，方程~(\ref{7.TinvVq})中的矩阵$\ssT^{-1}\ssV$一般不是对称的。然而，相对于如下定义的{\em 动能内积\/}
+\index{kinetic-energy inner product}%
+\index{inner product!kinetic-energy}%
+\eq
+\langle\ssq,\ssq'\rangle=\ssq^{\rm T}\ssT\ssq',
+\en
+该矩阵是自伴随矩阵。
+其厄米特关系
+\eq
+\langle\ssq,\ssT^{-1}\ssV\ssq'\rangle=\langle\ssT^{-1}\ssV\ssq,\ssq'
+\rangle=\langle\ssq',\ssT^{-1}\ssV\ssq\rangle
+\en
+是势能矩阵$\ssV$对称性的一个简单结果。因此，对应于不同本征频率$\omega\neq\omega'$的本征矢量$\ssq$和$\ssq'$在如下意义上是{\em 正交的\/}
+\index{orthogonality!non-rotating Earth}%
+\eq
+\label{7.orthog}
+\langle\ssq,\ssq'\rangle=\ssq^{\rm T}\ssT\ssq'=0
+\quad\mbox{若 $\omega\neq\omega'$}.
+\en
+如果我们将本征矢量$\ssq${\em 归一化\/}，使得
+\index{normalization condition!non-rotating Earth}%
+\eq
+\label{7.normal}
+\langle\ssq,\ssq\rangle=\ssq^{\rm T}\ssT\ssq=1,
+\en
+则(\ref{7.orthog})--(\ref{7.normal})这两个条件可以合在一起写成
+\eq
+\label{7.QTQ}
+\ssQ^{\rm T}\ssT\ssQ=\ssI,
+\en
+\index{orthonormality!non-rotating Earth}%
+其中$\ssQ$为$\infty\times\infty$的矩阵，其各列为本征矢量$\ssq$，而$\ssI$为$\infty\times\infty$的单位矩阵。(\ref{7.QTQ})式为无自转弹性地球上本征函数正交归一性关系~(\ref{4.NORMAL})--(\ref{4.ANORMAL})的矩阵形式。
+
+我们可以将广义本征值问题~(\ref{7.VqTq})改写为以下形式
+\eq
+\label{7.VQTQ}
+\ssV\ssQ=\ssT\ssQ\ssOmega^2,
+\en
+其中 $\ssOmega={\rm diag}_{\,}[\,\cdots\,\omega\,\cdots\,]$
+表示本征频率对角矩阵。
+在~(\ref{7.VQTQ})式两边左乘$\ssQ^{\rm T}$，并使用~(\ref{7.QTQ})，
+我们得到
+\eq
+\label{7.QVQ}
+\ssQ^{\rm T}\ssV\ssQ=\ssOmega^2.
+\en
+(\ref{7.QTQ}) 和~(\ref{7.QVQ})两式表明$\ssT$和$\ssV$这两个矩阵可以被{\em 合同变换\/}$\ssQ${\em 同时对角化\/}。
+\index{simultaneous diagonalization}%
+\index{congruent transformation}%
+\index{transformation!congruent}%
+此外，这两个结果合起来意味着
+\eq
+\label{7.QTVQ}
+\ssQ^{-1}(\ssT^{-1}\ssV)\ssQ=\ssOmega^2,
+\en
+因此$\ssQ$也是将$\ssT^{-1}\ssV$对角化的{\em 相似变换\/}。
+\index{transformation!similarity}%
+\index{similarity transformation}%
+值得注意的是，$\ssQ$不是一个正交矩阵，$\ssQ^{-1}\neq\ssQ^{\rm T}$，因此所有上述变换都不是在$\infty\times 1$的列矢量$\ssq$空间中的刚性旋转(Horn \& Johnson \citeyear{horn&johnson85})。
+
+$\infty\times\infty$ 的{\em 格林函数矩阵\/}阵$\ssG(t)$是下面初值问题的解
+\index{Green matrix!non-rotating Earth}%
+\index{matrix!Green}%
+\eq
+\label{7.Geqn1}
+\ssT\ddot{\ssG}+\ssV\ssG=\sszero,
+\en
+\eq
+\label{7.Geqn2}
+\ssG(0)=\sszero,\qquad\dot{\ssG}(0)=\ssT^{-1},
+\en
+其中上面的点表示对时间的微分。
+我们寻求方程~(\ref{7.Geqn1})--(\ref{7.Geqn2})的简正模式叠加形式的解：
+\eq
+\ssG(t)=\ssQ\cos(\ssOmega t)_{\,}\ssA+\ssQ\sin(\ssOmega t)_{\,}\ssB,
+\en
+其中$\ssA$和$\ssB$为$\infty\times\infty$的实数未知系数矩阵。
+于是初始条件成为
+\eq
+\ssQ\ssA=\sszero,\qquad\ssQ\ssOmega\ssB=\ssT^{-1}
+\en
+在其两边左乘$\ssQ^{\rm T}\ssT$，并引用正交归一性关系~(\ref{7.QTQ})，
+我们得到这两个系数矩阵
+\eq
+\ssA=\sszero,\qquad\ssB=\ssOmega^{-1}\ssQ^{\rm T}.
+\en
+因此，格林函数矩阵$\ssG(t)$可由本征频率$\ssOmega$和本征矢量$\ssQ$给定
+\eq
+\label{7.Green}
+\ssG(t)=\ssQ\ssOmega^{-1}\sin(\ssOmega t)_{\,}\ssQ^{\rm T}.
+\en
+(\ref{7.Green})式在$t\geq 0$时成立;很明显，当$t<0$时，$\ssG(t)=\sszero$。
+
+格林函数矩阵也可以直接用动能和势能矩阵$\ssT$和$\ssV$来表示，而不需要求解本征频率和本征矢量。依照\textcite{woodhouse83}的做法，我们定义矩阵$\ssX$，使得
+\eq
+\label{7.Xdef}
+\ssX^2=\ssT^{-1}\ssV,
+\en
+并将~(\ref{7.Green})的右边写为幂级数展开的形式：
+\eqa
+\lefteqn{
+\ssQ\ssOmega^{-1}\sin(\ssOmega t)_{\,}\ssQ^{\rm T}
+=(\ssQ\ssQ^{\rm T})t-\frac{1}{3!}(\ssQ\ssOmega^2\ssQ^{\rm T})t^3+
+\frac{1}{5!}(\ssQ\ssOmega^4\ssQ^{\rm T})t^5-\cdots} \nonumber \\
+&&\qquad\qquad\quad\hspace{1.2 mm}\mbox{}=
+\left[t-\frac{1}{3!}\ssX^2t^3+\frac{1}{5!}\ssX^4t^5-\cdots\right]
+\ssQ\ssQ^{\rm T} \nonumber \\
+&&\qquad\qquad\quad\hspace{1.2 mm}\mbox{}=
+\ssX^{-1}\sin(\ssX t)\ssQ\ssQ^{\rm T}
+=\ssX^{-1}\sin(\ssX t)\ssT^{-1}, 
+\ena
+这里我们分别利用了~(\ref{7.QTVQ})和~(\ref{7.QTQ})来得到上式中的第二和第四个等式。
+因此无自转弹性地球的格林函数矩阵可以写为
+\eq
+\label{7.explGreen}
+\ssG(t)=\ssX^{-1}\sin(\ssX t)\ssT^{-1}.
+\en
+而与两个时间域表达式~(\ref{7.Green})和~(\ref{7.explGreen})相对应的频率域格林函数矩阵$\ssG(\omega)$则为
+\eq
+\label{7.Greenom}
+\ssG(\omega)=\ssQ(\ssOmega^2-\omega^2\ssI)^{-1}\ssQ^{\rm T}
+=(\ssV-\omega^2\ssT)^{-1},
+\en
+这里我们利用了~(\ref{7.QTQ}) 和~(\ref{7.QVQ})来得到上面第二等式。
+{\em 源点-接收点互易性\/}由对称性$\ssG^{\rm T}=\ssG$保证，其中$\ssG$表示时间域或频率域的脉冲响应。
+\index{reciprocity}%
+\index{Rayleigh-Ritz method!non-rotating Earth|)}%
+\index{Earth model!non-rotating, elastic|)}%
+
+\renewcommand{\thesection}{$\!\!\!\raise1.3ex\hbox{$\star$}\!\!$
+\arabic{chapter}.\arabic{section}}
+%\section{Rotating Elastic Earth}
+\section{自转弹性地球}
+\index{Rayleigh-Ritz method!rotating Earth|(}%
+\index{Earth model!rotating, elastic|(}%
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+
+对于自转弹性地球，将展开式~(\ref{7.RRexp})代入~(\ref{4.ACTION}) 或~(\ref{4.needACTION})，得到作用量为
+\eq
+\label{7.rotaction}
+\sI=\half\ssq^{\rm H}(\omega^2\ssT-2\omega\ssW-\ssV)\ssq,
+\en
+其中未知系数的列矢量$\ssq$变为复数，上角标H表示厄米特操作即复共轭转置。
+动能和势能矩阵$\ssT$和$\ssV$的分量与无自转地球的相同，而引力势函数$\phi^0$则用重力势函数$\phi^0+\psi$替代：
+\eqa
+\label{7.Vkkrot}
+\lefteqn{V_{kk'}
+=\int_{\subearth}[\bdel\bs_k\!:\!\bLambda\!:\!\bdel\bs_{k'}
++\half\rho^0(\bs_k\cdot\bdel\phi^{\rm E1}_{k'}
++\bs_{k'}\cdot\bdel\phi^{\rm E1}_k)} \nonumber \\
+&&\mbox{}\qquad\qquad+\rho^0
+\bs_k\cdot\bdel\bdel(\phi^0+\psi)\cdot\bs_{k'}]\,dV \\
+&&\mbox{}+\half\int_{\Sigma_{\rm FS}}
+[\varpi^0\bs_k\cdot(\bdel^{\Sigma}\bs_{k'})\cdot\bnh
++\varpi^0\bs_{k'}\cdot(\bdel^{\Sigma}\bs_k)\cdot\bnh \nonumber \\
+&&\mbox{}\qquad\qquad-(\bnh\cdot\bs_k)\bdel^{\Sigma}\cdot(\varpi^0\bs_{k'})
+-(\bnh\cdot\bs_{k'})\bdel^{\Sigma}\cdot(\varpi^0\bs_k)
+]^+_-\,d\/\Sigma. \nonumber
+\ena
+$\infty\times\infty$的科里奥利矩阵的分量
+\index{Coriolis matrix}%
+\index{matrix!Coriolis}%
+\eq
+\label{7.Wdef}
+\ssW=\left(\begin{array}{ccc}
+       & \vdots  &        \\
+\cdots & W_{kk'} & \cdots \\
+       & \vdots  &        \\
+\end{array}\right)
+\en
+由下式给出
+\eq
+\label{7.Wkdef}
+W_{kk'}=\int_{\subearth}\rho^0\bs_k\cdot(i\bOmega\times\bs_{k'})\,dV.
+\en
+与前面一样，$\ssT$和$\ssV$均为实数且对称的；但$\ssW$则为虚数且反对称的。因此，这三个矩阵均为厄米特的，即：
+\eq
+\label{7.Hermsymm}
+\ssT^{\rm H}=\ssT,\quad\ssV^{\rm H}=\ssV,\quad\ssW^{\rm H}=\ssW.
+\en
+此外，对于任何久期稳定地球模型，动能矩阵$\ssT$为正定，势能矩阵$\ssV$为半正定。
+
+作用量~(\ref{7.rotaction})的变分为
+$\delta\sI=\Re{\rm e}_{\,}[\ssdelta\ssq^{\rm H}
+(\omega^2\ssT-2\omega\ssW-\ssV)\ssq]$，
+这里我们使用了对称性~(\ref{7.Hermsymm})。
+显而易见，对于任意变化$\ssdelta\ssq$，
+当且仅当$\ssq$为自转地球的本征频率为$\omega$的本征矢量时，
+$\delta\sI$为零：
+\eq
+\label{7.VqTqrot}
+(\ssV+2\omega\ssW-\omega^2\ssT)\ssq=\sszero.
+\en
+取~(\ref{7.VqTqrot})的复共轭，我们看到，当且仅当$\omega$、$\ssq$为一组本征解时，$\omega$、$\ssq^*$也是一组本征解。
+此外，当且仅当$\omega$、$\ssq$为实际地球的一组本征解时，
+$\omega$、$\ssq^*$这一组合也是自转方向相反($\ssW\rightarrow -\ssW$)的逆转地球的一组本征解。
+而作为{\em 久期方程\/}
+\index{secular equation}%
+\eq
+{\rm det}_{\,}(\ssV\pm 2\omega\ssW-\omega^2\ssT)=0,
+\en
+的根，本征频率与地球的自转方向无关。在每一组本征解$\omega$、 $\ssq$上，作用量的稳定值为$\sI=0$。
+
+将$\ssq^{\rm H}(\ssV+2\omega'\ssW-\omega^{\prime 2}\ssT)\ssq'$与
+$\ssq^{\prime{\rm H}}(\ssV+2\omega\ssW-\omega^2\ssT)\ssq$相减，我们得到简正模式的正交关系
+\index{orthogonality!rotating Earth}%
+\eq
+\label{7.rotortho}
+\ssq^{\rm H}\ssT\ssq'-2(\omega+\omega')^{-1}
+\ssq^{\rm H}\ssW\ssq'=0\quad\mbox{当 $\omega\neq\omega'$时}.
+\en
+我们利用下式将本征矢量$\ssq$归一化
+\index{normalization condition!rotating Earth}%
+\eq
+\label{7.rotnorm}
+\ssq^{\rm H}\ssT\ssq-\omega^{-1}
+\ssq^{\rm H}\ssW\ssq=1.
+\en
+(\ref{7.rotortho})--(\ref{7.rotnorm})是三维本征矢量正交归一关系~(\ref{4.rotORTHO})--(\ref{4.rotNORM})的矩阵形式。
+\index{orthonormality!rotating Earth}%
+
+非标准的广义代数本征值问题~(\ref{7.VqTqrot})可以被转化为普通本征值问题，代价是将其维度翻倍。我们可以定义$2\infty\times 1$的列矢量
+\eq
+\ssz=\left(\begin{array}{c}
+\ssq \\ \omega\ssq \\
+\end{array}\right)
+\en
+和$2\infty\times 2\infty$的矩阵
+\eq
+\ssK=\left(\begin{array}{cc}
+\sszero & \ssI \\
+\ssV & 2\ssW \\
+\end{array}\right),\qquad
+\ssM=\left(\begin{array}{cc}
+\ssI & \sszero \\
+\sszero & \ssT \\
+\end{array}\right).
+\en
+不难证明，(\ref{7.VqTqrot})式等价于
+\eq
+\label{7.KzMz}
+\ssK\ssz=\omega\ssM\ssz.
+\en
+这个扩充动能矩阵$\ssM$是厄米特的且正定的，因而其逆矩阵$\ssM^{-1}$存在; 于是，方程~(\ref{7.KzMz})可以被改写为
+\eq
+\ssM^{-1}\ssK\ssz=\omega\ssz.
+\en
+相对于如下定义的扩充能量内积
+\eq
+\langle_{\!}\langle\ssz,\ssz'\rangle_{\!}\rangle
+=\ssz^{\rm H}\ssP\ssz',
+\en
+其中
+\eq
+\ssP=\left(\begin{array}{cc}
+\ssV & \sszero \\
+\sszero & \ssT \\
+\end{array}\right),
+\en
+矩阵$\ssM^{-1}\ssK$是自伴随的。其厄米特性质
+\eq
+\label{7.MKHerm}
+\langle_{\!}\langle\ssz,\ssM^{-1}\ssK\ssz'\rangle_{\!}\rangle
+=\langle_{\!}\langle\ssM^{-1}\ssK\ssz,\ssz'\rangle_{\!}\rangle
+=\langle_{\!}\langle\ssz',\ssM^{-1}\ssK\ssz\rangle_{\!}\rangle^*
+\en
+是$2\infty\times 2\infty$的厄米特对称性$\ssP\ssM^{-1}\ssK=(\ssP\ssM^{-1}\ssK)^{\rm H}$的直接结果。
+根据关系式~(\ref{7.MKHerm})，具有不同本征频率$\omega\neq\omega'$的两个$2\infty\times 1$的本征矢量$\ssz$与$\ssz'$之间是正交的，其含义为
+\index{orthogonality!rotating Earth}%
+\eq
+\label{7.rotortho2}
+\langle_{\!}\langle\ssz,\ssz'\rangle_{\!}\rangle
+=\ssz^{\rm H}\ssP\ssz'=0\quad\mbox{若 $\omega\neq\omega'$}.
+\en
+我们将本征矢量$\ssz$归一化，使得
+\index{normalization condition!rotating Earth}%
+\eq
+\label{7.rotnorm2}
+\langle_{\!}\langle\ssz,\ssz\rangle_{\!}\rangle
+=\ssz^{\rm H}\ssP\ssz=2\omega^2.
+\en
+这样，(\ref{7.rotortho2})--(\ref{7.rotnorm2})两式与六维正交归一关系~(\ref{4.rotortho2})--(\ref{4.newNORM})，以及$\infty\times 1$的本征矢量关系~(\ref{7.rotortho})--(\ref{7.rotnorm})都是等价的。
+
+我们可以用类似于~(\ref{7.QTQ})--(\ref{7.QTVQ})的方式表达上述结果，
+只要我们明确地纳入本征频率为负$-\omega$的本征矢量
+\eq
+\ssz^*=\left(\begin{array}{c}
+\ssq^* \\ -\omega\ssq^* \\
+\end{array}\right).
+\en
+令$\ssZ$为$2\infty\times 2\infty$的矩阵，其各列为所有的本征矢量$\ssz$再与所有的本征矢量$\ssz^*$并排组成， 
+并令$\ssSigma={\rm diag}_{\,}[\,\cdots\,
+\omega\,\cdots\,-\hspace{-0.5mm}\omega\,\cdots\,]$
+为与其对应的本征频率对角矩阵。
+利用这种符号表述，正交归一关系~(\ref{7.rotortho2})--(\ref{7.rotnorm2})可以简洁地写为
+\eq
+\label{7.ZPZ}
+\ssZ^{\rm H}\ssP\ssZ=2\ssSigma^2.
+\en
+在广义本征值问题
+\eq
+\ssK\ssZ=\ssM\ssZ\ssSigma
+\en
+的两边左乘$\ssZ^{\rm H}\ssP\ssM^{-1}$，并借助~(\ref{7.ZPZ})式，我们也可以得到
+\eq
+\label{7.ZPMKZ}
+\ssZ^{\rm H}(\ssP\ssM^{-1}\ssK)\ssZ=2\ssSigma^3.
+\en
+方程~(\ref{7.ZPZ}) 和~(\ref{7.ZPMKZ})清楚地揭示了自转弹性本征值问题的代数结构：两个厄米特矩阵
+\eq
+\ssP=\left(\begin{array}{cc}
+\ssV & \sszero \\
+\sszero & \ssT \\
+\end{array}\right)\qquad\mbox{和}\qquad
+\ssP\ssM^{-1}\ssK=
+\left(\begin{array}{cc}
+\sszero & \ssV \\
+\ssV & 2\ssW \\
+\end{array}\right)
+\en
+\index{simultaneous diagonalization}%
+被全等变换$\ssZ$同时对角化。
+\index{congruent transformation}%
+\index{transformation!congruent}%
+此外，$\ssZ$也是将
+\index{similarity transformation}%
+\index{transformation!similarity}%
+\eq
+\ssM^{-1}\ssK=\left(\begin{array}{cc}
+\sszero & \ssI \\
+\ssT^{-1}\ssV & 2\ssT^{-1}\ssW \\
+\end{array}\right),
+\en
+对角化的相似变换，这是因为
+\eq
+\ssZ^{-1}(\ssM^{-1}\ssK)\ssZ=\ssSigma.
+\en
+根本上讲，在自转弹性地球中，$2\infty\times 2\infty$的本征值问题的厄米特结构是~(\ref{7.Hermsymm})中$\infty\times\infty$的对称性的结果。
+
+自转弹性地球的格林函数矩阵满足
+\index{Green matrix!rotating Earth}%
+\index{matrix!Green}%
+\eq
+\label{7.Grot1}
+\ssT\ddot{\ssG}-2i\ssW\dot{\ssG}+\ssV\ssG=\sszero,
+\en
+或其等价式
+\eq
+\label{7.GROTeqn}
+\frac{d}{dt}\left(\begin{array}{c}
+\ssG \\ \dot{\ssG} \\
+\end{array}\right)
+=\left(\begin{array}{cc}
+\sszero & \ssI \\
+-\ssT^{-1}\ssV & 2i\ssT^{-1}\ssW \\
+\end{array}\right)
+\left(\begin{array}{c}
+\ssG \\ \dot{\ssG} \\
+\end{array}\right),
+\en
+要满足的初始条件为
+\eq
+\label{7.GROT2}
+\left(\begin{array}{c}
+\ssG(0) \\ \dot{\ssG}(0) \\
+\end{array}\right)
+=\left(\begin{array}{c}
+\sszero \\ \ssT^{-1} \\
+\end{array}\right).
+\en
+矩阵$i\ssW$为实的，因而~(\ref{7.GROTeqn})--(\ref{7.GROT2})是一个实的初值问题。
+我们考虑用一个含有$\pm\ssOmega$本征解叠加形式的解
+\eq
+\ssG(t)=\Re{\rm e}_{\,}[\ssQ\exp(i\ssOmega t)_{\,}\ssC],
+\en
+并利用初始条件
+\eq
+\label{7.rotinit}
+\left(\begin{array}{c}
+\ssQ\ssC+\ssQ^*\ssC^* \\
+\ssQ\ssOmega\ssC-\ssQ^*\ssOmega\ssC^* \\
+\end{array}\right)=
+\left(\begin{array}{c}
+\sszero \\ -2i\ssT^{-1} \\
+\end{array}\right)
+\en
+或其等价式
+\eq
+\label{7.rotinit2}
+\ssZ\left(\begin{array}{c}
+\ssC \\ \ssC^* \\
+\end{array}\right)=\left(\begin{array}{c}
+\sszero \\ -2i\ssT^{-1} \\
+\end{array}\right)
+\en
+来求解复的系数矩阵$\ssC$。
+在~(\ref{7.rotinit2})两边左乘$\ssZ^{\rm H}\ssP$，
+并利用正交归一关系~(\ref{7.ZPZ})，我们得到
+\eq
+\ssC=(i\ssOmega)^{-1}\ssQ^{\rm H}.
+\en
+因而格林函数矩阵可以用$\ssOmega$和$\ssQ$给定
+\eq
+\label{7.rotGreen}
+\ssG(t)=\Re{\rm e}_{\,}
+[\ssQ(i\ssOmega)^{-1}\exp(i\ssOmega t)_{\,}\ssQ^{\rm H}].
+\en
+在反向自转的地球上，对应的{\em 逆转格林函数矩阵\/}为
+\eq
+\label{7.antiGREEN}
+\overline{\ssG}(t)=\Re{\rm e}_{\,}
+[\ssQ^*(i\ssOmega)^{-1}\exp(i\ssOmega t)_{\,}\ssQ^{\rm T}],
+\en
+其中矩阵$\ssQ^*$的各列是逆转本征矢量$\ssq^*$。
+
+格林函数矩阵的傅里叶变换可以写为以下两种形式之一
+\eqa
+\lefteqn{\ssG(\omega)=\half\ssQ\ssOmega^{-1}
+(\ssOmega-\omega\ssI)^{-1}\ssQ^{\rm H}+
+\half\ssQ^*\ssOmega^{-1}
+(\ssOmega+\omega\ssI)^{-1}\ssQ^{\rm T}} \nonumber \\
+&&\mbox{}=\,(\ssV+2\omega\ssW-\omega^2\ssT)^{-1},
+\ena
+而逆转格林函数矩阵的傅里叶变换则为
+\eqa
+\lefteqn{\overline{\ssG}(\omega)=\half\ssQ^*\ssOmega^{-1}
+(\ssOmega-\omega\ssI)^{-1}\ssQ^{\rm T}+
+\half\ssQ\ssOmega^{-1}
+(\ssOmega+\omega\ssI)^{-1}\ssQ^{\rm H}} \nonumber \\
+&&\mbox{}=(\ssV-2\omega\ssW-\omega^2\ssT)^{-1}.
+\ena
+
+\index{reciprocity!generalized}%
+\index{generalized reciprocity}%
+矩阵对称关系$\ssG=\overline{\ssG}{}^{\,\rm T}$确保了\em 广义源点-接收点互易性\/}原理的成立。
+\index{Rayleigh-Ritz method!rotating Earth|)}%
+\index{Earth model!rotating, elastic|)}%
+
+%\section{Non-Rotating Anelastic Earth}
+\section{无自转非弹性地球}
+\index{Rayleigh-Ritz method!non-rotating, anelastic Earth|(}%
+\index{Earth model!non-rotating, anelastic|(}%
+
+在无自转非弹性地球中，将展开式~(\ref{7.RRexp})代入~(\ref{6.action})或~(\ref{6.modact})得到的作用量可写为以下形式：
+\eq
+\sI=\half\ssq^{\rm T}[\nu^2\ssT-\ssV(\nu)]\ssq.
+\en
+$\infty\times\infty$的动能矩阵$\ssT$和势能矩阵$\ssV(\nu)$的分量仍然由~(\ref{7.Tkkdef}) 和~(\ref{7.Vkkdef})两式给出，只是$\bLambda$在此处被一个复的且依赖于频率的张量$\bLambda(\nu)$所取代：
+\eqa
+\label{7.Vkksigdef}
+\lefteqn{V_{kk'}(\nu)
+=\int_{\subearth}[\bdel\bs_k\!:\!\bLambda(\nu)\!:\!\bdel\bs_{k'}
++\half\rho^0(\bs_k\cdot\bdel\phi^{\rm E1}_{k'}
++\bs_{k'}\cdot\bdel\phi^{\rm E1}_k)} \nonumber \\
+&&\mbox{}\qquad\qquad+\rho^0
+\bs_k\cdot\bdel\bdel\phi^0\cdot\bs_{k'}]\,dV \\
+&&\mbox{}+\half\int_{\Sigma_{\rm FS}}
+[\varpi^0\bs_k\cdot(\bdel^{\Sigma}\bs_{k'})\cdot\bnh
++\varpi^0\bs_{k'}\cdot(\bdel^{\Sigma}\bs_k)\cdot\bnh \nonumber \\
+&&\mbox{}\qquad\qquad-(\bnh\cdot\bs_k)\bdel^{\Sigma}\cdot(\varpi^0\bs_{k'})
+-(\bnh\cdot\bs_{k'})\bdel^{\Sigma}\cdot(\varpi^0\bs_k)
+]^+_-\,d\/\Sigma. \nonumber
+\ena
+此处的矩阵$\ssV(\nu)$为复的且对称的：
+\eq
+\label{7.Vsigsym}
+\ssV^{\rm T}(\nu)=\ssV(\nu).
+\en
+对于任意的$\ssdelta\ssq$，当且仅当
+\eq
+\label{7.VnuT}
+\ssV(\nu)\ssq=\nu^2\ssT\ssq,
+\en
+成立时，作用量的变分，
+$\delta\sI=\Re{\rm e}_{\,}\{\ssdelta\ssq^{\rm T}
+[\nu^2\ssT-\ssV(\nu)]\ssq\}$为零。
+求解~(\ref{7.VnuT})而得到的本征频率$\nu$和相应的本征矢量$\ssq$是{\em 复的\/}; 
+本征频率是以下久期方程的根
+\index{secular equation}%
+\eq
+{\rm det}_{\,}[\ssV(\nu)-\nu^2\ssT]=0.
+\en
+非弹性张量的对称性$\bLambda(-\nu^*)=\bLambda^*(\nu)$确保了$\ssV(-\nu^*)=\ssV^*(\nu)$，
+因此，如果$\nu$、$\ssq$是一组本征解的话，则$-\nu^*$、$\ssq^*$也是。在每一个稳定点处作用量的值为$\sI=0$。
+
+将$\ssq^{\rm T}[\ssV(\nu’)-\nu^{\prime 2}\ssT]\ssq'$
+与$\ssq^{\prime{\rm T}}[\ssV(\nu)-\nu^2\ssT]\ssq$相减，我们得到简正模式的正交关系
+\index{biorthogonality!non-rotating Earth}%
+\eq
+\label{7.aneortho}
+\ssq^{\rm T}\ssT\ssq'-(\nu^2-\nu^{\prime 2})^{-1}
+\ssq^{\rm T}[\ssV(\nu)-\ssV(\nu')]\ssq'=0\quad\mbox{当 $\nu\neq\nu'$时}.
+\en
+复数本征矢量$\ssq$的归一化条件为
+\index{normalization condition!non-rotating, anelastic Earth}%
+\eq
+\label{7.anenorm}
+\ssq^{\rm T}\ssT\ssq-\half\nu^{-1}
+\ssq^{\rm T}\p_{\nu}\ssV(\nu)\ssq=1.
+\en
+(\ref{7.aneortho})--(\ref{7.anenorm})是无自转非弹性正交归一关系~(\ref{6.orthog})--(\ref{6.normal})的矩阵形式。
+
+在无自转非弹性地球中，$\infty\times\infty$的格林函数矩阵为
+\index{Green matrix!non-rotating, anelastic Earth}%
+\index{matrix!Green}%
+\eq
+\label{7.anGreen}
+\ssG(t)=\Re{\rm e}_{\,}
+[\ssQ(i\ssN)^{-1}\exp(i\ssN t)_{\,}\ssQ^{\rm T}],
+\en
+其中$\ssN={\rm diag}\,[\,\cdots\,\nu\,\cdots\,]$为复数本征频率对角矩阵。
+在频率域相应的脉冲响应为
+\eqa
+\label{7.anOmGreen}
+\lefteqn{\ssG(\nu)=\half\ssQ\ssN^{-1}
+(\ssN-\nu\ssI)^{-1}\ssQ^{\rm T}+
+\half\ssQ^*\ssN^{*{-1}}
+(\ssN^*+\nu\ssI)^{-1}\ssQ^{\rm H}} \nonumber \\
+&&\mbox{}=\,[\ssV(\nu)-\nu^2\ssT]^{-1}.
+\ena
+时间域的格林函数矩阵$\ssG(t)$可以通过与第6.2.3节中推导$\bG(\bx,\bx';t)$类似的方式用留数定理得到。其中，本征频率的简并和沿正虚轴的对数分支切割的影响仍然需要忽略，
+\index{degeneracy}%
+\index{logarithmic branch cut}%
+因此~(\ref{7.anGreen})中的结果与~(\ref{6.GREEN})式是等价的。
+从根本上讲，势能矩阵$\ssV(\nu)$的对称性~(\ref{7.Vsigsym})导致了响应$\ssG(t)$的简单性。
+格林函数矩阵的对称性$\ssG^{\rm T}=\ssG$则确保了源点-接收点的互易性。
+\index{reciprocity}%
+\index{Rayleigh-Ritz method!non-rotating, anelastic Earth|)}%
+\index{Earth model!non-rotating, anelastic|)}%
+
+\renewcommand{\thesection}{$\!\!\!\raise1.3ex\hbox{$\star$}\!\!$
+\arabic{chapter}.\arabic{section}}
+%\section{Rotating Anelastic Earth}
+\section{自转非弹性地球}
+\index{Rayleigh-Ritz method!rotating, anelastic Earth|(}%
+\index{Earth model!rotating, anelastic|(}%
+\label{7.sec.rotane}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+
+在自转非弹性地球上，我们必须对逆转地球的{\em 对偶本征矢量\/}$\overline{\bs}$以及实际地球的本征矢量$\bs$做展开：
+\index{eigenfunction!dual}%
+\index{dual eigenfunction}%
+\eq
+\label{7.RRexp2}
+\bs=\sum_kq_k\bs_k,\qquad\overline{\bs}=\sum_k\overline{q}_k\bs_k.
+\en
+要注意的是，上述两个展开式中的实的基函数是相同的；只有复的系数$q_k$和$\overline{q}_k$不同。
+将~(\ref{7.RRexp2})代入~(\ref{6.rotaction})或~(\ref{6.rotactmod})，可以得到代数形式的作用量：
+\eq
+\label{7.lastact}
+\sI=\half\overline{\ssq}^{\,\rm T}
+[\nu^2\ssT-2\nu\ssW-\ssV(\nu)]\ssq,
+\en
+其中
+\eq
+\label{7.qqbardef}
+\ssq=\left(\begin{array}{c}
+\vdots \\ q_k \\ \vdots
+\end{array}\right),\qquad
+\overline{\ssq}=\left(\begin{array}{c}
+\vdots \\ \overline{q}_k \\ \vdots
+\end{array}\right).
+\en
+此处势能矩阵$\ssV(\nu)$的分量包含非弹性$\bLambda(\nu)$和离心势函数$\psi$两者的效应:
+\eqa
+\label{7.Vkksigrot}
+\lefteqn{V_{kk'}(\nu)
+=\int_{\subearth}[\bdel\bs_k\!:\!\bLambda(\nu)\!:\!\bdel\bs_{k'}
++\half\rho^0(\bs_k\cdot\bdel\phi^{\rm E1}_{k'}
++\bs_{k'}\cdot\bdel\phi^{\rm E1}_k)} \nonumber \\
+&&\mbox{}\qquad\qquad+\rho^0
+\bs_k\cdot\bdel\bdel(\phi^0+\psi)\cdot\bs_{k'}]\,dV \\
+&&\mbox{}+\half\int_{\Sigma_{\rm FS}}
+[\varpi^0\bs_k\cdot(\bdel^{\Sigma}\bs_{k'})\cdot\bnh
++\varpi^0\bs_{k'}\cdot(\bdel^{\Sigma}\bs_k)\cdot\bnh \nonumber \\
+&&\mbox{}\qquad\qquad-(\bnh\cdot\bs_k)\bdel^{\Sigma}\cdot(\varpi^0\bs_{k'})
+-(\bnh\cdot\bs_{k'})\bdel^{\Sigma}\cdot(\varpi^0\bs_k)
+]^+_-\,d\/\Sigma. \nonumber
+\ena
+作用量~(\ref{7.lastact})的变分为：
+\eqa
+\lefteqn{
+\delta\sI=\half\ssdelta\overline{\ssq}^{\,\rm T}[\nu^2\ssT-2\nu\ssW
+-\ssV(\nu)]\ssq} \nonumber \\
+&&\mbox{}\qquad\qquad\qquad
++\half\ssdelta\ssq^{\rm T}[\nu^2\ssT+2\nu\ssW
+-\ssV(\nu)]\overline{\ssq},
+\ena
+这里我们利用了动能和势能矩阵的对称性$\ssT^{\rm T}=\ssT$ 和 $\ssV^{\rm T}(\nu)=\ssV(\nu)$，
+以及科里奥利矩阵的反对称性：
+\eq
+\label{7.Wantisymm}
+\ssW^{\rm T}=-\ssW.
+\en
+显然，对于任意且独立的变化$\ssdelta\ssq$和$\ssdelta\overline{\ssq}$，
+当且仅当$\ssq$和$\overline{\ssq}$是本征频率为$\nu$的本征矢量和对偶本征矢量时，
+作用量的变分$\delta\sI$为零：
+\index{dual eigenvector}%
+\index{eigenvector!dual}%
+\eq \label{7.needa13}
+[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]\ssq=\sszero,
+\en
+\eq \label{7.needb13}
+[\ssV(\nu)-2\nu\ssW-\nu^2\ssT]\overline{\ssq}=\sszero.
+\en
+本征频率$\nu$是以下久期方程式的根
+\index{secular equation}%
+\eq
+{\rm det}_{\,}[\ssV(\nu)\pm 2\nu\ssW-\nu^2\ssT]=0.
+\en
+转置后的矩阵$\ssV(\nu)\pm 2\nu\ssW-\nu^2\ssT$具有相同的行列式；因此本征频率与地球自转的方向无关。
+复频率对称性$\ssV(-\nu^*)=\ssV^*(\nu)$确保了当$\nu$、$\ssq$、 $\overline{\ssq}$是一组本征解和对偶本征解时，$-\nu^*$、$\ssq^*$、$\overline{\ssq}^{\,*}$也是。
+在每一个稳定点$\nu$、$\ssq$、$\overline{\ssq}$处，作用量的值为$\sI=0$。
+原始和对偶本征矢量之间类似于~(\ref{6.rotorthog2})--(\ref{6.rotnormal2})的{\em 双正交归一性\/}关系为
+\index{biorthogonality!rotating Earth}%
+\eqa
+\label{7.rotanorth}
+\lefteqn{
+\overline{\ssq}^{\,\rm T}\ssT\ssq'-
+2(\nu+\nu')^{-1}\overline{\ssq}^{\,\rm T}\ssW\ssq'}
+\nonumber \\
+&&\mbox{}-(\nu^2-\nu^{\prime 2})^{-1}
+\overline{\ssq}^{\,\rm T}[\ssV(\nu)-\ssV(\nu')]\ssq'=0
+\quad\mbox{当 $\nu\neq\nu'$时},
+\ena
+和
+\eq
+\label{7.rotannorm}
+\overline{\ssq}^{\,\rm T}\ssT\ssq-\nu^{-1}
+\overline{\ssq}^{\,\rm T}\ssW\ssq-\half\nu^{-1}
+\overline{\ssq}^{\,\rm T}\p_{\nu}\ssV(\nu)\ssq=1.
+\en
+实际地球与逆转地球的格林函数矩阵为
+\index{Green matrix!rotating, anelastic Earth}%
+\index{matrix!Green}%
+\index{matrix!anti-Green}%
+\eq
+\label{7.rotanG}
+\ssG(t)=\Re{\rm e}_{\,}
+[\ssQ(i\ssN)^{-1}\exp(i\ssN t)_{\,}
+\overline{\ssQ}^{\,\raise-.5ex\hbox{\rm\scriptsize T}}],
+\en
+\eq
+\overline{\ssG}(t)=\Re{\rm e}_{\,}
+[\overline{\ssQ}(i\ssN)^{-1}\exp(i\ssN t)_{\,}
+\ssQ^{\rm T}],
+\en
+其中$\overline{\ssQ}$为$\infty\times\infty$的矩阵，其各列为对偶本征矢量$\overline{\ssq}$。
+\index{dual eigenvector}%
+\index{eigenvector!dual}%
+在频率域的相应的结果为
+\eqa
+\label{7.lastGreen}
+\lefteqn{\ssG(\nu)=\half\ssQ\ssN^{-1}
+(\ssN-\nu\ssI)^{-1}\overline{\ssQ}^{\,\raise-.5ex\hbox{\rm\scriptsize T}}+
+\half\ssQ^*\ssN^{*{-1}}
+(\ssN^*+\nu\ssI)^{-1}\overline{\ssQ}
+^{\,\raise-.5ex\hbox{\rm\scriptsize H}}} \nonumber \\
+&&\mbox{}=\,[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]^{-1},
+\ena
+\eqa
+\lefteqn{\overline{\ssG}(\nu)=\half\overline{\ssQ}\ssN^{-1}
+(\ssN-\nu\ssI)^{-1}\ssQ^{\rm T}+
+\half\overline{\ssQ}{}^*\ssN^{*{-1}}
+(\ssN^*+\nu\ssI)^{-1}\ssQ^{\rm H}} \nonumber \\
+&&\mbox{}=\,[\ssV(\nu)-2\nu\ssW-\nu^2\ssT]^{-1}.
+\ena
+\index{reciprocity!generalized}%
+\index{generalized reciprocity}%
+$\ssG=\overline{\ssG}{}^{\,\rm T}$这一关系再次确保了广义的源点-接收点互易性。
+\index{Rayleigh-Ritz method!rotating, anelastic Earth|)}%
+\index{Earth model!rotating, anelastic|)}%
+
+%\section{Hydrostatic Earth}
+\section{流体静力学地球}
+\index{Rayleigh-Ritz method!hydrostatic Earth|(}%
+\index{Earth model!hydrostatic|(}%
+
+在第7.1至7.4节中得到的所有结果显然也适用于流体静力学地球模型。
+在无自转弹性地球中，$\infty\times\infty$势能矩阵$\ssV$的分量成为
+\index{potential energy matrix!hydrostatic Earth}%
+\index{matrix!potential energy}%
+\eqa
+\label{7.Vkkhydro}
+\lefteqn{V_{kk'}=\int_{\subearth}
+[\beps_k\!:\!\bGamma\!:\!\beps_{k'}
++\half\rho^0(\bs_k\cdot\bdel\phi^{\rm E1}_{k'}
++\bs_{k'}\cdot\bdel\phi^{\rm E1}_k)} \nonumber \\
+&&\mbox{}\!\!\!\!
++\half\rho^0\bdel\phi^0
+\cdot(\bs_k\cdot\bdel\bs_{k'}+\bs_{k'}\cdot\bdel\bs_k
+-\bs_k\bdel\cdot\bs_{k'}-\bs_{k'}\bdel\cdot\bs_k) \nonumber \\
+&&\mbox{}\qquad+\rho^0\bs_k\cdot\bdel\bdel\phi^0
+\cdot\bs_{k'}]\,dV.
+\ena
+将瑞利-里兹本征函数展开式~(\ref{7.RRexp})代入~(\ref{4.hydroact})或~(\ref{4.hydroact2})这两个积分表达式中任意一个，可以得到流体静力学作用量$\sI=\half\ssq^{\rm T}(\omega^2\ssT-\ssV)\ssq$；从瑞利变分原理$\delta\sI=0$
+可以得到广义代数本征值方程$\ssV\ssq=\omega^2\ssT\ssq$。
+同前面的处理一样，自转和非弹性可以通过$\phi^0\rightarrow\phi^0+\psi$和
+$\bGamma\rightarrow\bGamma(\nu)$这两项改动来加以考虑。
+\index{Rayleigh-Ritz method!hydrostatic Earth|)}%
+\index{Earth model!hydrostatic|)}%
+
+\renewcommand{\thesection}{$\!\!\!\raise1.3ex\hbox{$\star$}\!\!$
+\arabic{chapter}.\arabic{section}}
+%\section{Effect of a Small Perturbation}
+\section{微扰的影响}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+
+假设现在我们有一个由动能矩阵$\ssT$、科里奥利矩阵$\ssW$和非弹性势能矩阵$\ssV(\nu)$所描述的地球初始模型。当地球的特性稍有改变时，这些矩阵就会被扰动：
+\eq
+\ssT\rightarrow\ssT+\ssdelta\ssT,\qquad
+\ssW\rightarrow\ssW+\ssdelta\ssW,\qquad
+\ssV(\nu)\rightarrow\ssV(\nu)+\ssdelta\ssV(\nu).
+\en
+我们试图确定所造成的扰动后格林函数矩阵：
+\eq
+\ssG(\nu)\rightarrow\ssG(\nu)+\ssdelta\ssG(\nu).
+\en
+%%%%%%
+将扰动前的关系式
+\eq
+\label{7.Greeneqn1}
+[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]\ssG(\nu)=\ssI,
+\en
+从扰动后相应的关系式
+\eqa
+\label{7.Greeneqn2}
+\lefteqn{
+[\ssV(\nu)+\ssdelta\ssV(\nu)+2\nu(\ssW+\ssdelta\ssW)} \nonumber \\
+&&\mbox{}\qquad\qquad
+-\nu^2(\ssT+\ssdelta\ssT)][\ssG(\nu)+\ssdelta\ssG(\nu)]=\ssI
+\ena
+中消去，我们得到
+\eqa
+\label{7.LippSchw}
+\lefteqn{
+[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]\ssdelta\ssG(\nu)} \nonumber \\
+&&\mbox{}\qquad\qquad
+=[\nu^2\ssdelta\ssT-2\nu\hspace{0.3 mm}\ssdelta\ssW-\ssdelta\ssV(\nu)]
+[\ssG(\nu)+\ssdelta\ssG(\nu)].
+\ena
+要注意的是，方程~(\ref{7.LippSchw})的右边依赖于完整的响应$\ssG(\nu)+\ssdelta\ssG(\nu)$;
+用量子力学的术语，该结果被称为{\em Lippmann-Schwinger方程\/}(Schiff \citeyear{schiff68})。
+\index{Lippmann-Schwinger equation}%
+
+在最低阶的{\em 波恩近似\/}中，Lippmann-Schwinger方程右边的扰动$\ssdelta\ssG(\nu)$是被忽略的。
+\index{Born approximation}%
+这导致以下结果
+\eqa
+\label{7.BORN}
+\lefteqn{
+\ssdelta\ssG(\nu)=[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]^{-1}
+[\nu^2\ssdelta\ssT-2\nu\hspace{0.3 mm}\ssdelta\ssW-\ssdelta\ssV(\nu)]}
+\nonumber \\
+&&\mbox{}\qquad\qquad[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]^{-1}.
+\ena
+对于更一般的结果，我们可以将扰动$\ssdelta\ssG(\nu)$表示为一个如下形式的无穷项{\em 波恩级数\/}
+\index{Born series}%
+\eq
+\label{7.Bseries}
+\ssdelta\ssG(\nu)=\ssdelta\ssG^{(1)}(\nu)
++\ssdelta\ssG^{(2)}(\nu)+\cdots,
+\en
+其中上角标$(1),(2),\ldots$表示依赖于$\ssdelta\ssT$、$\ssdelta\ssW$和$\ssdelta\ssV(\nu)$的阶数。公式~(\ref{7.Bseries})中扰动的完整序列可以通过迭代求解Lippmann-Schwinger方程到得。
+第一步迭代就是波恩近似~(\ref{7.BORN})，我们将其改写为
+\eq
+\label{7.BORN3}
+\ssdelta\ssG^{(1)}(\nu)=\ssF(\nu)\ssG(\nu),
+\en
+其中$\ssF(\nu)$是一个为方便而定义的辅助矩阵
+\eq
+\ssF(\nu)=[\ssV(\nu)+2\nu\ssW-\nu^2\ssT]^{-1}
+[\nu^2\ssdelta\ssT-2\nu\hspace{0.3 mm}\ssdelta\ssW-\ssdelta\ssV(\nu)].
+\en
+第二阶的波恩近似是通过将一阶的结果~(\ref{7.BORN3})代入Lippmann-Schwinger方程右边而得到
+\eq
+\ssdelta\ssG^{(2)}(\nu)=\ssF^2(\nu)\ssG(\nu).
+\en
+级数~(\ref{7.Bseries})中的后续每一项会多包含一个$\ssF(\nu)$因子，因此总的响应为
+\eqa \label{7.geomser}
+\lefteqn{
+\ssG(\nu)+\ssdelta\ssG^{(1)}(\nu)
++\ssdelta\ssG^{(2)}(\nu)+\cdots} \nonumber \\
+&&\mbox{}=[\ssI+\ssF(\nu)+\ssF^2(\nu)+\cdots]\ssG(\nu).
+\ena
+在形式上，方程~(\ref{7.geomser})中的等比级数是可以计算的，
+\eq
+\ssI+\ssF(\nu)+\ssF^2(\nu)+\cdots=[\ssI-\ssF(\nu)]^{-1},
+\en
+最终得到扰动后格林函数矩阵
+\eqa
+\label{7.pertBORN}
+\lefteqn{
+\ssG(\nu)+\ssdelta\ssG(\nu)} \nonumber \\
+&&\mbox{}=[\ssV(\nu)+
+\ssdelta\ssV(\nu)+2\nu(\ssW+\ssdelta\ssW)
+-\nu^2(\ssT+\ssdelta\ssT)]^{-1}.
+\ena
+Tromp \& Dahlen (\citeyear{tromp&dahlen90a})首次以上述求和方式得到了地球简正模式响应的无穷波恩矩阵表达式。当然，(\ref{7.pertBORN})这一结果可以通过简单地对方程~(\ref{7.Greeneqn2})求逆而更直接地得到。
+
+如果初始模型是弹性的，我们可以把扰动前的势能矩阵换成$\ssV(\nu)\rightarrow\ssV$，
+而且如果不考虑自转，我们可以做$\ssW\rightarrow\sszero$和$\ssdelta\ssW\rightarrow\ssW$两个替换。
+此时最低阶的波恩近似~(\ref{7.BORN})简化为
+\eq
+\label{7.BORN2}
+\ssdelta\ssG(\nu)=[\ssV-\nu^2\ssT]^{-1}
+[\nu^2\ssdelta\ssT-2\nu\ssW-\ssdelta\ssV(\nu)]
+[\ssV-\nu^2\ssT]^{-1},
+\en
+而完整响应~(\ref{7.pertBORN})则成为
+\eq
+\label{7.pertBORN2}
+\ssG(\nu)+\ssdelta\ssG(\nu)=[\ssV+\ssdelta\ssV(\nu)
++2\nu\ssW-\nu^2(\ssT+\ssdelta\ssT)]^{-1}.
+\en
+在~(\ref{7.BORN2})和~(\ref{7.pertBORN2})两式中，
+地球的自转和非弹性均被视为微小的扰动。
+这对所有$\omega\gg\Omega$的地震模式都是一个很好的近似。
+
+%\section{Response to a Moment-Tensor Source}
+\section{对矩张量源的响应}
+\index{moment-tensor response|(}%
+\index{response!moment-tensor|(}%
+\label{7.sec.need13}
+
+要表示阶跃函数矩张量源的加速度响应，我们为方便起见定义$\infty\times 1$的{\em 接收点与源点矢量}：
+\index{vector!source}%
+\index{source vector}%
+\index{vector!receiver}%
+\index{receiver vector}%
+\eq
+\label{7.rsdef}
+\ssr=\left(\begin{array}{c}
+\vdots \\ \bnuh\cdot\bs_k(\bx) \\ \vdots
+\end{array}\right),\qquad
+\sss=\left(\begin{array}{c}
+\vdots \\ \bM\!:\!\beps_k(\bx_{\rm s}) \\ \vdots
+\end{array}\right),
+\en
+其中$\bnuh$为加速度仪的偏振方向，$\beps_k=\half[\bdel\bs_k+(\bdel\bs_k)^{\rm T}]$为对应于位移本征函数$\bs_k$的应变。
+我们将加速度的$\bnuh$分量表示为
+\eq \label{7.aoftdef}
+a(t)=\bnuh\cdot\ba(\bx,t).
+\en
+该标量加速度可以用格林函数矩阵$\ssG(t)$的时间导数$\dot{\ssG}(t)$表示为
+\eq
+\label{7.accel}
+a(t)=\ssr^{\rm T}\dot{\ssG}(t)_{\,}\sss,
+\en
+这里我们按照~(\ref{5.newconv})的习惯将震源基准时间设为$t_{\rm s}=0$。
+对于最一般的有自转非弹性地球的情形，我们可以将公式~(\ref{7.accel})改写为
+\eq
+\label{7.accel2}
+a(t)=\Re{\rm e}_{\,}[\ssr^{\prime\hspace{0.3 mm}{\rm T}}
+\exp(i\ssN t)_{\,}\sss^{\prime}],
+\en
+其中$\ssr'$和$\sss'$为{\em 变换后接收点和源点矢量\/} 
+\index{vector!source!transformed}%
+\index{transformed source vector}%
+\index{source vector!transformed}%
+\index{receiver vector!transformed}%
+\index{vector!receiver!transformed}%
+\index{transformed receiver vector}%
+\eq
+\label{7.rstrans}
+\ssr'=\ssQ^{\rm T}\ssr,\qquad\sss^{\prime}
+=\overline{\ssQ}{}^{\,\rm T}\sss.
+\en
+只要基函数$\bs_k$是完备的，(\ref{7.accel2})--(\ref{7.rstrans})中的结果就与~(\ref{6.rotaccel})是等价的。
+在无自转非弹性地球中，(\ref{7.rstrans})中的对偶本征矢量矩阵$\overline{\ssQ}$被$\ssQ$取代。
+\index{dual eigenvector}%
+\index{eigenvector!dual}%
+
+$\bnuh$分量的加速度的傅里叶变换可以用频率域格林函数矩阵$\ssG(\omega)$表示为
+\eq
+\label{7.omaccel}
+a(\omega)=i\omega\ssr^{\rm T}\ssG(\omega)\sss.
+\en
+对于$\omega > 0$，可以将该式写为类似于~(\ref{6.accFTresp2})的形式：
+\eq
+\label{7.freqacc}
+a(\omega)=\half i\ssr^{\prime\hspace{0.3 mm}{\rm T}}
+(\ssN-\omega\ssI)^{-1}\sss^{\prime},
+\en
+与前面一样，我们在这里忽略了负频率峰的贡献。
+$\half i(\ssN-\omega\ssI)^{-1}$是一个由单位洛伦兹共振谱峰组成的对角矩阵，谱峰的形状为$\eta_k(\om)=\half i(\om_k+i\gamma_k-\om)^{-1}$，中心为实的正本征频率。
+
+我们也可以借助矩阵$\ssV(\omega)$、$\ssW$和$\ssT$以及扰动前接收点和源点矢量$\ssr$和$\sss$将频率域加速度响应以显式表示为
+\eq
+\label{7.direct}
+a(\omega)=i\omega\ssr^{\rm T}[\ssV(\omega)+2\omega\ssW-\omega^2\ssT]
+^{-1}\sss.
+\en
+(\ref{7.direct})中的结果对所有频率$-\infty\leq\om\leq\infty$都是精确的，
+它可以作为计算合成加速度图的一种{\em 直接求解法}的基础，
+\index{direct solution method}%
+该方法不需要求解本征频率$\ssN$及其相应的本征矢量$\ssQ$和逆转本征矢量$\overline{\ssQ}$。
+要计算从一个位于$\bx_{\rm s}$的给定震源$\bM$在一批接收点$\bx$所产生的$\bnuh$分量加速度图，
+我们首先求解
+\eq
+\label{7.direct2}
+[\ssV(\omega)+2\omega\ssW-\omega^2\ssT]\ssd(\omega)=\sss
+\en
+而得到{\em 源点响应矢量\/}$\ssd(\omega)$。
+\index{source response vector}%
+\index{vector!source response}%
+继而由以下标量积给定每个接收点的加速度
+\eq
+a(\omega)=i\om\ssr^{\rm T}\ssd(\omega).
+\en
+另一方面，如果我们想得到单个接收点对一组震源的响应，更为方便的则是求解
+\eq
+\label{7.direct3}
+[\ssV(\omega)-2\omega\ssW-\omega^2\ssT]\sse(\omega)=\ssr
+\en
+而得到{\em 接收点响应矢量\/}$\sse(\omega)$。
+\index{receiver response vector}%
+\index{vector!receiver response}%
+继而得到每一个地震所激发的加速度
+\eq \label{7.direct4}
+a(\omega)=i\om\sse^{\rm T}(\omega)\sss.
+\en
+值得注意的是，在(\ref{7.direct2})和~(\ref{7.direct3})两式中，反对称性$\ssW^{\rm T}=-\ssW$造成了$\pm2\omega\ssW$的符号差别；在无自转地球中，这一差别显然并不重要，因为$\ssW=\sszero$。我们将在第13章中讨论直接求解法的实际操作过程。
+\index{moment-tensor response|)}%
+\index{response!moment-tensor|)}%
+

@@ -1,0 +1,2549 @@
+%\chapter{Whole Earth Catalogue}
+\chapter{完整地球目录}
+
+\label{chapter:matrixelements}
+在最后这一章附录中，我们将给出接收点和源点矢量$\ssr$和$\sss$以及
+动能、势能、非弹性和科里奥利矩阵$\ssT$、$\ssV$、$\ssA$和 $\ssW$的分量的显式表达式。
+正如我们在13.2节所讨论的，这些难以理解却又非常重要的公式为合成模式耦合的地震图提供了基础。关于这一题目的发展过程并不是一帆风顺的，主要问题来自于早期对自由表面和其它界面位置扰动作用的不正确处理(Backus \& Gilbert \citeyear{backus&gilbert67}，Dahlen \citeyear{dahlen68})。
+Woodhouse (\citeyear{woodhouse76})指出了这些错误，
+并给出了球形界面微扰的Fr\'{e}chet积分核的正确推导。
+之后，Dahlen (\citeyear{dahlen76})正确地计算了地球的流体静力学椭率
+对孤立多态模式的影响。Woodhouse \& Dahlen (\citeyear{woodhouse&dahlen78})首次对横向不均匀微扰做出了正确的分析；
+他们给出了自耦合近似下微扰后本征频率和单态模式本征函数的计算方法，
+并推导了具有数值优势的椭率分裂参数的公式。
+随后，Woodhouse (\citeyear{woodhouse80})发表了因地球的自转、椭率和各向同性横向不均匀性所引起的球型-球型、环型-环型和球型-
+环型模式耦合的矩阵分量的完整目录。
+Tanimoto (\citeyear{tanimoto86})和Mochizuki
+(\citeyear{mochizuki86})分别考虑了自耦合和完全耦合，将处理体积上的各向异性
+微扰所需的矩阵分量首次简化为可以做数值计算的形式。
+最后，Henson (\citeyear{henson89})和Shibata, Suda \& Fukao
+(\citeyear{shibata&al90})将椭率和其它界面微扰公式推广到具横向各向同性初始模型。在最后这两篇研究中，当把他们的结果简化为SNREI初始模型时，发现了Woodhouse (\citeyear{woodhouse80})中各向同性椭率积分核的一些错误。
+
+动能、势能和非弹性矩阵分量用附录C中所讨论的广义球谐函数来表示最为方便。
+\index{complex basis}%
+\index{complex spherical harmonics}%
+\index{spherical harmonics!complex}%
+由于它们都是复数，因此在一开始的代数化简中最好使用复数而非实数的本征函数。
+为了简洁和便于与前面的处理做比较，比较方便的也是引入
+新的径向本征函数，它们与本书中其余部分所使用的本征函数之间的关系为：
+\eq \label{D.neweifs}
+\uu=U,\qquad \vv=k^{-1}V,\qquad\w=k^{-1}W,\qquad p=P,
+\en
+其中$k=\sqrt{l(l+1)}$与通常一样。
+实数和复数的本征基函数可以用小写的标量表示成
+\eq \label{D.neweifs3}
+\bs_k=\uu\hspace{0.2 mm}\brh \sY_{lm}+\vv\bdel_{\!1}\sY_{lm}
+-\w(\brh\times\bdel_{\!1}\sY_{lm}),\qquad \phi_k=p\sY_{lm},
+\en
+\eq \label{D.neweifs2}
+\tilde{\bs}_k=\uu\hspace{0.2 mm}\brh Y_{lm}+\vv\bdel_{\!1}Y_{lm}
+-\w(\brh\times\bdel_{\!1}Y_{lm}),\qquad \tilde{\phi}_k=pY_{lm},
+\en
+其中$\sY_{lm}$和$Y_{lm}$分别为~(\ref{B.realYdef})
+和~(\ref{B.Xlmdef})定义的$l$次$m$级的实数和复数球谐函数。
+在本附录中，符号上方的波浪线表示用复数本征函数~(\ref{D.neweifs2})所计算的量。
+我们首先给出复数的接收点和源点矢量$\tilde{\ssr}$和$\tilde{\sss}$ 以及相关的能量、非弹性和科里奥利矩阵分量$\tilde{\ssT}$、$\tilde{\ssV}$、
+$\tilde{\ssA}$和$\tilde{\ssW}$的表达式；然后，再用第D.3节所描述的
+复数到实数的变换得到所期望的矢量$\ssr$、$\sss$和
+矩阵$\ssT$、$\ssV$、$\ssA$和$\ssW$。
+
+%\section{Receiver and Source Vector}
+\section{接收点和源点矢量}
+
+\index{vector!source|(}%
+\index{vector!receiver|(}%
+\index{source vector|(}%
+\index{receiver vector|(}%
+
+球极分量
+$\tilde{s}_r=\brh\cdot\tilde{\bs}_k$,
+$\tilde{s}_{\theta}=\bthetah\cdot\tilde{\bs}_k$ 和
+$\tilde{s}_{\phi}=\bphih\cdot\tilde{\bs}_k$ 
+分别为
+\eq \label{D.ssubk1}
+\tilde{s}_r=\uu Y_{lm},
+\en
+\eq
+\tilde{s}_\theta=\vv\p_\theta  Y_{lm}+im\w(\sin\theta)^{-1} Y_{lm},
+\en
+\eq \label{D.ssubk3}
+\tilde{s}_\phi=im\vv(\sin\theta)^{-1} Y_{lm}-\w\p_\theta Y_{lm}.
+\en
+复数的接收点矢量$\tilde{\ssr}$的分量
+$\tilde{r}_k=\bnuh\cdot\tilde{\bs}_k^*(\bx)$ 
+由分量~(\ref{D.ssubk1})--(\ref{D.ssubk3})给定：
+\eq \label{D.recvec}
+\tilde{r}_{\raisebox{-0.25 ex}{$\scriptstyle k$}}=
+\nu_{\raisebox{-0.25 ex}{$\scriptstyle r$}}
+\tilde{s}_r^*+\nu_{\raisebox{-0.25 ex}{$\scriptstyle\theta$}}
+\tilde{s}_{\theta}^*
++\nu_{\raisebox{-0.25 ex}{$\scriptstyle\phi$}}
+\tilde{s}_{\phi}^*.
+\en
+在附录B.10中讨论了计算复数球谐函数$Y_{lm}$及其导数 $\p_{\theta}Y_{lm}$的实用步骤。
+
+接收点位于$\theta=0$或$\theta=\pi$任一极点时属于一种特殊情况；
+在北极布设海底地震仪是一项技术上非常困难的任务，而在南极洲位于南极的SPA台站自全球标准地震台网(WWSSN)建立以来就一直装有一部三分量仪器。利用极限的勒让德关系式~(\ref{eq:Xpole})--(\ref{eq:Xpole2})，我们发现~(\ref{D.ssubk1})--(\ref{D.ssubk3})在$\theta=0$简化为
+\eq
+\tilde{s}_r=\left(\frac{2l+1}{4\pi}\right)^{1/2}\uu
+\hspace{0.2 mm}\delta_{m0},
+\en
+\eq
+\tilde{s}_\theta=\half\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k(\vv+im\w)(\delta_{m\,-1}-\delta_{m1}),
+\en
+\eq
+\tilde{s}_\phi=\half\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k(im\vv-\w)(\delta_{m\,-1}-\delta_{m1})
+\en
+而在$\theta=\pi$则简化为
+\eq
+\tilde{s}_r=(-1)^l\left(\frac{2l+1}{4\pi}\right)^{1/2}\uu
+\hspace{0.2 mm}\delta_{m0},
+\en
+\eq
+\tilde{s}_\theta=\half(-1)^l\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k(\vv-im\w)(\delta_{m\,-1}-\delta_{m1}),
+\en
+\eq
+\tilde{s}_\phi=\half(-1)^l\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k(-im\vv-\w)(\delta_{m\,-1}-\delta_{m1})
+\en
+在极点处，只有与级数$-1\leq m\leq 1$相关的项为非零。
+特别要注意的是，在SPA站的径向分量 ($\bnuh=\brh$)传感器只能感应到有方位对性称的$m=0$单态模式。
+
+利用~(\ref{A.Jeroen2})式，我们发现应变张量
+$\tilde{\beps}_k=\half [\bdel\tilde{\bs}_k
++(\bdel\tilde{\bs}_k)^{\rm T}]$ 
+的球极分量为
+\eq \label{D.eps1}
+\tilde{\eps}_{rr}=\du Y_{lm},
+\en
+\eqa
+\lefteqn{\tilde{\eps}_{\theta\theta}=r^{-1}\uu Y_{lm}
+-r^{-1}\vv[\cot\theta\,\p_\theta Y_{lm}
+-m^2(\sin\theta)^{-2} \textcolor{red}{Y_{lm}}+k^2Y_{lm}]}
+\nonumber \\
+&&\mbox{}
++imr^{-1}\w(\sin\theta)^{-1}(\p_\theta Y_{lm}-\cot\theta\,Y_{lm}),
+\ena
+\eqa
+\lefteqn{\tilde{\eps}_{\phi\phi}=r^{-1}\uu Y_{lm}
++r^{-1}\vv[\cot\theta\,\p_\theta Y_{lm}
+-m^2(\sin\theta)^{-2}Y_{lm}]} \nonumber \\
+&&\mbox{}
+-imr^{-1}\w(\sin\theta)^{-1}(\p_\theta Y_{lm}-\cot\theta\,Y_{lm}),
+\ena
+\eq
+\tilde{\eps}_{r\theta}=\half[\x\hspace{0.2 mm}\p_\theta Y_{lm}
++im\z(\sin\theta)^{-1}Y_{lm}],
+\en
+\eq
+\tilde{\eps}_{r\phi}=
+\half[im\x(\sin\theta)^{-1}Y_{lm}-\z\hspace{0.2 mm}\p_\theta Y_{lm}],
+\en
+\eqa \label{D.eps6}
+\lefteqn{\tilde{\eps}_{\theta\phi}=
+imr^{-1}\vv(\sin\theta)^{-1}(\p_\theta Y_{lm}
+-\cot\theta\,Y_{lm})} \nonumber \\
+&&\mbox{}+r^{-1}\w[\cot\theta\,\p_\theta Y_{lm}-m^2(\sin\theta)^{-2}Y_{lm}
++\half k^2Y_{lm}],
+\ena
+这里我们定义了辅助变量
+\eq
+\x=\dv-r^{-1}\vv+r^{-1}\uu,\qquad \z=\dw-r^{-1}\w.
+\en
+此外，也使用了勒让德方程~(\ref{eq:Legeqn})来消去对二阶导数 $\p_{\theta}^2Y_{lm}$的依赖。
+复数源点矢量$\tilde{\sss}$的分量 $\tilde{s}_k=\bM\!:\!\tilde{\beps}_k^*(\bx_{\rm s})$为：
+\eqa \lefteqn{
+\tilde{s}_{\raisebox{-0.25 ex}{$\scriptstyle k$}}
+=M_{\raisebox{-0.25 ex}{$\scriptstyle rr$}}
+\tilde{\eps}_{rr\rm s}^*+M_{\raisebox{-0.25 ex}{$\scriptstyle \theta\theta$}}
+\tilde{\eps}_{\theta\theta\hspace{0.1 mm}\rm s}^*
++M_{\raisebox{-0.25 ex}{$\scriptstyle \phi\phi$}}
+\tilde{\eps}_{\phi\phi\hspace{0.2 mm}\rm s}^*}
+\nonumber \\
+&&\mbox{}
++2M_{\raisebox{-0.25 ex}{$\scriptstyle r\theta$}}
+\tilde{\eps}_{r\theta\hspace{0.1 mm}\rm s}^*+
+2M_{\raisebox{-0.25 ex}{$\scriptstyle r\phi$}}
+\tilde{\eps}_{r\phi\hspace{0.2 mm}\rm s}^*
++2M_{\raisebox{-0.25 ex}{$\scriptstyle \theta\phi$}}
+\tilde{\eps}_{\theta\phi\hspace{0.2 mm}\rm s}^*,
+\ena
+其中下角标$s$仍然表示在震源$\bx_{\rm s}$处取值。
+
+再次使用~(\ref{eq:Xpole})，
+可以证明在北极($\theta=0$)处~(\ref{D.eps1})--(\ref{D.eps6})简化为
+\eq \label{D.eps7}
+\tilde{\eps}_{rr}=\left(\frac{2l+1}{4\pi}\right)^{1/2}\du\,\delta_{m0},
+\en
+\eqa
+\lefteqn{\tilde{\eps}_{\theta\theta}=\half
+\left(\frac{2l+1}{4\pi}\right)^{1/2}
+\left[\f\hspace{0.2 mm}\delta_{m0}
++\fourth k\sqrt{k^2-2}\right.} \nonumber \\
+&&\mbox{}\qquad\qquad\times\left.\frac{}{}r^{-1}(2\vv+im\w)
+(\delta_{m\,-2}+\delta_{m2})\right],
+\ena
+\eqa
+\lefteqn{\tilde{\eps}_{\phi\phi}=
+\half\left(\frac{2l+1}{4\pi}\right)^{1/2}
+\left[\f\hspace{0.2 mm}\delta_{m0}
+-\fourth k\sqrt{k^2-2}\right.} \nonumber \\
+&&\mbox{}\qquad\qquad\times\left.\frac{}{}r^{-1}(2\vv+im\w)
+(\delta_{m\,-2}+\delta_{m2})\right],
+\ena
+\eq
+\tilde{\eps}_{r\theta}=\quart\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k(\x+im\z)(\delta_{m\,-1}-\delta_{m1}),
+\en
+\eq
+\tilde{\eps}_{r\phi}=\quart\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k(im\x-\z)(\delta_{m\,-1}-\delta_{m1}),
+\en
+\eqa \label{D.eps12}
+\lefteqn{\tilde{\eps}_{\theta\phi}=\eighth\left(\frac{2l+1}{4\pi}\right)^{1/2}
+k\sqrt{k^2-2}} \nonumber \\
+&&\mbox{}\qquad\qquad\times r^{-1}(im\vv-2\w)(\delta_{m\,-2}+\delta_{m2}),
+\ena
+其中
+\eq
+\f=r^{-1}(2\uu-\el\vv).
+\en
+Gilbert \& Dziewonski (\citeyear{gilbert&dziewonski75})使用~(\ref{D.eps7})--(\ref{D.eps12}) 
+在震中坐标系($\theta_{\rm s}=0$)中计算了球对称地球对矩张量源的响应。
+值得注意的是，只有$-2\leq m\leq 2$的单态模式被激发。
+在第10.3节中，我们使用另一种避免取极限的推论方法来得到这一结果。
+\index{vector!source|)}%
+\index{vector!receiver|)}%
+\index{source vector|)}%
+\index{receiver vector|)}%
+
+%\section{Perturbation Matrices}
+\section{微扰矩阵}
+\index{perturbation matrix|(}%
+\index{matrix!perturbation|(}%
+\label{D.sec.matels}
+
+动能矩阵$\tilde{\ssT}$的分量用复数的本征基函数~(\ref{D.neweifs2})表示为
+\eq \label{eq:D.kinetic}
+\tilde{T}_{kk'}^{}=\int_{\subearth}\delta\hspace{-0.3 mm}
+\rho\hspace{0.2 mm}(\tilde{\bs}_k^*\cdot\tilde{\bs}_{k'}^{})\,dV
+-\int_{\Sigma}\delta\hspace{-0.1 mm}d
+\,[\rho\,\tilde{\bs}_k^*\cdot\tilde{\bs}_{k'}^{}]^+_-\,d\/\Sigma.
+\en
+其中$\delta\hspace{-0.3 mm}\rho$为体积上的密度微扰，$\delta\hspace{-0.1 mm}d$ 是界面位置的微扰。弹性-重力的势能矩阵可以简便地分为三项：
+\eq
+\tilde{\ssV}=\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm iso}}
++\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ani}}
++\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm cen}}.
+\en
+其中第一项囊括了所有{\em 各向同性\/}的非球对称微扰，
+第二项容许可能的附加的{\em 各向异性\/}微扰，
+\index{perturbation!anisotropic}%
+\index{perturbation!isotropic}%
+而第三项则包含了{\em 离心\/}势的影响。
+\index{centrifugal potential}%
+这三个矩阵的分量为
+\eqa \label{eq:D.potential}
+\lefteqn{\tilde{V}^{\rm iso}_{kk'}=\int_{\subearth}
+[\delta\hspace{-0.1 mm}\kappa(\bdel\cdot\tilde{\bs}_k^*)
+(\bdel\cdot\tilde{\bs}_{k'}^{})
++2\hspace{0.2 mm}\delta\hspace{-0.2 mm}\mu
+(\tilde{\bd}_k^{\raise-0.4ex\hbox{$\scriptstyle *$}}
+\!:\!\tilde{\bd}_{k'}^{})} \nonumber \\
+&&\mbox{}\qquad+\delta\hspace{-0.3 mm}\rho\hspace{0.2 mm}
+\{\tilde{\bs}_k^*\cdot\bdel_{\!}\tilde{\phi}_{k'}^{}
++\tilde{\bs}_{k'}^{}\cdot\bdel_{\!}\tilde{\phi}_k^* \nonumber \\
+&&\mbox{}\qquad+4\pi G\rho(\brh\cdot\tilde{\bs}_k^*)
+(\brh\cdot\tilde{\bs}_{k'}^{})+g\tilde{\Upsilon}_{kk'}^{}\} \nonumber \\
+&&\mbox{}\qquad+\half\rho\bdel(\delta\Phi)\cdot
+(\tilde{\bs}_k^*\cdot\!\bdel\tilde{\bs}_{k'}^{}
++\tilde{\bs}_{k'}^{}\cdot\!\bdel\tilde{\bs}_k^* \nonumber \\
+&&\mbox{}\qquad-\tilde{\bs}_k^*\bdel\cdot\tilde{\bs}_{k'}^{}
+-\tilde{\bs}_{k'}^{}\bdel\cdot\tilde{\bs}_k^*)
++\rho\hspace{0.2 mm}\tilde{\bs}_k^*\cdot\bdel\bdel(\delta\Phi)
+\cdot\tilde{\bs}_{k'}^{}]\,dV \nonumber \\
+&&\mbox{}\,-\int_{\Sigma}\delta\hspace{-0.1 mm}d_{\,}
+[\half\kappa_0^{}(\bdel\cdot\tilde{\bs}_k^*)
+(\bdel\cdot\tilde{\bs}_{k'}^{}-2\brh\cdot\p_r^{}\tilde{\bs}_{k}^{}) \nonumber \\
+&&\mbox{}\qquad
++\half\kappa_0^{}(\bdel\cdot\tilde{\bs}_{k'}^{})
+(\bdel\cdot\tilde{\bs}_k^*-2\brh\cdot\p_r^{}\tilde{\bs}_k^*) \nonumber \\
+&&\mbox{}\qquad+\mu_0^{}\tilde{\bd}_k^{\raise-0.4ex\hbox{$\scriptstyle *$}}
+\!:\!(\tilde{\bd}_{k'}^{}
+-2\brh\p_r^{}\tilde{\bs}_{k'}^{})
++\mu_0^{}\tilde{\bd}_{k'}^{}\!:\!
+(\tilde{\bd}_k^{\raise-0.4ex\hbox{$\scriptstyle *$}}
+-2\brh\p_r^{}\tilde{\bs}_k^*)
+\nonumber \\
+&&\mbox{}\qquad+\rho\hspace{0.2 mm}
+\{\tilde{\bs}_k^*\cdot\bdel_{\!}\tilde{\phi}_{k'}^{}
++\tilde{\bs}_{k'}^{}\cdot\bdel_{\!}\tilde{\phi}_k^* \nonumber \\
+&&\mbox{}\qquad+8\pi G\rho(\brh\cdot\tilde{\bs}_k^*)
+(\brh\cdot\tilde{\bs}_{k'}^{})+g\tilde{\Upsilon}_{kk'}^{}\}]^+_-\,d\/\Sigma
+\nonumber \\
+&&\mbox{}\,-\int_{\Sigma_{\rm FS}}\bdel^{\Sigma}
+(\delta\hspace{-0.1 mm}d)\cdot
+[\kappa_0^{}(\bdel\cdot\tilde{\bs}_k^*)\tilde{\bs}_{k'}^{}
++\kappa_0^{}(\bdel\cdot\tilde{\bs}_{k'}^{})\tilde{\bs}_k^* \nonumber \\
+&&\mbox{}\qquad
++2\mu_0^{}(\brh\cdot\tilde{\bd}_k^{\raise-0.4ex\hbox{$\scriptstyle *$}}
+\cdot\brh)\tilde{\bs}_{k'}^{}
++2\mu_0^{}(\brh\cdot\tilde{\bd}_{k'}^{}\cdot\brh)\tilde{\bs}_k^*]^+_-\,d\/\Sigma,
+\ena
+\eq \label{D.Vaniso}
+\tilde{V}_{kk'}^{\rm ani}=\int_{\subearth}(\tilde{\beps}_k^*\!:\!
+\bgamma\!:\!\tilde{\beps}_{k'}^{})\,dV,
+\en\eqa \label{eq:D.centrifugal}
+\lefteqn{
+\tilde{V}_{kk'}^{\rm cen}=\int_{\subearth}[
+\half\rho\bdel\psi\cdot(\tilde{\bs}_k^*\cdot\!\bdel\tilde{\bs}_{k'}^{}
++\tilde{\bs}_{k'}^{}\cdot\!\bdel\tilde{\bs}_k^*} \nonumber \\
+&&\mbox{}\qquad-\tilde{\bs}_k^*\bdel\cdot\tilde{\bs}_{k'}^{}
+-\tilde{\bs}_{k'}^{}\bdel\cdot\tilde{\bs}_k^*)
++\rho\hspace{0.2 mm}\tilde{\bs}_k^*\cdot\bdel\bdel\psi\cdot\tilde{\bs}_{k'}^{}]\,dV.
+\ena
+其中$\tilde{\beps}_k=\half[\bdel\tilde{\bs}_k+(\bdel\tilde{\bs}_k)^{\rm T}]$
+和$\tilde{\bd}_k=\tilde{\beps}_k-\third(\bdel\cdot\tilde{\bs}_k)\bI$ 
+分别为应变和偏应变本征函数，且
+\eqa
+\lefteqn{
+\tilde{\Upsilon}_{kk'}^{}=\half[\tilde{\bs}_k^*\cdot
+\bdel(\brh\cdot\tilde{\bs}_{k'}^{})
++\tilde{\bs}_{k'}^{}\cdot\bdel(\brh\cdot\tilde{\bs}_k^*)]} \nonumber \\
+&&\mbox{}\qquad-\half[(\brh\cdot\tilde{\bs}_k^*)(\bdel\cdot\tilde{\bs}_{k'}^{})
++(\brh\cdot\tilde{\bs}_{k'}^{})(\bdel\cdot\tilde{\bs}_k^*)] \nonumber \\
+&&\mbox{}\qquad\qquad-2r^{-1}(\brh\cdot\tilde{\bs}_k^*)
+(\brh\cdot\tilde{\bs}_{k'}^{}).
+\ena
+参数$\kappa_0$和$\mu_0$是在参考频率$\omega_0$下的等熵不可压缩性和刚度，
+标量$\delta\hspace{-0.1 mm}\kappa$
+和$\delta\hspace{-0.2 mm}\mu$以及四阶张量$\bgamma$
+是相应的各向同性和各向异性的微扰；$\delta\Phi$为重力势函数微扰，  $\psi$为离心势函数。最后，非弹性和科里奥利矩阵的分量为：
+\eq \label{D.Amatrix}
+\tilde{A}_{kk'}^{}=\int_{\subearth}[\kappa_0^{}q_{\kappa}^{}
+(\bdel\cdot\tilde{\bs}_k^*)(\bdel\cdot\tilde{\bs}_{k'}^{})\,dV
++2\mu_0^{}q_{\mu}^{}(\tilde{\bd}_k^{\raise-0.4ex\hbox{$\scriptstyle *$}}
+\!:\!\tilde{\bd}_{k'}^{})]\,dV,
+\en
+\eq \label{eq:D.Coriolis}
+\tilde{W}_{kk'}^{}=\int_{\subearth}\rho\,\tilde{\bs}_k^*\cdot(i\bOmega
+\times\tilde{\bs}_{k'}^{})\,dV.
+\en
+其中$q_{\kappa}^{}=Q_{\kappa}^{-1}$和 $q_{\mu}^{}=Q_{\mu}^{-1}$为体变和剪切品质因子的倒数，
+$\bOmega$为地球自转角速度。
+
+%\subsection{Isotropic asphericity and anelasticity}
+\subsection{各向同性的非球对称性与非弹性}
+\index{perturbation!isotropic|(}%
+\index{perturbation!anelastic|(}%
+
+各向同性的弹性和非弹性微扰可以方便地用复数球谐函数展开：
+\begin{displaymath}
+\delta\hspace{-0.1 mm}\kappa=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.1 mm}\tilde{\kappa}_{st}Y_{st},\qquad
+\delta\hspace{-0.2 mm}\mu=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.2 mm}\tilde{\mu}_{st}Y_{st},
+\end{displaymath}
+\begin{displaymath}
+\delta\hspace{-0.3 mm}\rho=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.3 mm}\tilde{\rho}_{st}Y_{st},\qquad
+\delta\Phi=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\tilde{\Phi}_{st}Y_{st},
+\end{displaymath}
+\begin{displaymath}
+q_{\kappa}=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\tilde{q}_{\kappa st}Y_{st},\qquad
+q_{\mu}=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\tilde{q}_{\mu st}Y_{st},
+\end{displaymath}
+\eq \label{D.pertYst}
+\qquad\qquad\qquad
+\delta\hspace{-0.1 mm}d=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.1 mm}\tilde{d}_{st}Y_{st}.
+\en
+这里我们用展开系数
+$\delta\hspace{-0.1 mm}\tilde{\kappa}_{st}$、
+$\delta\hspace{-0.2 mm}\tilde{\mu}_{st}$、
+$\delta\hspace{-0.3 mm}\tilde{\rho}_{st}$、
+$\delta\tilde{\Phi}_{st}$、
+$\tilde{q}_{\kappa st}$、$\tilde{q}_{\mu st}$和
+$\delta\hspace{-0.1 mm}\tilde{d}_{st}$
+上的波浪线以别于在第~\ref{D.sec.realYhere}节中引入的对应的实数展开系数。
+值得注意的是，求和是从$s=1$开始，而非$s=0$；这样确保微扰是{\em 严格非球对称\/}的。扰动前的球对称初始模型$\kappa_0$、
+$\mu_0$、$\rho$被视为地球单极子(terrestrial monopole)。
+\index{terrestrial monopole}%
+形式上，次数$s_{\rm max}$的极大值可以当作是无穷大的；
+在任何数值实现中当然都需要在有限的$s_{\rm max}$值截断。
+矩阵分量$\tilde{T}_{kk'}$\textcolor{red}{、}
+$\tilde{V}_{kk'}^{\rm iso}$和$\tilde{A}_{kk'}$是由地球体积 $\earth$上的三维积分以及
+在内、外界面$\Sigma$上的二维积分所组成的。
+(ref{D.pertYst})中的展开式使得单位球$\Omega$上的积分能够利用附录~C.7中得到的Wigner 3-$j$公式进行解析计算。
+在第~\ref{D.sec.genl}节中给出完整的结果之前，我们会用一个实例来展示这一简化为径向积分之和是如何做到的。
+\index{perturbation!isotropic|)}%
+\index{perturbation!anelastic|)}%
+
+%\subsection{Example}
+\subsection{实例}
+\label{D.sec.example}
+
+计算上最为繁琐各向同性项是非球对称的刚度扰动对各向同性势能
+矩阵分量~(\ref{eq:D.potential})的贡献：
+\eq \label{D.Vexample}
+\tilde{V}_{kk'}^{\rm rig}=\int_{\subearth}
+2\hspace{0.2 mm}\delta\hspace{-0.2 mm}\mu
+(\tilde{\bd}_k^{\raise-0.4ex\hbox{$\scriptstyle *$}}\!:\!\tilde{\bd}_{k'}^{})
+\,dV.
+\en
+偏应变本征函数$\tilde{\bd}_k$的广义球谐函数表达式为
+\eq \label{D.Vexample2}
+\tilde{\bd}_{k}=\tilde{d}^{\alpha\beta}\,Y_{lm}^{\alpha+\beta}
+\,\beh_\alpha\beh_\beta,
+\en
+其中
+\eqa
+\lefteqn{
+\tilde{d}^{\hspace{0.1 mm}00}=\third(2\du-\f),\qquad
+\tilde{d}^{\pm\pm}=\half k\sqrt{k^2-2}\,r^{-1}(\vv\pm i\w),}
+\nonumber \\
+&&\mbox{}\!\!\!\!\!\!\!\!\!\!\!\!
+\tilde{d}^{\hspace{0.1 mm}0\pm}=d^{\pm 0}=
+\textstyle{\frac{\sqrt{2}}{4}}k(\x\pm i\z),
+\qquad \tilde{d}^{\pm\mp}=\sixth(2\du-\f).
+\ena
+逆变分量$\tilde{d}^{\alpha\beta}$是半径~$r$、次数~$l$和径向阶数~$n$的函数，
+但如同径向本征函数$\uu$、$\vv$和 $\w$一样，它们与余纬度~$\theta$、经度~$\phi$和级数~$m$无关。
+为简单起见，我们省略非球对称角标$s$和$t$求和的明确范围，并利用~(\ref{C.3jdef2})，将三维积分~(\ref{D.Vexample})整理为：
+\eqa \label{D.LONG}
+\lefteqn{\tilde{V}_{kk'}^{\rm rig}=
+\sum_{st}\int_{\subearth}2\hspace{0.2 mm}
+\delta\hspace{-0.2 mm}\tilde{\mu}_{\raise-0.3ex\hbox{\scriptsize\it st}}
+Y_{\raise-0.3ex\hbox{\scriptsize\it st}}(\tilde{d}^{\alpha\beta}
+Y_{lm}^{\alpha+\beta}
+\beh_\alpha^{}\beh_\beta^{})^*
+\!:\!(\tilde{d}'^{\eta\sigma}Y_{l'm'}^{\eta+\sigma}
+\beh_\eta^{}\beh_\sigma^{})\,dV}
+\nonumber \\
+&&\mbox{}
+=\sum_{st}\int_{\subearth}2\hspace{0.2 mm}
+\delta\hspace{-0.2 mm}\tilde{\mu}_{\raise-0.3ex\hbox{\scriptsize\it st}}\,
+\tilde{d}^{\alpha\beta*}\tilde{d}'^{\alpha\beta}
+Y_{lm}^{\alpha+\beta*}Y_{\raise-0.3ex\hbox{\scriptsize\it st}}
+Y_{l'm'}^{\alpha+\beta}\,dV
+\nonumber \\
+&&\mbox{}
+=\sum_{st}
+\int_0^a2\hspace{0.2 mm}\delta\hspace{-0.2 mm}
+\tilde{\mu}_{\raise-0.3ex\hbox{\scriptsize\it st}}\,
+\tilde{d}^{\alpha\beta*}\tilde{d}'^{\alpha\beta}\,r^2dr
+\int_\Omega
+Y_{lm}^{\alpha+\beta*}Y_{\raise-0.3ex\hbox{\scriptsize\it st}}
+Y_{l'm'}^{\alpha+\beta}
+\,d\Omega
+\nonumber \\
+&&\mbox{}
+=\sum_{st}(-1)^{\alpha+\beta+m}
+\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+\nonumber \\
+&&\mbox{}\qquad
+\times\left(\begin{array}{ccc}
+l & \,s\, & l' \\ -\alpha-\beta & \,0\, & \alpha+\beta
+\end{array}\right)
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+\nonumber \\
+&&\mbox{}\qquad\times
+\int_0^a2\hspace{0.2 mm}\delta\hspace{-0.2 mm}\tilde{\mu}_{st}\,
+\tilde{d}^{\alpha\beta*}\tilde{d}'^{\alpha\beta}\,r^2dr
+\nonumber \\
+&&\mbox{}
+=\sum_{st}(-1)^m
+\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+\nonumber \\
+&&\mbox{}\qquad
+\times\int_0^a\delta\hspace{-0.2 mm}\tilde{\mu}_{st}
+\left[\third(2\du-\f)(2\dup-\fp)B_{lsl'}^{(0)+}
++(\x\xp+\z\zp)B_{lsl'}^{(1)+}\right.
+\nonumber \\
+&&\mbox{}\qquad\qquad
+-i(\x\zp-\z\xp)B_{lsl'}^{(1)-}
++r^{-2}(\vv\vp+\w\wwp)B_{lsl'}^{(2)+}
+\nonumber \\
+&&\mbox{}\qquad\qquad\qquad\left.
+-ir^{-2}(\vv\wwp-\w\vp)B_{lsl'}^{(2)-}\right]r^2dr,
+\ena
+其中带撇的符号$d^{\prime\alpha\beta}$和
+$\uu'$、$\vv'$、$\w'$、$\x'$、$\z'$、$\f'$表示对应于带撇的本征函数 $\tilde{\bs}_{k'}$，同时我们还定义了
+\eqa
+\lefteqn{
+B_{lsl'}^{(N)\pm}=\half(-1)^N\left[1\pm(-1)^{l+s+l'}\right]
+\left[\frac{(l+N)!(l'+N)!}{(l-N)!(l'-N)!}\right]^{1/2}
+}
+\nonumber \\
+&&\qquad\mbox{}
+\times\left(\begin{array}{ccc}
+l & s & l' \\ -N & 0 & N
+\end{array}\right).
+\ena
+在将各项合并而得到最终结果~(\ref{D.LONG})的过程中，我们使用了Wigner 3-$j$符号
+的对称关系~(\ref{C.3jsym3})。
+
+%\subsection{Woodhouse kernels}
+\subsection{Woodhouse积分核}
+\index{Woodhouse kernel|(}%
+\index{kernel!Woodhouse|(}%
+\label{D.sec.genl}
+
+动能矩阵$\tilde{\ssT}$、各向同性弹性-重力势能矩阵 $\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm iso}}$ 
+和非弹性矩阵$\tilde{\ssA}$的分量~(\ref{eq:D.kinetic})、(\ref{eq:D.potential})
+和~(\ref{D.Amatrix})可以写成最终形式
+\eqa \label{D.kinetic2}
+\lefteqn{
+\tilde{T}_{kk'}
+=\sum_{st}(-1)^m
+\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
+\times\biggl\{
+\int_0^a\delta\hspace{-0.3 mm}\tilde{\rho}_{st}T_\rho\,r^2dr
++\sum_dd^2\delta\hspace{-0.1 mm}\tilde{d}_{st}\left[T_d\right]_-^+\biggr\},
+\ena
+\eqa \label{eq:D.structure}
+\lefteqn{
+\tilde{V}_{kk'}^{\rm iso}
+=\sum_{st}(-1)^m
+\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
+\times\biggl\{
+\int_0^a\left(\delta\hspace{-0.1 mm}\tilde{\kappa}_{st}V_\kappa
++\delta\hspace{-0.2 mm}\tilde{\mu}_{st}V_\mu
++\delta\hspace{-0.3 mm}\tilde{\rho}_{st}V_\rho
++\delta\hspace{-0.1 mm}\tilde{\Phi}_{st}V_\Phi
++\delta\hspace{-0.1 mm}\dot{\tilde{\Phi}}_{st}
+V_{\dot{\Phi}}\right)r^2dr
+\nonumber \\
+&&\mbox{}\qquad
++\sum_dd^2\delta\hspace{-0.1 mm}\tilde{d}_{st}\left[V_d\right]_-^+\biggr\},
+\ena
+\eqa \label{D.Amatrix2}
+\lefteqn{
+\tilde{A}_{kk'}
+=\sum_{st}(-1)^m
+\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
+\times
+\int_0^a\Big(\kappa_0\tilde{q}_{\kappa st}V_\kappa
++\mu_0\tilde{q}_{\mu st}V_\mu\Big)r^2dr.
+\ena
+Woodhouse积分核$T_{\rho}$、$T_d$、
+$V_{\kappa}$、$V_{\mu}$、$V_{\rho}$、$V_{\Phi}$、
+$V_{\dot{\Phi}}$和$V_d$可以表示为：
+\eq \label{D.Tsubrho}
+T_\rho=\uu\up B_{lsl'}^{(0)+}+(\vv\vp+\w\wwp)B_{lsl'}^{(1)+}
+-i(\vv\wwp-\w\vp)B_{lsl'}^{(1)-},
+\en
+\eq \label{D.Tsubd}
+T_d=-\rho T_\rho,
+\en
+\eq \label{D.Vsubkap}
+V_\kappa=
+(\du+\f)(\dup+\fp)B_{lsl'}^{(0)+},
+\en
+\eqa
+\lefteqn{
+V_\mu=\third(2\du-\f)(2\dup-\fp)B_{lsl'}^{(0)+}}
+\nonumber \\
+&&\mbox{}
++(\x\xp+\z\zp)B_{lsl'}^{(1)+}
+-i(\x\zp-\z\xp)B_{lsl'}^{(1)-}
+\nonumber \\
+&&\mbox{}
++r^{-2}(\vv\vp+\w\wwp)B_{lsl'}^{(2)+}
+-ir^{-2}(\vv\wwp-\w\vp)B_{lsl'}^{(2)-},
+\label{eq:15.Vmu}
+\ena
+\eqa \label{D.Vsubphi}
+\lefteqn{
+V_\rho=
+\bigl[\uu\dphp+\dph\up
+-\half g(4r^{-1}\uu\up+\f\up+\uu\fp)
++8\pi G\rho\uu\up\bigr]B_{lsl'}^{(0)+}
+}
+\nonumber \\
+&&\mbox{}
++r^{-1}\bigl[(\ph\vp+\vv\php)
++\half g(\uu\vp+\vv\up)\bigr]B_{lsl'}^{(1)+}
+\nonumber \\
+&&\mbox{}
+-ir^{-1}\bigl[(\ph\wwp-\w\php)
++\half g(\uu\wwp-\w\up)\bigr]B_{lsl'}^{(1)-},
+\ena
+\eqa \label{D.Vsubphi2}
+\lefteqn{
+V_\Phi=s(s+1)
+\rho r^{-2}\uu\up B_{lsl'}^{(0)+}} \nonumber \\
+&&\mbox{}
++\half\rho r^{-1}(\uu\dvp-\du\vp+r^{-1}\uu\vp-2\f\vp)B_{l'ls}^{(1)+}
+\nonumber \\
+&&\mbox{}
++\half i\rho r^{-1}(\uu\dwp-\du\wwp+r^{-1}\uu\wwp-2\f\wwp)B_{l'ls}^{(1)-}
+\nonumber \\
+&&\mbox{}
++\half\rho r^{-1}(\dv\up-\vv\dup+r^{-1}\vv\up-2\vv\fp)B_{ll's}^{(1)+}
+\nonumber \\
+&&\mbox{}
+-\half i\rho r^{-1}(\dw\up-\w\dup+r^{-1}\w\up-2\w\fp)B_{ll's}^{(1)-},
+\ena
+\eqa
+\lefteqn{
+V_{\dot{\Phi}}=-\rho(\f\up+\uu\fp)B_{lsl'}^{(0)+}} \nonumber \\
+&&\mbox{}
++\half\rho r^{-1}\uu\vp B_{l'ls}^{(1)+}
++\half i\rho r^{-1}\uu\wwp B_{l'ls}^{(1)-}
+\nonumber \\
+&&\mbox{}
++\half\rho r^{-1}\vv\up B_{ll's}^{(1)+}
+-\half i\rho r^{-1}\w\up B_{ll's}^{(1)-},
+\ena
+\eqa \label{D.Vsubd}
+\lefteqn{
+V_d=-\kappa_0^{}V_\kappa-\mu_0^{}V_\mu-\rho V_\rho} \nonumber \\
+&&\mbox{}
++\kappa_0^{}\hspace{-0.4 mm}\left[(2\du\dup+\du\fp+\f\dup)B_{lsl'}^{(0)+}\right.
+\nonumber \\
+&&\qquad\mbox{}
+-r^{-1}(\du+\f)\vp B_{l'ls}^{(1)+}
+-ir^{-1}(\du+\f)\wwp B_{l'ls}^{(1)-}
+\nonumber \\
+&&\qquad\mbox{}\left.
+-r^{-1}\vv (\dup+\fp) B_{ll's}^{(1)+}
++ir^{-1}\w (\dup+\fp) B_{ll's}^{(1)-}\right]
+\nonumber \\
+&&\mbox{}
++\mu_0^{}\hspace{-0.4 mm}\left[\twothirds(4\du\dup-\du\fp-\f\dup)
+B_{lsl'}^{(0)+}\right.
+\\
+&&\qquad\mbox{}+(\dv\xp+\x\dvp+\dw\zp+\z\dwp)B_{lsl'}^{(1)+}
+\nonumber \\
+&&\qquad\mbox{}
+-i(\dv\zp-\z\dvp+\x\dwp-\dw\xp)B_{lsl'}^{(1)-}
+\nonumber \\
+&&\qquad\mbox{}
+-\twothirds r^{-1}(2\du-\f)\vp B_{l'ls}^{(1)+}
+-\twothirds ir^{-1}(2\du-\f)\wwp B_{l'ls}^{(1)-}
+\nonumber \\
+&&\qquad\mbox{}\left.
+-\twothirds r^{-1}\vv (2\dup-\fp) B_{ll's}^{(1)+}
++\twothirds ir^{-1}\w(2\dup-\fp) B_{ll's}^{(1)-}\right]. \nonumber 
+\ena
+这些积分核依赖于模式角标$k,k'$和模型次数$s$，但它们与模型级数$t$无关。
+若有必要，使用如下显式表达式
+\eqa \label{eq:D.dphidrho}
+\lefteqn{
+\delta\hspace{-0.1 mm}\tilde{\Phi}_{st}=-\frac{4\pi G}{2s+1}\biggl\{
+r^{-s-1}\biggl(\int_0^rr^{s+2}\delta\hspace{-0.3 mm}\tilde{\rho}_{st}\,dr
+-\sum_{d<r}d^{s+2}\delta\hspace{-0.1 mm}\tilde{d}_{st}[\rho]_-^+\biggr)
+}
+\nonumber \\
+&&\quad\mbox{}
++r^{s}\biggl(\int_r^ar^{-s+1}\delta\hspace{-0.3 mm}\tilde{\rho}_{st}\,dr
+-\sum_{d>r}d^{-s+1}\delta\hspace{-0.1 mm}\tilde{d}_{st}[\rho]_-^+\biggr)\biggr\}.
+\ena
+可以消去~(\ref{eq:D.structure})中包含势函数微扰
+$\delta\hspace{-0.1 mm}\Phi$和$\delta\hspace{-0.1 mm}\dot{\Phi}$的项。
+将~(\ref{eq:D.dphidrho})代入，并做部分积分，我们得到
+势能矩阵分量$\tilde{V}_{kk'}^{\rm iso}$的另一个表达式。
+为避免重复书写，我们仅在此指出下述三个替换
+\eqa \label{eq:D.sub1}
+\lefteqn{
+V_\rho\rightarrow V_\rho+\frac{4\pi G}{2s+1}\biggl\{
+r^s\int_r^ar^{-s}\left[(s+1)V_{\dot{\Phi}}-rV_\Phi\right]dr
+} \nonumber \\
+&&\mbox{}\qquad
+-r^{-s-1}\int_0^rr^{s+1}\left(sV_{\dot{\Phi}}
++rV_\Phi\right)dr\biggr\},
+\ena
+\eq \label{eq:D.sub2}
+V_\Phi\rightarrow0,\qquad
+V_{\dot{\Phi}}\rightarrow0
+\en
+的综合结果会使最终的结果保持不变。
+在~(\ref{D.pertYst})中我们规定$\delta\hspace{-0.2 mm}\kappa$、 $\delta\hspace{-0.2 mm}\mu$、
+$\delta\hspace{-0.3 mm}\rho$、$\delta\Phi$、$q_{\kappa}$、$q_{\mu}$和
+$\delta\hspace{-0.1 mm}d$的复数球谐函数展开都是从$s=1$开始；
+然而，(\ref{D.kinetic2})--(\ref{eq:D.sub2})这些结果也适用于地球单极子的$s=0$ 的微扰。经过对Woodhouse积分核表达式的仔细观察，发现正号上角标的因子
+$B^{(1)+}$、$B^{(2)+}$对应于球型-球型和环型-环型耦合，而负号上角标
+因子$B^{(1)-}$、$B^{(2)-}$则对应于球型-环型耦合。
+
+仅仅使用如下形式的3-$j$符号：
+\eq
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & 0 & 0
+\end{array}\right)
+\quad\mbox{和}\quad
+\left(\begin{array}{ccc}
+l+1 & s+1 & l'+1 \\ 0 & 0 & 0
+\end{array}\right)
+\en
+以及等式
+\eq \label{D.JHWid1}
+B_{lsl'}^{(1)+}=\half(L+L'-S)B_{lsl'}^{(0)+},
+\en
+\eq
+B_{lsl'}^{(2)+}=\half[(L+L'-S)(L+L'-S-2)-2LL']B_{lsl'}^{(0)+},
+\en
+\eqa \lefteqn{
+B_{lsl'}^{(1)-}=\half\sqrt{(\Sigma+1-2l)(\Sigma+1-2l')(\Sigma+1-2s)}}
+\nonumber \\
+&&\mbox{}\times
+\sqrt{(\Sigma+2)(\Sigma+4)/(\Sigma+3)}\;B_{l+1\,s+1\,l'+1}^{(0)+},
+\ena
+\eqa \label{D.JHWid4} \lefteqn{
+B_{lsl'}^{(2)-}=\half(L+L'-S-2)}
+\nonumber \\
+&&\mbox{}\times
+\sqrt{(\Sigma+1-2l)(\Sigma+1-2l')(\Sigma+1-2s)}
+\nonumber \\
+&&\mbox{}\times
+\sqrt{(\Sigma+2)(\Sigma+4)/(\Sigma+3)}\,B_{l+1\,s+1\,l'+1}^{(0)+},
+\ena
+我们也可以写出积分核$T_{\rho}$、$T_d$、
+$V_{\kappa}$、$V_{\mu}$、$V_{\rho}$、$V_{\Phi}$、
+$V_{\dot{\Phi}}$和$V_d$的表达式，
+这里我们已经令$\Sigma=l+l'+s$、$L=l(l+1)$、$L'=l'(l'+1)$和$S=s(s+1)$。
+这些结果可以从3-$j$等式~(\ref{C.mpm1e})--(\ref{C.mpm2o})得到。
+
+本节中列出的所有公式都是由Woodhouse (\citeyear{woodhouse80})首次给出正确的推导的。
+我们这里的积分核~(\ref{D.Tsubrho})--(\ref{D.Vsubd})与该文中的~(A36)--(A42)是一致，只需要在后者的最后一行中纠正一个明显的角标错位($B_{ll''l'}^{(0)+}\rightarrow B_{l'l''l}^{(0)+}$)。
+\index{Woodhouse kernel|)}%
+\index{kernel!Woodhouse|)}%
+
+%\subsection{Direct numerical integration}
+\subsection{直接数值积分}
+
+\index{kernel!numerical integration of|(}%
+\index{numerical integration!of kernel|(}%
+\label{section:transform}
+
+与诸如大陆边缘、活跃或消亡的俯冲带或者大洋中脊相关的急剧的横向梯度的球谐函数表达式需要在截断的展开式~(\ref{D.pertYst})中取很大的角次数极大值$s_{\rm max}$。
+这样的话，用Wigner~3-$j$符号来计算矩阵分量$\tilde{T}_{kk'}$、 $\tilde{V}_{kk'}^{\rm iso}$和$\tilde{A}_{kk'}$时，
+计算上的负担会是很可观的。为了减少这一负担，Lognonn\'{e} \& Romanowicz
+(\citeyear{lognonne&romanowicz90})发展了一种替代的{\em 谱\/}方法来计算~(\ref{eq:D.kinetic})
+和~(\ref{eq:D.potential})--(\ref{D.Amatrix})中的积分。
+\index{spectral method}%
+我们来简要地描述一下这个数值积分方法，如同先前一样考虑非球对称的刚度微扰分量$\tilde{V}_{kk'}^{\rm rig}$。
+舍弃$\delta\hspace{-0.2 mm}\mu$的球谐函数展开，我们将~(\ref{D.LONG})的第三行改写为
+\eq \label{D.Philippe}
+\tilde{V}_{kk'}^{\rm rig}=
+\int_0^{2\pi}\!\left[\int_0^{\pi}X_{lm}^{\alpha+\beta}(\theta)
+\,M(\theta,\phi)\sin\theta\,
+d\/\theta\right]\!e^{-i(m-m')\phi}\,d\/\phi,
+\en
+其中
+\eq \label{D.Philippe2}
+M(\theta,\phi)=\left[\int_0^a2\hspace{0.2 mm}\delta\hspace{-0.2 mm}\mu
+(r,\theta,\phi)\hspace{0.3 mm}
+d^{\alpha\beta*}(r)d^{\prime\alpha\beta}(r)\,r^2dr\right]\!
+X_{l'm'}^{\alpha+\beta}(\theta).
+\en
+我们可以将~(\ref{D.Philippe})视为函数~(\ref{D.Philippe2})的广义{\em 勒让德-傅里叶变换\/}。
+$\tilde{T}_{kk'}$、$\tilde{V}_{kk'}^{\rm iso}$ \vspace{-0.4 mm}
+和$\tilde{A}_{kk'}$中的每一项都有相似的解释；每个变换中的乘子均为 $X_{lm}^N(\theta)\,e^{-i(m-m')\phi}$，其中$-2\leq N\leq 2$。
+
+对余纬度的$0\leq\theta\leq\pi$内层积分可以用{\em 高斯-勒让德求积法\/}计算；
+\index{Gauss-Legendre quadrature}%
+\index{quadrature}%
+我们在此回顾一下该方法的主要特点(Press, Flannery,
+Teukolsky \& Vetterling \citeyear{press&al92})。
+对每一有限整数$I$，总有一组且仅有一组节点$\mu_i=\cos\theta_i$，
+$i=1,2,\ldots,I$，以及相应的权重$w_i$,
+$i=1,2,\ldots,I$，使得
+\eq \label{eq:D.gl}
+\int_0^{\pi}Q(\cos\theta)\sin\theta\,d\/\phi=
+\int_{-1}^1Q(\mu)\,d\/\mu=\sum_{i=1}^Iw_iQ(\mu_i)
+\en
+对每一个低于$2I-1$次的多项式$Q(\mu)$均为恒等式。 
+节点$\mu_i$是勒让德多项式$P_I(\mu)$的根，其对应的权重$w_i$为
+\eq
+w_i=\frac{2}{(1-\mu_i^2)[dP_l/\hspace{-0.4 mm}d\mu]_{\mu=\mu_i}^2}.
+\en
+任一余纬度函数$f(\theta)$的积分都可以用类似于~(\ref{eq:D.gl})的结果来近似：
+\eq \label{eq:D.gl-int}
+\int_0^{\pi}\!f(\theta)\sin\theta\,d\/\theta\approx
+\sum_{i=1}^Iw_if(\theta_i).
+\en
+要计算~(\ref{D.Philippe})中的余纬度项，我们取$f(\theta)=
+X_{lm}^{\alpha+\beta}(\theta)M(\theta,\phi)$。
+
+经度的$0\leq\phi\leq 2\pi$积分必须对所有$-l-l'\leq m-m'\leq l+l'$范围内的级数
+进行计算。这可以用快速傅里叶变换极为有效地实现。
+在此情况下矩阵分量~(\ref{D.Philippe})可以表示为
+\eq \label{D.Philippe3}
+\tilde{V}_{kk'}^{\rm rig}\approx\frac{2\pi}{J}\sum_{j=0}^{J-1}\sum_{i=1}^Iw_i
+X_{lm}^{\alpha+\beta}(\theta_i)\,M(\theta_i,\phi_j)\,e^{-i(m-m')\phi_j},
+\en
+其中$\phi_j=2\pi j/J$, $j=0,\ldots,J-1$。
+(\ref{D.Philippe3})式的近似精度取决于高斯-勒让德和傅里叶节点的数目。
+为了避免因叠频造成的误差，有必要取$I\approx\half(l+l'+s_{\rm max})$和$J\approx 2(l+l'+s_{\rm max})$。
+基于~(\ref{D.Philippe3})及其扩展的一个直接积分算法是计算
+矩阵分量$\tilde{T}_{kk'}$、$\tilde{V}_{kk'}^{\rm iso}$
+和$\tilde{A}_{kk'}$中一种用途广泛的方法，因为它并不局限于形如~(\ref{D.pertYst})的球谐函数模型。
+任何种类的表达式，只要容许在地理节点$\theta_i,\phi_j$上计算微扰
+$\delta\hspace{-0.1 mm}\kappa$、$\delta\hspace{-0.2 mm}\mu$\textcolor{red}{、}
+$\delta\hspace{-0.3 mm}\rho$、$\delta\hspace{-0.1 mm}\Phi$、
+$q_{\kappa}$, $q_{\mu}$、$\delta\hspace{-0.1 mm}d$ 
+该方法均适用。在大多数应用中，较为有利的做法是
+在进行数值高斯-勒让德-傅里叶变换之前，先计算所有的径向积分，如$\int_0^a2\hspace{0.3 mm}\delta\hspace{-0.2 mm}\mu(r,\theta_i,\phi_j)
+d^{\alpha\beta*}(r)d'^{\alpha\beta}(r)\,r^2dr$。
+\index{kernel!numerical integration of|)}%
+\index{numerical integration!of kernel|)}%
+
+%\subsection{Rotation}
+\subsection{自转}
+\index{Coriolis matrix|(}%
+\index{matrix!Coriolis|(}%
+\label{D.sec.rot}
+
+复数科里奥利矩阵分量~(\ref{eq:D.Coriolis})可以简化为
+\eqa \label{D.Omegmat}
+\lefteqn{
+\tilde{W}_{kk'}=m\Omega\delta_{ll'}\delta_{mm'}
+\int_0^a\rho W^{\rm S}\,r^2dr} \nonumber \\
+&&\mbox{}
+-i\Omega(S_{lm}\delta_{l\,l'+1}+S_{l'm}\delta_{l\,l'-1})\delta_{mm'}
+\int_0^a\rho W^{\rm A}\,r^2dr,
+\ena
+其中
+\eq
+S_{lm}=\left[\frac{(l+m)(l-m)}{(2l+1)(2l-1)}\right]^{1/2}.
+\en
+自耦合和球型-球型耦合所满足的对称积分核$W^{\rm S}$，以及球型-环型耦合所满足的
+反对称积分核$W^{\rm A}$的定义为：
+\eq
+W^{\rm S}=\vv\vp+\uu\vp+\vv\up+\w\wwp,
+\en
+\eqa
+\lefteqn{
+W^{\rm A}=\half(\el-\lp-2)\uu\wwp+\half(\el-\lp+2)\w\up
+}
+\nonumber \\
+&&\mbox{}\qquad
++\half(\el+\lp-2)(\vv\wwp-\w\vp).
+\ena
+离心势矩阵的分量~(\ref{eq:D.centrifugal})可写成以下形式
+\eqa \label{D.Vcp}
+\lefteqn{
+\tilde{V}_{kk'}^{\rm cen}=\twothirds\Omega^2\delta_{\sigma\sigma'}
+\delta_{nn'}\delta_{ll'}\delta_{mm'}-\twothirds k^2\Omega^2\delta_{ll'}\delta_{mm'}
+\int_0^a\rho W^{\rm S}\,r^2dr}
+\nonumber \\
+&&\mbox{}
++(-1)^m\sqrt{(2l+1)(2l'+1)}
+\left(\begin{array}{ccc}
+l & 2 & l' \\ -m & 0 & m
+\end{array}\right)\delta_{mm'}
+\nonumber \\
+&&\qquad\mbox{}
+\times\int_0^a\Big(\third\Omega^2r^2V_{\Phi}^{s=2}
++\twothirds\Omega^2rV_{\dot{\Phi}}^{s=2}\Big)r^2dr,
+\ena
+其中$\sigma$表示S或T，因而$\delta_{\sigma\sigma'}\delta_{nn'}\delta_{ll'}\delta_{mm'}=\delta_{kk'}$。
+(\ref{D.Vcp})中的前两项代表球面平均的离心势函数 $\bar{\psi}=-\third\Omega^2r^2$的贡献，
+最后的第三项则是非球对称势函数$\psi-\bar{\psi}=\third\Omega^2r^2P_2(\cos\theta)$的贡献。
+$V_{\Phi}^{s=2}$和$V_{\dot{\Phi}}^{s=2}$是次数为二的Woodhouse积分核~(\ref{D.Vsubphi})和~(\ref{D.Vsubphi2})。
+值得注意的是，两个环型多态模式${}_n{\rm T}_l$和${}_{n'}{\rm T}_{l'}$之间不存在自转耦合。
+\index{Coriolis matrix|)}%
+\index{matrix!Coriolis|)}%
+
+%\subsection{Ellipticity}
+\subsection{椭率}
+\index{ellipticity|(}%
+\label{D.sec.ell}
+
+地球的流体静力学椭率是一个形如~(\ref{14.ellperts})二次非球对称微扰：
+\begin{displaymath}
+\delta\hspace{-0.1 mm}\kappa=\twothirds r\eps\dot{\kappa}P_2(\cos\theta),
+\qquad\delta\hspace{-0.2 mm}\mu=\twothirds r\eps\dot{\mu}P_2(\cos\theta),
+\end{displaymath}
+\begin{displaymath}
+\delta\hspace{-0.3 mm}\rho=\twothirds r\eps\dot{\rho}P_2(\cos\theta),
+\qquad
+\delta\Phi=\twothirds(r\eps g-\half\Omega^2 r^2)P_2(\cos\theta),
+\end{displaymath}
+\eq \label{D.ellperts}
+\qquad\qquad\qquad
+\delta\hspace{-0.1 mm}d=-\twothirds d\eps_d P_2(\cos\theta).
+\en
+我们将动能和各向同性弹性-重力势能矩阵分解为来自椭率的部分
+\index{ellipticity}%
+以及来自任何其余的{\em 横向不均匀性\/}的部分：
+\index{lateral heterogeneity}%
+\eq
+\tilde{\ssT}=\tilde{\ssT}^{\raise-0.5ex\hbox{\scriptsize\rm ell}}
++\tilde{\ssT}^{\raise-0.5ex\hbox{\scriptsize\rm lat}},\qquad
+\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm iso}}=
+\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ell}}
++\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm lat}}.
+\en
+将~(\ref{D.ellperts})代入~(\ref{D.kinetic2})--(\ref{eq:D.structure})所得到的椭率矩阵分量为
+\eqa \label{D.ellperts2} \lefteqn{
+\tilde{T}_{kk'}^{\rm ell}=(-1)^m
+\sqrt{(2l+1)(2l'+1)}
+\left(\begin{array}{ccc}
+l & 2 & l' \\ -m & 0 & m
+\end{array}\right)\delta_{mm'}}
+\nonumber \\
+&&\mbox{}
+\times\biggr\{\int_0^a\twothirds
+r\eps\dot{\rho}\hspace{0.2 mm}T_{\rho}^{s=2}\,r^2dr
+-\sum_d\twothirds d^3\hspace{-0.2 mm}\eps_d
+\hspace{0.2 mm}[T_d^{s=2}]^+_-\biggr\},
+\ena
+\eqa \label{D.ellperts3} \lefteqn{
+\tilde{V}_{kk'}^{\rm ell}=(-1)^m
+\sqrt{(2l+1)(2l'+1)}
+\left(\begin{array}{ccc}
+l & 2 & l' \\ -m & 0 & m
+\end{array}\right)\delta_{mm'}} \nonumber \\
+&&\mbox{}
+\times\biggr\{\int_0^a\Big(\twothirds r
+\eps\dot{\kappa}\hspace{0.2 mm}V_{\kappa}^{s=2}
++\twothirds r\eps\dot{\mu}\hspace{0.2 mm}V_{\mu}^{s=2}
++\twothirds r\eps\dot{\rho}\hspace{0.2 mm}V_{\rho}^{s=2}
+\nonumber \\
+&&\mbox{}
++\twothirds(r\eps g-\half\Omega^2r^2)V_{\Phi}^{s=2}
++\twothirds[\eps(\eta+1)g+r\eps\dot{g}-\Omega^2r]
+V_{\dot{\Phi}}^{s=2}\Big)\,r^2dr
+\nonumber \\
+&&\mbox{}
+-\sum_d\twothirds d^3\hspace{-0.2 mm}\eps_d\hspace{0.2 mm}
+[V_d^{s=2}]^+_-\biggr\},
+\ena
+其中我们引入
+\eq
+\eta=r\dot{\eps}/\eps.
+\en
+注意到
+\eq \label{D.zapem1}
+\sum_d\twothirds d^3\hspace{-0.2 mm}\eps_d\hspace{0.2 mm}[T_d^{s=2}]^+_-
+=-\int_0^a\twothirds\big[\eps(\eta+3)
+T_{\rho}^{s=2}+r\eps\hspace{0.2 mm}\dot{T}_{\rho}^{s=2}\big]r^2dr,
+\en
+\eq \label{D.zapem2}
+\sum_d\twothirds d^3\hspace{-0.2 mm}\eps_d\hspace{0.2 mm}[V_d^{s=2}]^+_-
+=-\int_0^a\twothirds\big[\eps(\eta+3)
+V_{\rho}^{s=2}+r\eps\hspace{0.2 mm}\dot{V}_{\rho}^{s=2}\big]r^2dr,
+\en
+这样一来对不连续面$d$的求和可以并入径向积分。
+
+利用$u$、$v$、$w$和$p$所满足的径向方程，可以消去(\ref{D.zapem1})--(\ref{D.zapem2})中的导数$\dot{T}_{\rho}^{s=2}$和$\dot{V}_{\rho}^{s=2}$。
+要完成这一简化过程需要大量的代数运算。但是，这一辛苦努力的回报却是相当可观的：模型的导数$\dot{\kappa}$、$\dot{\mu}$和$\dot{\rho}$也被消去了！
+这使得椭率矩阵分量可以表示成不需要数值微分的形式：
+\eqa
+\lefteqn{
+\tilde{T}_{kk'}^{\rm ell}=
+(R_{lm}\delta_{ll'}+\threehalves S_{lm}S_{l'+1\,m}\delta_{l\,l'+2}
++\threehalves S_{l+1\,m}S_{l'm}\delta_{l\,l'-2})\delta_{mm'}}
+\nonumber \\
+&&\mbox{}\qquad\times
+\int_0^a\twothirds\eps
+\rho\bigl[\bar{T}_\rho^{\rm S}
+-(\eta+3)\check{T}_\rho^{\rm S}\bigr]\,r^2dr
+\nonumber \\
+&&\mbox{}
+-3im(S_{lm}\delta_{l\,l'+1}
++S_{l'm}\delta_{l\,l'-1})\delta_{mm'}
+\nonumber \\
+&&\mbox{}\qquad\times
+\int_0^a\twothirds\eps
+\rho\bigl[\bar{T}_\rho^{\rm A}
+-(\eta+3)\check{T}_\rho^{\rm A}\bigr]\,r^2dr,
+\ena
+\eqa \label{D.Vell}
+\lefteqn{
+\tilde{V}_{kk'}^{\rm ell}=
+(R_{lm}\delta_{ll'}+\threehalves S_{lm}S_{l'+1\,m}\delta_{l\,l'+2}
++\threehalves S_{l+1\,m}S_{l'm}\delta_{l\,l'-2})\delta_{mm'}}
+\nonumber \\
+&&\mbox{}\times
+\int_0^a\twothirds\eps\Bigl\{
+\kappa\bigl[\bar{V}_\kappa^{\rm S}
+-(\eta+1)\check{V}_\kappa^{\rm S}\bigr]
++\mu\bigl[\bar{V}_\mu^{\rm S}
+-(\eta+1)\check{V}_\mu^{\rm S}\bigr]\Bigr.
+\nonumber \\
+&&\qquad\mbox{}\Bigl.
++\rho\bigl[\bar{V}_\rho^{\rm S}
+-(\eta+3)\check{V}_\rho^{\rm S}\bigr]\Bigr\}r^2dr
+\nonumber \\
+&&\mbox{}
+-3im(S_{lm}\delta_{l\,l'+1}+S_{l'm}\delta_{l\,l'-1})\delta_{mm'}
+\nonumber \\
+&&\mbox{}
+\times\int_0^a\twothirds\eps\Bigl\{
+-\kappa(\eta+2)\bar{V}_\kappa^{\rm A}
++\mu\bigl[\bar{V}_\mu^{\rm A}
+-(\eta+1)\check{V}_\mu^{\rm A}\bigr]\Bigr.
+\nonumber \\
+&&\qquad\mbox{}\Bigl.
++\rho\bigl[\bar{V}_\rho^{\rm A}
+-(\eta+3)\check{V}_\rho^{\rm A}\bigr]\Bigr\}r^2dr
+\nonumber \\
+&&\mbox{}
+-(-1)^m\sqrt{(2l+1)(2l'+1)}
+\left(\begin{array}{ccc}
+l & 2 & l' \\ -m & 0 & m
+\end{array}\right)\delta_{mm'}
+\nonumber \\
+&&\qquad\mbox{}
+\times\int_0^a\Big(\third\Omega^2r^2V_{\Phi}^{s=2}
++\twothirds\Omega^2rV_{\dot{\Phi}}^{s=2}\Big)r^2dr,
+\ena
+其中
+\eq \label{D.Rlmdef}
+R_{lm}=\frac{l(l+1)-3m^2}{(2l+3)(2l-1)}
+\en
+以及
+\eq
+\bar{T}_\rho^{\rm S}=\half(\el-\lp-6)\uu\vp-\half(\el-\lp+6)\vv\up,
+\en
+\eq
+\check{T}_\rho^{\rm S}=\uu\up+\half(\el+\lp-6)(\vv\vp+\w\wwp),
+\en
+\eq
+\bar{T}_\rho^{\rm A}=\uu\wwp-\w\up,
+\en
+\eq
+\check{T}_\rho^{\rm A}=\vv\wwp-\w\vp,
+\en
+\eqa
+\lefteqn{
+\bar{V}_\kappa^{\rm S}=
+-[\du+\half(\el-\lp+6)r^{-1}\vv](\dup+\fp)
+}
+\nonumber \\
+&&\mbox{}
+-(\du+\f)[\dup-\half(\el-\lp-6)r^{-1}\vp],
+\ena
+\eqa
+\lefteqn{
+\bar{V}_\mu^{\rm S}=
+-\third[2\du+\half(\el-\lp+6)(3\dv-4r^{-1}\vv)](2\dup-\fp)
+}
+\nonumber \\
+&&\mbox{}
+-[\half(\el-\lp-6)\du
+\textcolor{red}{+\half(\el+\lp-6)\dv}
+\nonumber \\
+&&\mbox{}
++\half(\el-\lp+6)\lp r^{-1}\vv]\xp
++[\half(\el-\lp+6)\lp
+\nonumber \\
+&&\mbox{}
++3(\el+\lp-6)]r^{-1}(\vv\dvp+\w\dwp)
+-\half(\el+\lp-6)\z\dwp
+\nonumber \\
+&&\mbox{}
+-\third(2\du-\f)[2\dup-\half(\el-\lp-6)(3\dvp-4r^{-1}\vp)]
+\nonumber \\
+&&\mbox{}
++\x[\half(\el-\lp+6)\dup
+-\half(\el+\lp-6)\dvp
+\nonumber \\
+&&\mbox{}
++\half\el(\el-\lp-6)r^{-1}\vp]
+-[\half\el(\el-\lp-6)
+\nonumber \\
+&&\mbox{}
+-3(\el+\lp-6)]r^{-1}(\dv\vp+\dw\wwp)
+-\half(\el+\lp-6)\dw\zp,
+\ena
+\eqa
+\lefteqn{
+\bar{V}_\rho^{\rm S}=
+(r\dph+4\pi G\rho r\uu+g\uu)\fp
+-\half(\el-\lp+6)r^{-1}g\vv\up
+}
+\nonumber \\
+&&\mbox{}
++3r^{-1}g\uu\up
++r^{-1}\ph[\half(\el+\lp-6)\vp-\el\up]
+\nonumber \\
+&&\mbox{}
++\f(r\dphp+4\pi G\rho r\up+g\up)
++\half(\el-\lp-6)r^{-1}g\uu\vp
+\nonumber \\
+&&\mbox{}
++3r^{-1}g\uu\up
++r^{-1}[\half(\el+\lp-6)\vv-\lp\uu]\php,
+\ena
+\eqa
+\lefteqn{
+\check{V}_\kappa^{\rm S}=
+\half[-\du+\f+(\el-\lp+6)r^{-1}\vv](\dup+\fp)
+}
+\nonumber \\
+&&\mbox{}
++\half(\du+\f)[-\dup+\fp-(\el-\lp-6)r^{-1}\vp],
+\ena
+\eqa
+\lefteqn{
+\check{V}_\mu^{\rm S}=
+\half[(\el+\lp-8)(\el+\lp-6)-2\el\lp]r^{-2}(\vv\vp+\w\wwp)
+}
+\nonumber \\
+&&\mbox{}
++\half(\el+\lp-6)(\x\xp+\z\zp-\dv\xp-\dw\zp-\x\dvp-\z\dwp)
+\nonumber \\
+&&\mbox{}
+-\third[\du+\half\f-(\el-\lp+6)r^{-1}\vv](2\dup-\fp)
+\nonumber \\
+&&\mbox{}
+-\third(2\du-\f)[\dup+\half\f+(\el-\lp-6)r^{-1}\vp],
+\ena
+\eqa
+\lefteqn{
+\check{V}_\rho^{\rm S}=
+\half\uu[2\dphp+8\pi G\rho\up+(\el-\lp-6)gr^{-1}\vp]}
+\nonumber \\
+&&\mbox{}
++\half[2\dph+8\pi G\rho\uu-(\el-\lp+6)gr^{-1}\vv]\up
+\nonumber \\
+&&\mbox{}
++\half(\el+\lp-6)r^{-1}(\vv\php+\ph\vp),
+\ena
+\eqa
+\lefteqn{
+\bar{V}_\mu^{\rm A}=
+\dw[2\dvp-\dup+3r^{-1}\up+(\el-\lp-7)r^{-1}\vp]
+}
+\nonumber \\
+&&\mbox{}
++r^{-1}\w[\fivethirds\dup-7\dvp
++\seventhirds\lp r^{-1}\vp-(\lp+\eightthirds)r^{-1}\up]
+\nonumber \\
+&&\mbox{}
+-[2\dv-\du+3r^{-1}\uu-(\el-\lp+7)r^{-1}\vv]\dwp
+\nonumber \\
+&&\mbox{}
+-r^{-1}[\fivethirds\du-7\dv
++\seventhirds\el r^{-1}\vv-(\el+\eightthirds)r^{-1}\uu]\wwp,
+\ena
+\eq
+\bar{V}_\rho^{\rm A}=
+r^{-1}(\ph+g\uu)\wwp-r^{-1}w(\php+g\up),
+\en
+\eq
+\textcolor{red}{\bar{V}_\kappa^{\rm A}}=
+r^{-1}\w(\dup+\fp)-r^{-1}(\du+\f)\wwp,
+\en
+\eqa
+\lefteqn{
+\check{V}_\mu^{\rm A}=
+r^{-2}\w(\up-\vp)+\twothirds r^{-1}\w(2\dup-\fp)+\dw\dvp
+}
+\nonumber \\
+&&\mbox{}
+-(\el+\lp-8)r^{-2}\w\vp
+-r^{-2}(\uu-\vv)\wwp
+\nonumber \\
+&&\mbox{}
+-\twothirds r^{-1}(2\du-\f)\textcolor{red}{\wwp}-\dv\dwp
++(\el+\lp-8)r^{-2}\vv\wwp,
+\ena
+\eq
+\check{V}_\rho^{\rm A}=\bar{V}_\rho^{\rm A}.
+\en
+我们在此确认并纠正了Henson (\citeyear{henson89})和Shibata, Suda \& Fukao (\citeyear{shibata&al90})指出的
+在Woodhouse (\citeyear{woodhouse80})文章的(A23)--(A24)、(A30)--(A31)和(A34)中存在印刷错误。
+值得注意的是，$s=2$的重力势函数微扰~(\ref{D.ellperts})其中的一部分
+与非球对称离心势函数$\psi-\bar{\psi}$大小相等但符号相反。
+这解释了当我们合并~(\ref{D.Vell})和~(\ref{D.Vcp})来组成复合矩阵$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ell+cen}}$的分量时，
+两式中最后面的项相互抵消了。
+\index{ellipticity|)}%
+
+%\subsection{Anisotropy}
+\subsection{各向异性}
+\index{anisotropy|(}%
+
+应变本征函数$\tilde{\beps}_k$的广义球谐函数表达式为
+\eq \label{D.epstrain}
+\tilde{\beps}_{k}=\tilde{\eps}^{\alpha\beta}\bY_{lm}^{\alpha+\beta}
+=\tilde{\eps}^{\alpha\beta}\,Y_{lm}^{\alpha+\beta}
+\,\beh_\alpha\beh_\beta,
+\en
+其中
+\eqa
+\lefteqn{
+\tilde{\eps}^{\hspace{0.1 mm}00}=\du,\qquad
+\tilde{\eps}^{\pm\pm}=\half k\sqrt{k^2-2}\,r^{-1}(\vv\pm i\w),}
+\nonumber \\
+&&\mbox{}\!\!\!\!\!\!\!\!\!\!\!\!
+\tilde{\eps}^{\hspace{0.1 mm}0\pm}=\textcolor{green}{\eps}^{\pm 0}=
+\textstyle{\frac{\sqrt{2}}{4}}k(\x\pm i\z),
+\qquad \tilde{\eps}^{\pm\mp}=-\half\f.
+\ena
+四阶各向异性弹性张量$\bgamma$也同样可以展开为
+\eq \label{D.gammaexp}
+\bgamma=\sum_{st}
+\gamma_{st}^{\alpha\beta\zeta\eta}
+Y_{st}^{\alpha+\beta+\zeta+\eta}
+\beh_{\alpha}\beh_{\beta}\beh_{\zeta}\beh_{\eta}.
+\en
+正则逆变分量$\gamma^{\alpha\beta\zeta\eta}$与普通球极分量 $\gamma_{rrrr},\ldots,\gamma_{\phi\phi\phi\phi}$之间存在以下关系：
+\eq \label{D.gamcon1}
+\gamma^{0000}=\gamma_{rrrr},
+\en
+\eq
+\gamma^{++--}=\quart\gamma_{\theta\theta\theta\theta}
++\quart\gamma_{\phi\phi\phi\phi}
+-\half\gamma_{\theta\theta\phi\phi}
++\gamma_{\theta\phi\theta\phi},
+\en
+\eq
+\gamma^{+-+-}=\quart\gamma_{\theta\theta\theta\theta}
++\quart\gamma_{\phi\phi\phi\phi}
++\half\gamma_{\theta\theta\phi\phi},
+\en
+\eq
+\gamma^{+-00}=-\half(\gamma_{\theta\theta rr}+\gamma_{\phi\phi rr}),
+\en
+\eq
+\gamma^{+0-0}=-\half(\gamma_{\theta r\theta r}+\gamma_{\phi r\phi r}),
+\en
+\eq
+\gamma^{\pm000}=\mp\textstyle{\frac{1}{\sqrt{2}}}\gamma_{\theta rrr}
++\frac{i}{\sqrt{2}}\gamma_{\phi rrr},
+\en
+\eqa
+\lefteqn{
+\gamma^{\pm\pm\mp0}=\pm\textstyle{
+\frac{1}{2\sqrt{2}}}(\gamma_{\theta\theta\theta r}
++2\gamma_{\theta\phi\phi r}-\gamma_{\phi\phi\theta r})
+}
+\nonumber \\
+&&\mbox{}
++\textstyle{\frac{i}{2\sqrt{2}}}
+(\gamma_{\theta\theta\phi r}-2\gamma_{\theta\phi\theta r}
+-\gamma_{\phi\phi\phi r}),
+\ena
+\eq
+\gamma^{+-\pm0}=\pm\textstyle{\frac{1}{2\sqrt{2}}}
+(\gamma_{\theta\theta\theta r}
++\gamma_{\phi\phi\theta r})
+-\textstyle{\frac{i}{2\sqrt{2}}}
+(\gamma_{\theta\theta\phi r}+\gamma_{\phi\phi\phi r}),
+\en
+\eq
+\gamma^{\pm\pm00}=\half(\gamma_{\theta\theta rr}-\gamma_{\phi\phi rr})
+\mp i\gamma_{\theta\phi rr},
+\en
+\eq
+\gamma^{\pm0\pm0}=\half(\gamma_{\theta r\theta r}-\gamma_{\phi r\phi r})
+\mp i\gamma_{\theta r\phi r},
+\en
+\eq
+\gamma^{\pm\pm+-}=-\quart(\gamma_{\theta\theta\theta\theta}
+-\gamma_{\phi\phi\phi\phi})\pm\textstyle{\frac{i}{2}}
+(\gamma_{\theta\theta\theta\phi}
++\gamma_{\theta\phi\phi\phi}),
+\en
+\eqa
+\lefteqn{
+\gamma^{\pm\pm\pm0}=\mp\textstyle{\frac{1}{2\sqrt{2}}}
+(\gamma_{\theta\theta\theta r}
+-2\gamma_{\theta\phi\phi r}-\gamma_{\phi\phi\theta r})
+}
+\nonumber \\
+&&\mbox{}
++\textstyle{\frac{i}{2\sqrt{2}}}
+(\gamma_{\theta\theta\phi r}+2\gamma_{\theta\phi\theta r}
+-\gamma_{\phi\phi\phi r}),
+\ena
+\eqa \label{D.gamconf}
+\lefteqn{
+\gamma^{\pm\pm\pm\pm}=\quart\gamma_{\theta\theta\theta\theta}
++\quart\gamma_{\phi\phi\phi\phi}
+-\half\gamma_{\theta\theta\phi\phi}
+-\gamma_{\theta\phi\theta\phi}
+}
+\nonumber \\
+&&\mbox{}
+\mp i(\gamma_{\theta\theta\theta\phi}-\gamma_{\theta\phi\phi\phi}).
+\ena
+弹性张量的力学和热力学对称性确保了
+\eq
+\gamma^{\alpha\beta\zeta\eta}
+=\gamma^{\beta\alpha\zeta\eta}=
+\gamma^{\alpha\beta\eta\zeta}=
+\gamma^{\zeta\eta\alpha\beta}.
+\en
+各向异性微扰矩阵~(\ref{D.Vaniso})的分量为
+\eqa
+\lefteqn{
+\tilde{V}_{kk'}^{\rm ani}
+=\sum_{st}\int_0^a\tilde{\eps}_{lm}^{\alpha\beta *}
+\gamma_{st}^{\alpha\beta\zeta\eta}
+\tilde{\eps}_{l'm'}^{\zeta'\eta'}g_{\zeta\zeta'}g_{\eta\eta'}\,r^2dr}
+\nonumber \\
+&&\mbox{}\qquad\times\int_{\Omega}Y_{lm}^{\alpha+\beta *}
+Y_{st}^{\alpha+\beta+\zeta+\eta}Y_{l'm'}^{\zeta'+\eta'}\,d\/\Omega
+\nonumber \\
+&&\mbox{}
+=\sum_{st}\int_0^a\tilde{\eps}_{lm}^{\alpha\beta *}
+\gamma_{st}^{\alpha\beta\zeta\eta}
+\tilde{\eps}_{l'm'}^{\zeta'\eta'}g_{\zeta\zeta'}g_{\eta\eta'}\,r^2dr
+\nonumber \\
+&&\mbox{}\qquad\times
+(-1)^{m+N}\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+\nonumber \\
+&&\mbox{}\qquad\times
+\left(\begin{array}{ccc}
+l & s & l' \\ -N & N-N' & N'
+\end{array}\right)\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right),
+\ena
+其中$N=\alpha+\beta$、$N'=\zeta'+\eta'$和$N-N'=\alpha+\beta+\zeta+\eta$。
+很容易将此式整理成适合数值计算的形式：
+\eqa \label{D.Vanifinal}
+\lefteqn{
+\tilde{V}_{kk'}^{\rm ani}
+=\sum_{st}(-1)^m
+\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}
+}
+\nonumber \\
+&&\mbox{}
+\times
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+\sum_N\sum_I\int_0^a\Gamma_{N\hspace{-0.3 mm}I}\,r^2dr.
+\ena
+对广义球谐函数角标$N$的求和是从$-4$到$4$，而对$I$的求和是从$1$到$I_N$，
+其中$I_0=5$、$I_{\pm 1}=3$、
+$I_{\pm 2}=3$、$I_{\pm 3}=1$和$I_{\pm 4}=1$。
+因此，有21个径向被积函数$\Gamma_{N\hspace{-0.3 mm}I}$，
+每一个对应于21个独立展开系数$\gamma_{st}^{\alpha\beta\zeta\eta}$其中之一：
+\eq
+\Gamma_{01}=\du\du' B_{lsl'}^{(0)+}\gamma_{st}^{0000},
+\en
+\eqa \lefteqn{
+\Gamma_{02}=\half r^{-2}[(\vv\vv'+\w\w')B_{lsl'}^{(2)+}
+} \nonumber \\
+&&\mbox{}-i(\vv\w'-\w\vv')B_{lsl'}^{(2)-}]
+\gamma_{st}^{++--},
+\ena
+\eq
+\Gamma_{03}=\f\f' B_{lsl'}^{(0)+}\gamma_{st}^{+-+-},
+\en
+\eq
+\Gamma_{04}=-(\f\du'+\du\f')B_{lsl'}^{(0)+}\gamma_{st}^{+-00},
+\en
+\eqa \lefteqn{
+\Gamma_{05}=-[(\x\x'+\z\z')B_{lsl'}^{(1)+}
+} \nonumber \\
+&&\mbox{}-i(\x\z'-\z\x')B_{lsl'}^{(1)-}]\gamma_{st}^{+0-0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{11}=-\biggl[
+\Omega_l^0(\x+i\z)\du'
+\left(\begin{array}{ccc}
+l & s & l' \\ -1 & 1 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\,\du(\x'+i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & 1 & -1
+\end{array}\right)
+\biggr]\gamma_{st}^{+000},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-11}=-\biggl[
+\Omega_{l}^0(\x-i\z)\du'
+\left(\begin{array}{ccc}
+l & s & l' \\ 1 & -1 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\,\du(\x'-i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & -1 & 1
+\end{array}\right)
+\biggr]\gamma_{st}^{-000},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{12}=-\Omega_l^0\Omega_{l'}^0\biggl[
+\Omega_{l}^2r^{-1}(\vv+i\w)(\x'-i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ -2 & 1 & 1
+\end{array}\right)
+} \nonumber \\
+&&\mbox{}
++\Omega_{l'}^2\,r^{-1}(\x-i\z)(\vv'+i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ 1 & 1 & -2
+\end{array}\right)
+\biggr]\gamma_{st}^{++-0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-12}=-\Omega_l^0\textcolor{red}{\Omega_{l'}^0}\biggl[
+\Omega_{l}^2r^{-1}(\vv-i\w)(\x'+i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ 2 & -1 & -1
+\end{array}\right)
+} \nonumber \\
+&&\mbox{}
++\Omega_{l'}^2\,r^{-1}(\x+i\z)(\vv'-i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ -1 & -1 & 2
+\end{array}\right)
+\biggr]\gamma_{st}^{--+0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{13}=\biggl[
+\textcolor{red}{\Omega_{l}^0}(\x+i\z)\f'
+\left(\begin{array}{ccc}
+l & s & l' \\ -1 & 1 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\f(\x'+i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & 1 & -1
+\end{array}\right)
+\biggr]\gamma_{st}^{+-+0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-13}=\biggl[
+\Omega_{l}^0(\x-i\z)\f'
+\left(\begin{array}{ccc}
+l & s & l' \\ 1 & -1 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\f(\x'-i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & -1 & 1
+\end{array}\right)
+\biggr]\gamma_{st}^{-+-0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{21}=\biggl[
+\Omega_{l}^0\Omega_{l}^2r^{-1}(\vv+i\w)\du'
+\left(\begin{array}{ccc}
+l & s & l' \\ -2 & 2 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\Omega_{l'}^2\,r^{-1}\du(\vv'+i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & 2 & -2
+\end{array}\right)
+\biggr]\gamma_{st}^{++00},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-21}=\biggl[
+\Omega_{l}^0\Omega_{l}^2r^{-1}(\vv-i\w)\du'
+\left(\begin{array}{ccc}
+l & s & l' \\ 2 & -2 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\Omega_{l'}^2\,r^{-1}\du(\vv'-i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & -2 & 2
+\end{array}\right)
+\biggr]\gamma_{st}^{--00},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{22}=\Omega_l^0\Omega_{l'}^0
+[(\x\x'-\z\z')+i(\x\z'+\z\x')]
+}
+\nonumber \\
+&&\mbox{}\times\left(\begin{array}{ccc}
+l & s & l' \\ -1 & 2 & -1
+\end{array}\right)
+\gamma_{st}^{+0+0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-22}=\Omega_l^0\Omega_{l'}^0
+[(\x\x'-\z\z')-i(\x\z'+\z\x')]
+}
+\nonumber \\
+&&\mbox{}\times\left(\begin{array}{ccc}
+l & s & l' \\ 1 & -2 & 1
+\end{array}\right)
+\gamma_{st}^{-0-0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{23}=-\biggl[
+\textcolor{red}{\Omega_{l}^0\Omega_{l}^2}r^{-1}(\vv+i\w)\f'
+\left(\begin{array}{ccc}
+l & s & l' \\ -2 & 2 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\Omega_{l'}^2\,r^{-1}\f(\vv'+i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & 2 & -2
+\end{array}\right)
+\biggr]\gamma_{st}^{+++-},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-23}=-\biggl[
+\Omega_{l}^0\Omega_{l}^2r^{-1}(\vv-i\w)\f'
+\left(\begin{array}{ccc}
+l & s & l' \\ 2 & -2 & 0
+\end{array}\right)
+}
+\nonumber \\
+&&\mbox{}
++\Omega_{l'}^0\Omega_{l'}^2\,r^{-1}\f(\vv'-i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ 0 & -2 & 2
+\end{array}\right)
+\biggr]\gamma_{st}^{---+},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{31}=-\Omega_l^0\Omega_{l'}^0\biggl[
+\Omega_{l}^2r^{-1}(\vv+i\w)(\x'+i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ -2 & 3 & -1
+\end{array}\right)
+} \nonumber \\
+&&\mbox{}
++\Omega_{l'}^2\,r^{-1}(\x+i\z)(\vv'+i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ -1 & 3 & -2
+\end{array}\right)
+\biggr]\gamma_{st}^{+++0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{-31}=-\Omega_l^0\Omega_{l'}^0\biggl[
+\Omega_{l}^2r^{-1}(\vv-i\w)(\x'-i\z')
+\left(\begin{array}{ccc}
+l & s & l' \\ 2 & -3 & 1
+\end{array}\right)
+} \nonumber \\
+&&\mbox{}
++\Omega_{l'}^2\,r^{-1}(\x-i\z)(\vv'-i\w')
+\left(\begin{array}{ccc}
+l & s & l' \\ 1 & -3 & 2
+\end{array}\right)
+\biggr]\gamma_{st}^{---0},
+\ena
+\eqa
+\lefteqn{
+\Gamma_{41}=\Omega_l^0\Omega_l^2\Omega_{l'}^0\Omega_{l'}^2
+\,r^{-2}[(\vv\vv'-\w\w')
+} \nonumber \\
+&&\mbox{}
++i(\vv\w'+\w\vv')]
+\left(\begin{array}{ccc}
+l & s & l' \\ -2 & 4 & -2
+\end{array}\right)
+\gamma_{st}^{++++},
+\ena
+\eqa \label{D.lastMoch}
+\lefteqn{
+\Gamma_{-41}=\Omega_l^0\Omega_l^2\Omega_{l'}^0\Omega_{l'}^2
+\,r^{-2}[(\vv\vv'-\w\w')
+} \nonumber \\
+&&\mbox{}
+-i(\vv\w'+\w\vv')]
+\left(\begin{array}{ccc}
+l & s & l' \\ 2 & -4 & 2
+\end{array}\right)
+\gamma_{st}^{----},
+\ena
+这里我们使用了定义~(C.146)。
+次数$s=0$的系数描述了对一个SNREI初始模型的横向各向同性微扰：
+\eqa \label{D.triso1} \lefteqn{
+\gamma_{00}^{0000}=\delta C,\qquad
+\gamma_{00}^{++--}=2\hspace{0.5 mm}\delta\hspace{-0.3 mm}N,\qquad
+\gamma_{00}^{+-+-}=\delta\hspace{-0.3 mm}A-\delta\hspace{-0.3 mm}N,}
+\nonumber \\
+&&\mbox{}\qquad
+\gamma_{00}^{+-00}=-\delta\hspace{-0.3 mm}F,\qquad
+\gamma_{00}^{+0-0}=-\delta\hspace{-0.3 mm}L.
+\ena
+这种球对称微扰会造成每个多态模式${}_n{\rm S}_l$
+或${}_n{\rm T}_l$简并本征频率的移动，但它不会引起任何分裂或多态模式之间的耦合。
+一个{\em 非球对称\/}的各向异性微扰$\bgamma^{\rm asp}$的广义球谐函数展开~(\ref{D.gammaexp})从$s=1$，而不是$s=0$。
+(\ref{D.Vanifinal})--(\ref{D.lastMoch})这些结果是由Mochizuki (\citeyear{mochizuki86})最先正确地给出的。
+\index{anisotropy|)}%
+
+%\subsection{Diagonal sum rule}
+\subsection{对角线之和法则}
+\index{diagonal sum rule|(}%
+\index{generalized diagonal sum rule|(}%
+\label{D.sec.diagsum}
+
+(\ref{D.kinetic2})--(\ref{D.Amatrix2})
+和~(\ref{D.Vanifinal})中的每个矩阵分量都有通用的形式
+\eq \label{D.reduced}
+\tilde{M}_{kk'}=\sum_{st}\,
+(-1)^{l+m}
+\left(\begin{array}{ccc}
+l & s & l' \\ -m & t & m'
+\end{array}\right)
+\|\tilde{M}_{\sigma nl;\sigma'\hspace{-0.4 mm}n'\hspace{-0.2 mm}l'}\|_{st},
+\en
+其中$\tilde{\ssM}$表示矩阵$\tilde{\ssT}$、
+$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm iso}}$、
+$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ani+asp}}$
+或$\tilde{\ssA}$中的任何一个，而$\sigma$则仍然表示S或T。
+$\|\tilde{M}_{\sigma nl;\sigma'\hspace{-0.4 mm}n'\hspace{-0.2 mm}l'}\|_{st}$
+这个量依赖于多态模式${}_n{\rm S}_l$或${}_n{\rm T}_l$和${}_{n'}{\rm S}_{l'}$或
+${}_{n'}{\rm T}_{l'}$，以及角标$s$和$t$，但它们与级数$m$和$m'$无关。
+这些所谓的{\em 折合\/}或{\em 双竖线\/}矩阵分量由~(\ref{D.reduced})所定义；
+\index{reduced matrix element}%
+\index{double-bar matrix element}%
+例如
+\eqa \label{D.wigeck} \lefteqn{
+\|\tilde{T}_{\sigma nl;\sigma'\hspace{-0.4 mm}n'\hspace{-0.2 mm}l'}\|_{st}=
+(-1)^l\left[\frac{(2l+1)(2s+1)(2l'+1)}{4\pi}\right]^{1/2}}
+\nonumber \\
+&&\mbox{}
+\times\biggl\{
+\int_0^a\delta\hspace{-0.3 mm}\tilde{\rho}_{st}T_\rho\,r^2dr
++\sum_dd^2\delta\hspace{-0.1 mm}\tilde{d}_{st}\left[T_d\right]_-^+\biggr\}.
+\ena
+将一般的矩阵分量$\tilde{M}_{kk'}$分解成~(\ref{D.reduced})中
+\textcolor{red}{与级数无关的项之和乘以显式3-$j$因子}的形式，这是个很有名的结果，在量子力学中被称为{\em 为Wigner-Eckart定理\/}。
+\index{Wigner-Eckart theorem}%
+在$\|\tilde{M}_{\sigma nl;\sigma'\hspace{-0.4 mm}
+n'\hspace{-0.2 mm}l'}\|_{st}$的定义中的因子$(-1)^l$是惯例(Edmonds \citeyear{edmonds60})。
+要注意双竖线符号并不是表示矩阵$\tilde{\ssM}$的任何范数或模量；
+事实上，折合矩阵分量$\|\tilde{M}_{\sigma nl;\sigma'\hspace{-0.4 mm}
+n'\hspace{-0.2 mm}l'}\|_{st}$在一般情况下为复数。
+
+$\tilde{\ssM}$的{\em 迹\/}或对角线分量之和为
+\eq \label{D.diagsum}
+{\rm tr}\,\tilde{\ssM}=\sum_{\sigma n\hspace{0.2 mm}l}
+\sum_{\raise-0.1ex\hbox{\scriptsize\it st}}
+\sum_m(-1)^{l+m}
+\left(\begin{array}{ccc}
+l & s & l \\ -m & t & m
+\end{array}\right)
+\|\tilde{M}_{\sigma nl;\sigma nl}\|_{st}.
+\en
+利用~(\ref{C.isola})式以及球谐函数加法定理~(\ref{eq:addylm})，
+可以计算对$m$的求和：
+\eqa \label{D.diagsum2} \lefteqn{
+\sum_m(-1)^m
+\left(\begin{array}{ccc}
+l & s & l \\ -m & t & m
+\end{array}\right)=\sum_m\,
+(2l+1)^{-1}\left(\frac{2s+1}{4\pi}\right)^{-1/2}
+}
+\nonumber \\
+&&\mbox{}\qquad\qquad
+\times\left(\begin{array}{ccc}
+l & s & l \\ 0 & 0 & 0
+\end{array}\right)^{-1}
+\int_{\Omega}Y_{lm}^*Y_{\raise-0.2ex\hbox{\scriptsize\it st}}
+Y_{\raise-0.2ex\hbox{\scriptsize\it lm}}\,d\/\Omega
+\nonumber \\
+&&\mbox{}
+=\frac{1}{4\pi}\left(\frac{2s+1}{4\pi}\right)^{-1/2}
+\left(\begin{array}{ccc}
+l & s & l \\ 0 & 0 & 0
+\end{array}\right)^{-1}
+\int_{\Omega}Y_{st}\,d\/\Omega
+\nonumber \\
+&&\mbox{}
+=\left(\begin{array}{ccc}
+l & 0 & l \\ 0 & 0 & 0
+\end{array}\right)^{-1}\delta_{s0}=(-1)^l\sqrt{2l+1}\,\delta_{s0}.
+\ena
+这里的重要结论是，对所有次数$s>0$，(\ref{D.diagsum2})式的值均为零。
+只要扰动前的地球模型$\kappa_0$、$\mu_0$、$\rho$是地球单极子，就一定有
+\eq \label{D.diagsum3}
+{\rm tr}\,\tilde{\ssM}=0.
+\en
+(\ref{D.diagsum3})这一结果由Gilbert (\citeyear{gilbert71a})最先在此地震学背景下清楚地阐释，它被称为{\em 对角线之和法则\/}。
+\index{diagonal sum rule}%
+$s=2$的椭率矩阵满足这一关系，此外$1\leq s\leq s_{\rm max}$ 的横向不均匀性、各向异性和非弹性矩阵也都满足这一关系：
+\eq \label{D.diagsum4}
+{\rm tr}\,\tilde{\ssT}^{\raise-0.5ex\hbox{\scriptsize\rm ell}}=
+{\rm tr}\,\tilde{\ssT}^{\raise-0.5ex\hbox{\scriptsize\rm lat}}=0,
+\en
+\eq
+{\rm tr}\,\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ell}}=
+{\rm tr}\,\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm lat}}=
+{\rm tr}\,\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ani+asp}}=
+{\rm tr}\,\tilde{\ssA}=0.
+\en
+科里奥利矩阵~(\ref{D.Omegmat})也能很容易被证明遵从对角线之和法则：
+\eq
+\label{D.diagsum5}
+{\rm tr}\,\tilde{\ssW}=0.
+\en
+然而，由于球对称的势函数微扰$\bar{\psi}=-\third\Omega^2r^2$的存在，离心势矩阵~(\ref{D.Vcp}){\em 不\/}满足对角线之和法则。事实上，它的迹为
+\eqa \label{D.diagsum6} \lefteqn{
+{\rm tr}\,\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm cen}}=
+\twothirds\Omega^2\sum_{\sigma nl}\,(2l+1)\!\left[1-k^2
+\int_0^a\rho(\vv^2+2\uu\vv+w^2)\,r^2dr\right].}
+\nonumber \\
+&&\mbox{}
+\ena
+由于$k^2\int_0^a\rho w^2\,r^2dr=1$，
+环型多态模式${}_n{\rm T}_l$对~(\ref{D.diagsum6})中的迹没有贡献。
+\index{diagonal sum rule|)}%
+\index{generalized diagonal sum rule|)}%
+\index{matrix!perturbation|)}%
+\index{perturbation matrix|)}%
+
+%\section{Complex-to-Real Basis Transformation}
+\section{复数基到实数基的变换}
+\label{D.sec.CtoR}
+
+正如一开始承诺的，我们现在来展示如何将矢量$\tilde{\ssr}$、$\tilde{\sss}$和矩阵 $\tilde{\ssT}$、$\tilde{\ssV}$、$\tilde{\ssW}$的分量变换为
+$\ssr$、$\sss$和$\ssT$、$\ssV$、$\ssW$的对应分量。
+我们将(仅)在本节中稍微改变一下符号，
+用$k$作为{\em 多态模式\/}的缩写代号，来代表${}_n{\rm S}_l$或${}_n{\rm T}_l$。
+为避免下角标的混乱，简便的做法是把级数下角标改写为上角标，将实数和
+复数本征函数之间的关系表示为：
+\eq \label{D.CtoR}
+\bs_k^{-m}=\textstyle{\frac{1}{\sqrt{2}}}
+(\tilde{\bs}_k^{m*}+\tilde{\bs}_k^{m}),
+\en
+\eq
+\bs_k^0=\tilde{\bs}_k^0,
+\en
+\eq \label{D.CtoR1}
+\bs_k^m=\textstyle{\frac{
+\textcolor{green}{-i}}{\sqrt{2}}}
+(\tilde{\bs}_k^{m*}-\tilde{\bs}_k^{m}),
+\en
+这里我们认定$m>0$。
+
+%\subsection{Receiver and source vector}
+\subsection{接收点和源点矢量}
+\index{vector!receiver|(}%
+\index{vector!source|(}%
+\index{receiver vector|(}%
+\index{source vector|(}%
+
+借助~(\ref{D.CtoR})--(\ref{D.CtoR1})将实数接收点矢量$\ssr$的分量
+用复数的接收点矢量$\tilde{\ssr}$分量~(\ref{D.recvec})来表示，我们得到
+\eq \label{D.2rsfirst}
+r_k^{-m}=\sqrt{2}\,\Re{\rm e}\,\tilde{r}_k^m,\qquad
+r_k^0=\tilde{r}_k^0,\qquad
+r_k^{m}=-\sqrt{2}\,\Im{\rm m}\,\tilde{r}_k^m.
+\en
+实数和复数源点矢量$\sss$和$\tilde{\sss}$的分量之间有相似的关系：
+\eq \label{D.2rslast}
+s_k^{-m}=\sqrt{2}\,\Re{\rm e}\,\tilde{s}_k^m,\qquad
+s_k^0=\tilde{s}_k^0,\qquad
+s_k^{m}=-\sqrt{2}\,\Im{\rm m}\,\tilde{s}_k^m.
+\en
+(\ref{D.2rsfirst})和~(\ref{D.2rslast})显然只是 一般标量变换关系~(\ref{B.Psipsi})的特例。
+\index{vector!receiver|)}%
+\index{vector!source|)}%
+\index{receiver vector|)}%
+\index{source vector|)}%
+
+%\subsection{Perturbation matrices}
+\subsection{微扰矩阵}
+\index{perturbation matrix|(}%
+\index{matrix!perturbation|(}%
+
+在本节中，我们将用$\tilde{\ssM}$
+来表示所有非球对称动能或势能矩阵
+$\tilde{\ssT}^{\raise-0.5ex\hbox{\scriptsize\rm ell}}$、
+$\tilde{\ssT}^{\raise-0.5ex\hbox{\scriptsize\rm lat}}$或
+$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ell}}$、
+$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm cen}}$、
+$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm lat}}$、
+$\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ani+asp}}$、
+$\tilde{\ssA}$，唯有科里奥利矩阵$\tilde{\ssW}${\em 除外\/}。
+这些复数矩阵满足对称性
+\eq \label{D.CtoR2}
+\tilde{M}_{kk'}^{mm'}=\tilde{M}_{k'k}^{m'm*}
+=(-1)^{m+m'}\tilde{M}_{kk'}^{-m-m'*},
+\en
+\eq \label{D.CtoR3}
+\tilde{W}_{kk'}^{mm'}=\tilde{W}_{k'k}^{m'm*}
+=-(-1)^{m+m'}\tilde{W}_{kk'}^{-m-m'*}.
+\en
+上述两式中的第一、三个等号只是表明了$\tilde{\ssM}$和$\tilde{\ssW}$的厄米特性质：
+$\tilde{\ssM}=\tilde{\ssM}^{\raise-0.5ex\hbox{\scriptsize\rm H}}$和
+$\tilde{\ssW}=\tilde{\ssW}^{\raise-0.5ex\hbox{\scriptsize\rm H}}$。
+而第二个等号则归因于微扰
+$\delta\hspace{-0.1 mm}\kappa$、$\delta\hspace{-0.2 mm}\mu$、
+$\delta\hspace{-0.3 mm}\rho$、$\delta\Phi$、$q_{\kappa}$、$q_{\mu}$、
+$\delta\hspace{-0.1 mm}d$和$\bgamma^{\rm asp}$的实数特性以及
+球谐函数等式$Y_{l\,-m}=(-1)^mY_{lm}^*$。
+最后的第四个等号很容易用科里奥利矩阵表达式~(\ref{D.Omegmat})来验证。
+借助于~(\ref{D.CtoR})--(\ref{D.CtoR1})
+和~(\ref{D.CtoR2})--(\ref{D.CtoR3})，可以得到复数到实数矩阵的变换关系：
+\eq \label{D.Ztrans1}
+M_{kk'}^{-m-m'}=\real\,[
+\tilde{M}_{kk'}^{mm'}
++(-1)^{m'}\tilde{M}_{kk'}^{m-m'}],
+\en
+\eq
+M_{kk'}^{mm'}=\real\,[
+\tilde{M}_{kk'}^{mm'}
+-(-1)^{m'}\tilde{M}_{kk'}^{m-m'}],
+\en
+\eq
+M_{kk'}^{-mm'}=\Im{\rm m}\,[
+\tilde{M}_{kk'}^{mm'}
+-(-1)^{m'}\tilde{M}_{kk'}^{m-m'}],
+\en
+\eq
+M_{kk'}^{m-m'}=-\Im{\rm m}\,[
+\tilde{M}_{kk'}^{mm'}
++(-1)^{m'}\tilde{M}_{kk'}^{m-m'}],
+\en
+\eq
+M_{kk'}^{-m0}=\sqrt{2}\,\real\,\tilde{M}_{kk'}^{m0},\qquad
+M_{kk'}^{0-m'}=\sqrt{2}\,\real\,\tilde{M}_{kk'}^{0m'},
+\en
+\eq
+M_{kk'}^{m0}=\sqrt{2}\,\Im{\rm m}\,\tilde{M}_{kk'}^{m0},\qquad
+M_{kk'}^{0m'}=\sqrt{2}\,\Im{\rm m}\,\tilde{M}_{kk'}^{0m'},
+\en
+\eq \label{D.Ztrans2}
+M_{kk'}^{00}=\tilde{M}_{kk'}^{00},
+\en
+\eq
+W_{kk'}^{-m-m'}=W_{kk'}^{mm'}=i\,\Im{\rm m}\,[\tilde{W}_{kk'}^{mm'}],
+\en
+\eq
+W_{kk'}^{-mm'}=-W_{kk'}^{m-m'}=-i\,\real\,[\tilde{W}_{kk'}^{mm'}],
+\en
+\eq \label{D.Wtrans}
+W_{kk'}^{-m0}=W_{kk'}^{0-m'}=W_{kk'}^{m0}=W_{kk'}^{0m'}=W_{kk'}^{00}=0,
+\en
+这里我们认定$m>0$和$m'>0$。
+由此得到的能量矩阵是实数且对称的，而科里奥利矩阵是纯虚数且反对称的：
+\eq
+\Im{\rm m}\,M_{kk'}^{mm'}=0,\qquad \Re{\rm e}\,W_{kk'}^{mm'}=0,
+\en
+\eq \label{D.WZsymm}
+M_{kk'}^{mm'}=M_{k'k}^{m'm},\qquad W_{kk'}^{mm'}=-W_{k'k}^{m'm}.
+\en
+新的科里奥利和椭率加离心矩阵分量可以用显式写为：
+\eqa \label{D.imagW}
+\lefteqn{
+W_{kk'}^{mm'}=im\Omega\delta_{ll'}\delta_{m\,-m'}
+\int_0^a\rho W^{\rm S}\,r^2dr} \nonumber \\
+&&\mbox{}
+-i\Omega(S_{lm}\delta_{l\,l'+1}+S_{l'm}\delta_{l\,l'-1})\delta_{mm'}
+\int_0^a\rho W^{\rm A}\,r^2dr,
+\ena
+\eqa \label{D.realT}
+\lefteqn{
+T_{kk'}^{\rm ell}=
+(R_{lm}\delta_{ll'}+\threehalves S_{lm}S_{l'+1\,m}\delta_{l\,l'+2}
++\threehalves S_{l+1\,m}S_{l'm}\delta_{l\,l'-2})\delta_{mm'}}
+\nonumber \\
+&&\mbox{}\qquad\times
+\int_0^a\twothirds\eps
+\rho\bigl[\bar{T}_\rho^{\rm S}
+-(\eta+3)\check{T}_\rho^{\rm S}\bigr]\,r^2dr
+\nonumber \\
+&&\mbox{}
++3m(S_{lm}\delta_{l\,l'+1}
++S_{l'm}\delta_{l\,l'-1})\delta_{m\,-m'}
+\nonumber \\
+&&\mbox{}\qquad\times
+\int_0^a\twothirds\eps
+\rho\bigl[\bar{T}_\rho^{\rm A}
+-(\eta+3)\check{T}_\rho^{\rm A}\bigr]\,r^2dr,
+\ena
+\eqa \label{D.realV}
+\lefteqn{
+V_{kk'}^{\rm ell+cen}=\twothirds\Omega^2\delta_{\sigma\sigma'}
+\delta_{nn'}\delta_{ll'}\delta_{mm'}-\twothirds k^2\Omega^2\delta_{ll'}\delta_{mm'}
+\int_0^a\rho W^{\rm S}\,r^2dr} \nonumber \\
+&&\mbox{}
++(R_{lm}\delta_{ll'}+\threehalves S_{lm}S_{l'+1\,m}\delta_{l\,l'+2}
++\threehalves S_{l+1\,m}S_{l'm}\delta_{l\,l'-2})\delta_{mm'}
+\nonumber \\
+&&\mbox{}\times
+\int_0^a\twothirds\eps\Bigl\{
+\kappa\bigl[\bar{V}_\kappa^{\rm S}
+-(\eta+1)\check{V}_\kappa^{\rm S}\bigr]
++\mu\bigl[\bar{V}_\mu^{\rm S}
+-(\eta+1)\check{V}_\mu^{\rm S}\bigr]\Bigr.
+\nonumber \\
+&&\qquad\mbox{}\Bigl.
++\rho\bigl[\bar{V}_\rho^{\rm S}
+-(\eta+3)\check{V}_\rho^{\rm S}\bigr]\Bigr\}r^2dr
+\nonumber \\
+&&\mbox{}
++3m(S_{lm}\delta_{l\,l'+1}+S_{l'm}\delta_{l\,l'-1})\delta_{m\,-m'}
+\nonumber \\
+&&\mbox{}
+\times\int_0^a\twothirds\eps\Bigl\{
+-\kappa(\eta+2)\bar{V}_\kappa^{\rm A}
++\mu\bigl[\bar{V}_\mu^{\rm A}
+-(\eta+1)\check{V}_\mu^{\rm A}\bigr]\Bigr.
+\nonumber \\
+&&\qquad\mbox{}\Bigl.
++\rho\bigl[\bar{V}_\rho^{\rm A}
+-(\eta+3)\check{V}_\rho^{\rm A}\bigr]\Bigr\}r^2dr,
+\ena
+这里我们恢复了用下角标$k$代表单态模式而非多态模式的惯例。
+由于上角标中标有S和A的积分核分别具有对称性和反对称性，因此
+~(\ref{D.imagW})--(\ref{D.realV})满足~(\ref{D.WZsymm})。
+最后我们指出，由于基变换~(\ref{D.CtoR})--(\ref{D.CtoR1})是幺正的，
+因此对角线之和的关系~(\ref{D.diagsum4})--(\ref{D.diagsum6})仍然保持：
+\eq \label{D.realdsum}
+{\rm tr}\,\ssT^{\rm ell}={\rm tr}\,\ssT^{\rm lat}=0,
+\en
+\eq
+{\rm tr}\,\ssV^{\rm ell}={\rm tr}\,\ssV^{\rm lat}=
+{\rm tr}\,\ssV^{\rm ani+asp}={\rm tr}\,\ssA=0,
+\en
+\eq \label{D.realdsum2}
+{\rm tr}\,\ssW=0,\qquad{\rm tr}\,\ssV^{\rm cen}={\rm tr}\,
+\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm cen}}.
+\en
+利用显式表达式~(\ref{D.imagW})--(\ref{D.realV})，
+${\rm tr}\,\ssW$、${\rm tr}\,\ssT^{\rm ell}$
+和${\rm tr}\,\ssV^{\rm ell+cen}$的值可以通过直接求和来验证。
+\index{perturbation matrix|)}%
+\index{matrix!perturbation|)}%
+
+%\subsection{Transformation matrix}
+\subsection{变换矩阵}
+\index{transformation matrix|(}%
+\index{matrix!transformation|(}%
+
+复数到实数基的变换关系(\ref{D.2rsfirst})--(\ref{D.2rslast})
+和~(\ref{D.Ztrans1})--(\ref{D.Wtrans})可以用简洁的矩阵形式表示为：
+\eq \label{D.CtoRmat1}
+\ssr=\ssU^{\rm H}\tilde{\ssr},\qquad
+\sss=\ssU^{\rm H}\tilde{\sss},
+\en
+\eq \label{D.CtoRmat2}
+\ssM=\ssU^{\rm H}\tilde{\ssM}\ssU,\qquad
+\ssW=\ssU^{\rm H}\tilde{\ssW}\ssU,
+\en
+其中上角标H表示厄米特转置。变换矩阵$\ssU$为分块对角矩阵：
+\eq \label{D.CtoRmat3}
+\ssU=\left(\begin{array}{ccccccc}
+\ddots &&&&&& \\
+& \hspace{-3 mm}\ssU_{-2-2} &&&&& \\
+&& \hspace{-2 mm}\ssU_{-1-1} &&&& \\
+&&& \hspace{-2 mm}\ssU_{00} &&& \\
+&&&& \hspace{-1.5 mm}\ssU_{11} && \\
+&&&&& \hspace{-1.5 mm}\ssU_{22} & \\
+&&&&&& \hspace{-3 mm}\ddots
+\end{array}\right),
+\en
+这里我们再次将$k=\ldots,-2,-1,0,1,2,\ldots$的含义改为代表多态模式。
+中央或{\em 目标\/}多态模式用$k=0$表示。
+\index{target multiplet}%
+\index{multiplet!target}%
+(\ref{D.CtoRmat3})中每一个$(2l+1)\times(2l+1)$亚矩阵具有同样的形式：
+\eq \label{D.CtoRmat4}
+\ssU_{kk}=\left(\begin{array}{ccccccc}
+\ddots &&&&&&
+\mbox{.\hspace{0.2 ex}\raisebox{.8ex}{.}\hspace{0.2 ex}\raisebox{1.6ex}{.}} \\
+& \frac{1}{\sqrt{2}} &&&& \frac{i}{\sqrt{2}} & \\
+&& \hspace{-2 mm}-\frac{1}{\sqrt{2}} && \hspace{-2 mm}-\frac{i}{\sqrt{2}} && \\
+&&& 1 &&& \\
+&& \frac{1}{\sqrt{2}} && -\frac{i}{\sqrt{2}} && \\
+& \hspace{-2 mm}\frac{1}{\sqrt{2}} &&&& \hspace{-2 mm}-\frac{i}{\sqrt{2}} & \\
+\mbox{.\hspace{0.2 ex}\raisebox{.8ex}{.}\hspace{0.2 ex}\raisebox{1.6ex}{.}}
+&&&&&& \ddots
+\end{array}\right),
+\en
+这里的符号如所示的方式沿上半部对角线和反对角线交替变换。
+由于该变换是幺正的，即
+\eq \label{D.CtoRmat5}
+\ssU^{\rm H}\ssU=\ssU\ssU^{\rm H}=\ssI,
+\en
+我们可以对~(\ref{D.CtoRmat1})--(\ref{D.CtoRmat2})求逆而得到
+复数的接收点和源点矢量及微扰矩阵与相应的实数矢量及矩阵之间的关系：
+\eq \label{D.CtoRmat6}
+\tilde{\ssr}=\ssU\ssr,\qquad
+\tilde{\sss}=\ssU\sss,
+\en
+\eq \label{D.CtoRmat7}
+\tilde{\ssM}=\ssU\ssM\ssU^{\rm H},\qquad
+\tilde{\ssW}=\ssU\ssW\ssU^{\rm H}.
+\en
+在~(\ref{D.CtoRmat1})--(\ref{D.CtoRmat2})
+和~(\ref{D.CtoRmat6})--(\ref{D.CtoRmat7})中能量和科里奥利矩阵的变换是相同的，
+但在~(\ref{D.Ztrans1})--(\ref{D.Wtrans})中则不同，
+这是因为我们使用了另外的非厄米特对称性~(\ref{D.CtoR2})--(\ref{D.CtoR3})来对后者进行了化简。
+\index{transformation matrix|)}%
+\index{matrix!transformation|)}%
+
+%\section{Self Coupling}
+\section{自耦合}
+\index{self coupling|(}%
+\label{D.sec.self}
+
+孤立的球型或环型多态模式${}_n{\rm S}_l$或${}_n{\rm T}_l$的分裂满足维度为 $(2l+1)\times(2l+1)$的"自耦合"矩阵。
+为方便起见，我们在本节中列出实数对称矩阵分量
+$T_{mm'}^{\rm ell}$、$T_{mm'}^{\rm lat}$、$V_{mm'}^{\rm ell+cen}$、
+$V_{mm'}^{\rm lat}$、$V_{mm'}^{\rm ani}$、$A_{mm'}$和虚数反对称分量
+$W_{mm'}$。当然，这些结果也可以通过直接令$\sigma'=\sigma$、$n'=n$和$l'=l$而获得。
+
+%\subsection{Rotation and ellipticity}
+\subsection{自转和椭率}
+\index{rotation|(}%
+\index{coupling!rotation|(}%
+\index{coupling!ellipticity|(}%
+\index{ellipticity|(}%
+
+在孤立多态模式近似下，地球的自转和流体静力学椭率作用所满足的矩阵分量为
+\eq \label{D.selfW}
+W_{mm'}=im\Omega\delta_{m\,-m'}
+\int_0^a\rho(\vv^2+2\uu\vv+\w^2)\,r^2dr,
+\en
+\eq \label{D.selfT}
+T_{mm'}^{\rm ell}=
+R_{lm}\delta_{mm'}
+\int_0^a\twothirds\eps\rho\bigl[\bar{T}_\rho
+-(\eta+3)\check{T}_\rho\bigr]r^2dr,
+\en
+\eqa \label{D.Vellcen}
+\lefteqn{
+V_{mm'}^{\rm ell+cen}=\twothirds\Omega^2\delta_{mm'}
+\!\left[1-k^2\int_0^a\rho(\vv^2+2\uu\vv+\w^2)\,r^2dr\right]
+}
+\nonumber \\
+&&\mbox{}
++R_{lm}\delta_{mm'}
+\int_0^a\twothirds\eps\Bigl\{
+\kappa\bigl[\bar{V}_\kappa
+-(\eta+1)\check{V}_\kappa\bigr]
+\nonumber \\
+&&\mbox{}
++\mu\bigl[\bar{V}_\mu
+-(\eta+1)\check{V}_\mu\bigr]
++\rho\bigl[\bar{V}_\rho
+-(\eta+3)\check{V}_\rho\bigr]\Bigr\}r^2dr,
+\ena
+其中$R_{lm}$由~(\ref{D.Rlmdef})给定，且
+\eq \label{D.selffirst}
+\bar{T}_\rho=-6\uu\vv,
+\qquad
+\check{T}_\rho=\uu^2+(\el-3)(\vv^2+\w^2),
+\en
+\eq
+\bar{V}_\kappa=-2(\du+\f)(\du+3r^{-1}\vv),
+\en
+\eqa
+\lefteqn{
+\bar{V}_\mu=
+-\twothirds(2\du-\f)(2\du+9\dv-12r^{-1}\vv)
+}
+\nonumber \\
+&&\mbox{}
++2\x\bigl[3\du
+-(\el-3)\dv
+-3r^{-1}\el\vv)]
+\nonumber \\
+&&\mbox{}
++18(\el-2)r^{-1}(\vv\dv+\w\dw)-2(\el-3)z\dw,
+\ena
+\eqa
+\lefteqn{
+\bar{V}_\rho=
+2\f(r\dph+4\pi G\rho r\uu+g\uu)
+-6r^{-1}g\uu\vv
+}
+\nonumber \\
+&&\mbox{}
++6r^{-1}g\uu^2
++2r^{-1}[(\el-3)\vv-\el\uu]\ph,
+\ena
+\eq
+\check{V}_\kappa=
+-(\du+\f)(\du-\f-6r^{-1}\vv),
+\en
+\eqa
+\lefteqn{
+\check{V}_\mu=
+(\el-12)(\el-2)r^{-2}(\vv^2+\w^2)
+}
+\nonumber \\
+&&\mbox{}
+\textcolor{red}{+}(\el-3)(\x^2+\z^2-2\x\dv-2\z\dw)
+\nonumber \\
+&&\mbox{}
+-\twothirds(2\du-f)(\du+\half\f-6r^{-1}\vv),
+\ena
+\eq \label{D.selflast}
+\check{V}_\rho=
+2(\el-3)r^{-1}\ph\vv+\uu(2\dph+8\pi G\rho\uu-6gr^{-1}\vv).
+\en
+值得注意的是，$\ssT^{\rm ell}$和
+$\ssV^{\rm ell+cen}$为对角矩阵，而科里奥利矩阵$\ssW$则为{\em 反对角\/}矩阵。
+\index{rotation|)}%
+\index{coupling!rotation|)}%
+\index{coupling!ellipticity|)}%
+\index{ellipticity|)}%
+
+%\subsection{Lateral heterogeneity and anelasticity}
+\subsection{横向不均勻性和非弹性}
+\index{lateral heterogeneity|(}%
+\index{coupling!lateral heterogeneity|(}%
+\index{coupling!anelasticity|(}%
+\index{anelasticity|(}%
+\label{D.sec.realYhere}
+
+地球的各向同性横向不均匀性和非弹性可以用实数球谐函数$\sY_{st}$展开为
+\begin{displaymath}
+\delta\hspace{-0.1 mm}\kappa=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.1 mm}\kappa_{st}\sY_{st},\qquad
+\delta\hspace{-0.2 mm}\mu=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.2 mm}\mu_{st}\sY_{st},
+\end{displaymath}
+\begin{displaymath}
+\delta\hspace{-0.3 mm}\rho=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.3 mm}\rho_{st}\sY_{st},\qquad
+\delta\Phi=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\Phi_{st}\sY_{st},
+\end{displaymath}
+\begin{displaymath}
+q_{\kappa}=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^sq_{\kappa st}\sY_{st},\qquad
+q_{\mu}=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^sq_{\mu st}\sY_{st},
+\end{displaymath}
+\eq \label{D.pertYst2}
+\qquad\qquad\qquad
+\delta\hspace{-0.1 mm}d=\sum_{s=1}^{s_{\rm max}}
+\sum_{t=-s}^s\delta\hspace{-0.1 mm}d_{st}\sY_{st}.
+\en
+(\ref{D.pertYst2})中的实数展开系数与~(\ref{D.pertYst})中的复数系数之间的关系为
+\eq \label{D.Psipsi}
+m_{st}=\left\{\begin{array}{ll}
+\sqrt{2}\,\Re{\rm e}\,\tilde{m}_{s|t|}
+& \mbox{当 $-s\leq t<0$时} \\
+\vspace{-0.8 ex} & \vspace{-0.8 ex} \\
+\tilde{m}_{s0} & \mbox{当 $t=0$时} \\
+\vspace{-0.8 ex} & \vspace{-0.8 ex} \\
+-\sqrt{2}\,\Im{\rm m}\,\tilde{m}_{st}
+& \mbox{当 $0<t\leq s$时,}
+\end{array}\right.
+\en
+其中$m_{st}$表示
+$\delta\hspace{-0.1 mm}\kappa_{st}$、
+$\delta\hspace{-0.2 mm}\mu_{st}$、$\delta\hspace{-0.3 mm}\rho_{st}$、
+$\delta\Phi_{st}$、$q_{\kappa st}$、$q_{\mu st}$或\vspace{-0.4 mm}
+$\delta\hspace{-0.1 mm}d_{st}$
+中的任意一个。自耦合矩阵$\ssT^{\rm lat}$,
+$\ssV^{\rm lat}$和$\ssA$的分量可以用三个实数球谐函数的积分来表示：
+\eqa \label{D.Tself}
+\lefteqn{
+T_{mm'}^{\rm lat}=\sum_{st}
+\int_{\Omega}\sY_{lm}\sY_{st}\sY_{lm'}\,d\/\Omega}
+\nonumber \\
+&&\mbox{}
+\times\biggl\{
+\int_0^a\delta\hspace{-0.3 mm}\rho_{st}T_\rho\,r^2dr
++\sum_dd^2\delta\hspace{-0.1 mm}d_{st}\left[T_d\right]_-^+\biggr\},
+\ena
+\eqa \label{D.struct2}
+\lefteqn{
+V_{mm'}^{\rm lat}=\sum_{st}
+\int_{\Omega}\sY_{lm}\sY_{st}\sY_{lm'}\,d\/\Omega}
+\nonumber \\
+&&\mbox{}
+\times\biggl\{
+\int_0^a\Big(\delta\hspace{-0.1 mm}\kappa_{st}V_{\kappa}
++\delta\hspace{-0.2 mm}\mu_{st}V_{\mu}+\delta\hspace{-0.3 mm}\rho_{st}
+V_\rho+\delta\hspace{-0.1 mm}\Phi_{st}V_{\Phi}
++\delta\hspace{-0.1 mm}\dot{\Phi}_{st}V_{\dot{\Phi}}
+\Big)r^2dr \nonumber \\
+&&\mbox{}
++\sum_dd^2\delta\hspace{-0.1 mm}d_{st}\left[V_d\right]_-^+\biggr\},
+\ena
+\eqa \label{D.Aself}
+\lefteqn{
+A_{mm'}=\sum_{st}
+\int_{\Omega}\sY_{lm}\sY_{st}\sY_{lm'}\,d\/\Omega}
+\nonumber \\
+&&\mbox{}
+\times
+\int_0^a\Big(\kappa_0q_{\kappa st}V_\kappa
++\mu_0q_{\mu st}V_\mu\Big)r^2dr,
+\ena
+其中
+\eq \label{D.JTneed1}
+T_\rho=\uu^2+[\el-\half s(s+1)](\vv^2+\w^2),
+\en
+\eq
+T_d=-\rho T_\rho,
+\en
+\eq
+V_\kappa=(\du+\f)^2,
+\en
+\eqa
+\lefteqn{
+V_\mu=\third(2\du-\f)^2+[\el-\half s(s+1)](\x^2+\z^2)
+}
+\nonumber \\
+&&\mbox{}
++\{\el(\el-2)-\half s(s+1)[4\el-s(s+1)-2]\}
+\nonumber \\
+&&\mbox{}\qquad\times r^{-2}(\vv^2+\w^2),
+\ena
+\eqa
+\lefteqn{
+V_\rho=[\el-\half s(s+1)]r^{-1}(2\vv\ph+g\uu\vv)
+}
+\nonumber \\
+&&\mbox{}
++8\pi G\rho\uu^2+2\uu\dph-g\uu(2r^{-1}\uu+\f),
+\ena
+\eqa
+\lefteqn{
+V_\Phi=\rho[
+\half s(s+1)r^{-1}(\uu\dv
+-\vv\du-2\vv\f+r^{-1}\uu\vv)} \nonumber \\
+&&\mbox{}\qquad
++s(s+1)r^{-2}\uu^2],
+\ena
+\eq
+V_{\dot{\Phi}}=\rho[\half s(s+1)r^{-1}\uu\vv-2\uu\f],
+\en
+\eqa \label{D.JTneed2}
+\lefteqn{
+V_d=-\kappa_0V_\kappa-\mu_0V_\mu-\rho V_\rho}
+\nonumber \\
+&&\mbox{}
++\kappa_0(\du+\f)[2\du-s(s+1)r^{-1}\vv]
+\nonumber \\
+&&\mbox{}
++\mu_0\{2[\el-\half s(s+1)](\dv\x+\dw\z)
+\nonumber \\
+&&\qquad\mbox{}
++\twothirds(2\du-\f)[2\du-s(s+1)r^{-1}\vv]\}.
+\ena
+如同在一般的情况，重力势函数及其导数的微扰$\delta\Phi$和$\delta\dot{\Phi}$可以通过替换~(\ref{eq:D.sub1})--(\ref{eq:D.sub2})，而从~(\ref{D.struct2})中消去。
+在实际中，对分量~(\ref{D.Tself})--(\ref{D.Aself})的计算最好从复数展开式~(\ref{D.pertYst})开始，用~(\ref{C.isola})计算复数积分$\int_\Omega Y_{lm}^*\,
+Y_{\raise-0.3ex\hbox{\scriptsize\it st}}\,
+Y_{\raise-0.3ex\hbox{$\scriptstyle{lm'}$}}\,d\Om$，
+然后再利用变换~(\ref{D.Ztrans1})--(\ref{D.Ztrans2})。
+\index{lateral heterogeneity|)}%
+\index{coupling!lateral heterogeneity|)}%
+\index{coupling!anelasticity|)}%
+\index{anelasticity|)}%
+
+%\subsection{Spherically symmetric perturbation}
+\subsection{球对称微扰}
+\index{spherical perturbation|(}%
+\index{perturbation!spherical|(}%
+
+(\ref{D.Tself})--(\ref{D.Aself})这些结果也适用于对地球单极子
+的$s=0$的微扰。此时能量和非弹性矩阵为对角矩阵：
+\eq \label{D.SNRSNR1}
+\ssV^{\rm sph}-\om^2\ssT^{\rm sph}=\delta\om\hspace{0.2 mm}\ssI,\qquad
+\ssA^{\rm sph}=\gamma\ssI,
+\en
+其中$\delta\om$和$\gamma$是多态模式的简并本征频率和衰减率微扰。
+对比~(\ref{D.JTneed1})--(\ref{D.JTneed2})
+和~(\ref{eq:9.Kkap})--(\ref{eq:9.Kd})，我们可以辨认出积分核
+\eq
+V_{\kappa}=2\om r^{-2}K_{\kappa},\qquad
+V_{\mu}=2\om r^{-2}K_{\mu},
+\en
+\eq
+V_{\rho}-\om^2T_{\rho}=2\om r^{-2}K_{\rho},\qquad
+V_d-\om^2T_d=2\om r^{-2}K_d,
+\en
+这里我们使用了替换~(\ref{eq:D.sub1})--(\ref{eq:D.sub2})。
+\index{perturbation!spherical|)}%
+\index{spherical perturbation|)}%
+
+%\subsection{Inner-core anisotropy}
+\subsection{内核各向异性}
+\index{inner-core anisotropy|(}%
+\index{anisotropy!inner-core|(}%
+
+一般各向异性微扰$\bgamma$所满足的矩阵分量$V_{mm'}^{\rm ani}$可以很容易地通过
+取~(\ref{D.Vanifinal})--(\ref{D.lastMoch})的特例来确定。
+在此最后一节中，我们将注意力局限于最具实际意义的物理问题：
+对称轴$\bzh$与自转轴平行的固态内核横向各向同性(Tromp \citeyear{tromp95})。在该情形下，四阶张量$\bgamma$有九个笛卡尔分量为非零：
+\eqa \label{D.triso2} \lefteqn{
+\gamma_{xxxx}=\gamma_{yyyy}=\delta\hspace{-0.3 mm}A,
+\qquad\gamma_{zzzz}=\delta C,}
+\nonumber \\
+&&\mbox{}\hspace{-7.0 mm}
+\gamma_{xyxy}=\delta\hspace{-0.3 mm}N,\qquad
+\gamma_{xxyy}=\delta\hspace{-0.3 mm}A-2\hspace{0.4 mm}\delta\hspace{-0.3 mm}N,
+\\
+&&\mbox{}\hspace{-7.0 mm}
+\gamma_{xzxz}=\gamma_{yzyz}=\delta\hspace{-0.3 mm}L,\qquad
+\gamma_{xxzz}=\gamma_{yyzz}=\delta\hspace{-0.3 mm}F. \nonumber
+\ena
+为消除任何可能的混淆，我们指出~(\ref{D.triso2})中的描述具有{\em 共转\/}对称轴
+的横向各向同性微扰的五个系数$\delta C$、$\delta\hspace{-0.3 mm}A$、
+$\delta\hspace{-0.3 mm}L$、$\delta\hspace{-0.3 mm}N$和
+$\delta\hspace{-0.3 mm}F$ 
+不同于~(\ref{D.triso1})中的具有{\em 径向\/}对称轴的横向各向同性微扰的系数。
+要确定在复数基$\beh_-,\beh_0,\beh_+$下$\bgamma$ 的分量，我们可以采取从笛卡尔坐标直接变换到正则坐标，
+或者从笛卡尔坐标变换到球坐标，然后利用~(\ref{D.gamcon1})--(\ref{D.gamconf})中的结果来得到正则表达式。
+表D.1中列出了使用任一方式所得到的广义球谐函数展开系数 $\gamma_{st}^{\alpha\beta\zeta\eta}$。
+参数$\lambda_1,\lambda_2,\lambda_3,\lambda_4$和$\lambda_5$的定义为
+\eqa \label{D.5lambdas} \lefteqn{
+\lambda_1=\delta C+6\hspace{0.4 mm}\delta\hspace{-0.3 mm}A
+-4\hspace{0.4 mm}\delta\hspace{-0.3 mm}L
+-10\hspace{0.4 mm}\delta\hspace{-0.3 mm}N
++8\hspace{0.4 mm}\delta\hspace{-0.3 mm}F,} \nonumber \\
+&&\mbox{}\hspace{-7.0 mm}
+\lambda_2=\delta C+\hspace{0.4 mm}\delta\hspace{-0.3 mm}A
++6\hspace{0.4 mm}\delta\hspace{-0.3 mm}L
++5\hspace{0.4 mm}\delta\hspace{-0.3 mm}N-
+2\hspace{0.4 mm}\delta\hspace{-0.3 mm}F, \nonumber \\
+&&\mbox{}\hspace{-7.0 mm}
+\lambda_3=\delta C-6\hspace{0.4 mm}\delta\hspace{-0.3 mm}A
+-4\hspace{0.4 mm}\delta\hspace{-0.3 mm}L
++14\hspace{0.4 mm}\delta\hspace{-0.3 mm}N
++5\hspace{0.4 mm}\delta\hspace{-0.3 mm}F, \\
+&&\mbox{}\hspace{-7.0 mm}
+\lambda_4=\delta C+\hspace{0.4 mm}\delta\hspace{-0.3 mm}A
++3\hspace{0.4 mm}\delta\hspace{-0.3 mm}L-
+7\hspace{0.4 mm}\delta\hspace{-0.3 mm}N-
+2\hspace{0.4 mm}\delta\hspace{-0.3 mm}F, \nonumber \\
+&&\mbox{}\hspace{-7.0 mm}
+\lambda_5=\delta C+\hspace{0.4 mm}\delta\hspace{-0.3 mm}A
+-4\hspace{0.4 mm}\delta\hspace{-0.3 mm}L
+-2\hspace{0.4 mm}\delta\hspace{-0.3 mm}F. \nonumber
+\ena
+所有系数都是实数且具有级数$t=0$；这正是微扰~(\ref{D.triso2})的带状对称性可以预期的结果。
+有5个角次数为$s=0$的系数由$\lambda_1$和$\lambda_2$确定，有
+11个次数为$s=2$的系数由$\lambda_3$和$\lambda_4$确定，
+有13个次数为$s=4$的系数由$\lambda_5$决定。
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|} \hline
+ & & & \\
+%Coefficient & $s=0$ & $s=2$ & $\;\;s=4\;\;$ \\
+系数 & $s=0$ & $s=2$ & $\;\;s=4\;\;$ \\
+ & & & \\ \hline
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{0000}$ &
+$\frac{1}{15}(\lambda_1+2\lambda_2)$ &
+$\frac{4}{21}(\lambda_3+2\lambda_4)$ &
+$\frac{8}{35}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\pm\mp\mp}$ &
+$\frac{2}{15}\lambda_2$ &
+$-\frac{4}{21}\lambda_4$ &
+$\frac{2}{35}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\mp\pm\mp}$ &
+$\frac{1}{15}(\lambda_1+\lambda_2)$ &
+$-\frac{2}{21}(\lambda_3+\lambda_4)$ &
+$\frac{2}{35}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\mp00}$ &
+$-\frac{1}{15}\lambda_1$ &
+$-\frac{1}{21}\lambda_3$ &
+$\frac{4}{35}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm0\mp0}$ &
+$-\frac{1}{15}\lambda_2$ &
+$-\frac{1}{21}\lambda_4$ &
+$\frac{4}{35}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm000}$ &
+ 0 &
+$\frac{1}{7\sqrt{3}}(\lambda_3+2\lambda_4)$ &
+$\frac{4}{7\sqrt{10}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\pm\mp0}$ &
+ 0 &
+$-\frac{2}{7\sqrt{3}}\lambda_4$ &
+$\frac{2}{7\sqrt{10}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\mp\pm0}$ &
+ 0 &
+$-\frac{1}{7\sqrt{3}}(\lambda_3+\lambda_4)$ &
+$\frac{2}{7\sqrt{10}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\pm00}$ &
+ 0 &
+$\frac{2}{7\sqrt{6}}\lambda_3$ &
+$\frac{4}{7\sqrt{10}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm0\pm0}$ &
+ 0 &
+$\frac{2}{7\sqrt{6}}\lambda_4$ &
+$\frac{4}{7\sqrt{10}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\pm\pm\mp}$ &
+ 0 &
+$-\frac{2}{7\sqrt{6}}(\lambda_3+2\lambda_4)$ &
+$\frac{2}{7\sqrt{10}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{s0}^{\pm\pm\pm0}$ &
+ 0 &
+ 0 &
+$\frac{2}{\sqrt{70}}\lambda_5$ \\
+ & & & \\
+$\sqrt{\frac{2s+1}{4\pi}}\>\gamma_{20}^{\pm\pm\pm\pm}$ &
+ 0 &
+ 0 &
+$\frac{4}{\sqrt{70}}\lambda_5$ \\
+ & & & \\ \hline
+\end{tabular}
+\caption[gamcoeffs]{
+描述固态内核中共转横向各向同性的四阶弹性微扰张量$\mbox{\boldmath $\gamma$}=\sum_{st}\gamma_{st}^{\alpha\beta\zeta\eta}
+Y_{st}^{\alpha+\beta+\zeta+\eta}\hat{\bf e}_{\alpha}\hat{\bf e}_{\beta}
+\hat{\bf e}_{\zeta}\hat{\bf e}_{\eta}$的广义球谐函数展开式非零系数。}
+\label{table:D.lambda}
+\end{table}
+这样得到的$(2l+1)\times(2l+1)$自耦合矩阵 $\tilde{\ssV}^{\raise-0.5ex\hbox{\scriptsize\rm ani}}=
+\ssV^{\rm ani}$为{\em 实数且对角的\/}：
+\eqa \label{eq:D.Vmm'}
+\lefteqn{
+V_{mm'}^{\rm ani}=\delta_{mm'}\,\sum_{s=0,2,4}
+(-1)^m(2l+1)\left(\frac{2s+1}{4\pi}\right)^{1/2}
+}
+\nonumber \\
+&&\mbox{}\qquad
+\times\left(\begin{array}{ccc}
+l & s & l  \\
+-m & 0 & m
+\end{array}\right)
+\sum_{N}\sum_{I}\int_0^c\Gamma_{N\hspace{-0.3 mm}I}\,r^2dr,      
+\ena
+其中
+\eqa
+\!\!\!\!\!\!\!\!\!\!
+\label{D.208}
+\Gamma_{01}\!\!&=&\!\!\dot{u}^2
+\left(\begin{array}{rcr}
+l & s & l \\
+0 & 0 & 0
+\end{array}\right)\gamma_{s0}^{0000}, \\
+\Gamma_{02}\!\!&=&\!\!2\Om_l^0\Om_l^2\Om_l^0\Om_l^2r^{-2}(v^2+w^2)
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-2 & 0 & 2
+\end{array}\right)\gamma_{s0}^{++--}, \\
+\Gamma_{03}\!\!&=&\!\!f^2
+\left(\begin{array}{rcr}
+l & s & l \\
+0 & 0 & 0
+\end{array}\right)\gamma_{s0}^{+-+-}, \\
+\Gamma_{04}\!\!&=&\!\!-2f\dot{u}
+\left(\begin{array}{rcr}
+l & s & l \\
+0 & 0 & 0
+\end{array}\right)\gamma_{s0}^{+-00}, \\
+\Gamma_{05}\!\!&=&\!\!2\Om_l^0\Om_l^0(x^2+z^2)
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-1 & 0 & 1
+\end{array}\right)\gamma_{s0}^{+0-0}, \\
+\Gamma_{11}\!\!&=&\!\!-4\Om_l^0x\dot{u}
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-1 & 1 & 0
+\end{array}\right)\gamma_{s0}^{+000}, \\
+\Gamma_{12}\!\!&=&\!\!-4\Om_l^0\Om_l^2\Om_l^0r^{-1}(vx+wz)
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-2 & 1 & 1
+\end{array}\right)\gamma_{s0}^{++-0}, \\
+\Gamma_{13}\!\!&=&\!\!4\Om_l^0xf
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-1 & 0 & 1
+\end{array}\right)\gamma_{s0}^{+-+0}, \\
+\Gamma_{21}\!\!&=&\!\!4\Om_l^0\Om_l^2r^{-1}v\dot{u}
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-2 & 2 & 0
+\end{array}\right)\gamma_{s0}^{++00}, \\
+\Gamma_{22}\!\!&=&\!\!2\Om_l^0\Om_l^0(x^2-z^2)
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-1 & 2 & -1
+\end{array}\right)\gamma_{s0}^{+0+0}, \\
+\Gamma_{23}\!\!&=&\!\!-4\Om_l^0\Om_l^2r^{-1}vf
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-2 & 2 & 0
+\end{array}\right)\gamma_{s0}^{+++-}, \\
+\Gamma_{31}\!\!&=&\!\!-4\Om_l^0\Om_l^2\Om_l^0r^{-1}(vx-wz)
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-2 & 3 & -1
+\end{array}\right)\gamma_{s0}^{+++0}, \\
+\label{D.220}
+\Gamma_{41}\!\!&=&\!\!2\Om_l^0\Om_l^2\Om_l^0\Om_l^2r^{-2}(v^2-w^2)
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-2 & 4 & -2
+\end{array}\right)\gamma_{s0}^{++++}.
+\ena
+(\ref{D.Vanifinal})式中的正负被积函数$\Gamma_{\hspace{-0.3 mm}N\,\pm I}$在~(\ref{eq:D.Vmm'})中已经合并在一起。3-$j$符号
+\eq
+\left(\!\begin{array}{rcr}
+l & s & l \\
+-m & 0 & m
+\end{array}\right),\qquad
+s=0,2,4,
+\en
+以次数$l$和级数$-l\leq m\leq l$的显式形式在~(\ref{C.needinD1})--(\ref{C.needinD2})中给出。
+\index{inner-core anisotropy|)}%
+\index{anisotropy!inner-core|)}%
+\index{self coupling|)}%
+%%%为地震学干杯！
+%%%啥目的？啥原因？啥方法？一本书全部讲清
+%%%要作为教材！
+%%%做经典教材！
+%%%这就是学地震学该知道的知识！
+%%%个人意见，仅供参考！

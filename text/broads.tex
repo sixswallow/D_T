@@ -1,0 +1,278 @@
+\documentclass[oneside]{book}
+
+\usepackage{graphics}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage{gji}             % reference style
+\usepackage{small_caption}   % caption font
+\input{LGRenc.def}           % lower case sans serif Greek
+\input{LGRcmss.fd}           % lower case sans serif Greek
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                           %
+% Trying to match Tony's textures setup    %
+                                           %
+\setlength{\textwidth}{4.5in}              %
+\setlength\textheight{42\baselineskip}     %
+\setlength\topmargin{.75in}                %
+\setlength\oddsidemargin{1.0in}            %
+\setlength\evensidemargin{1.0in}           %
+\setlength\marginparwidth{.75in}           %
+                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{newcommands}
+
+\pagestyle{empty}
+
+\begin{document}
+
+%\setcounter{chapter}{5}
+%\setcounter{figure}{7}
+%\begin{sidewaysfigure}
+%\centering
+%\rotatebox{270}
+%{
+%\includegraphics{../figures/chap05/fig08.eps}
+%}
+%\caption[global seismicity]{
+%Epicentral locations and source mechanisms of 10,219 earthquakes
+%in the Harvard CMT catalogue, with focal depths less than~50~km,
+%during the period 1976--1997.  The size of each beachball
+%is proportional to the logarithm of the seismic moment $M_0$.
+%The world map is a cylindrical equal-area projection, with
+%landmasses shaded.  (Courtesy of E.\ Larson.)
+%}
+%\end{sidewaysfigure}
+
+\setcounter{chapter}{8}
+\setcounter{figure}{8}
+\begin{sidewaysfigure}
+\centering
+\rotatebox{270}
+{
+\includegraphics{../figures/chap08/fig09.eps}
+}
+\caption[sphmodefreqs]{
+Dispersion diagram showing the spheroidal
+oscillations of the isotropic PREM model.
+All of the predominantly elastic eigenfrequencies
+${}_n\omega_l^{\rm S}/2\pi$ below 20 mHz are plotted
+versus the spherical-harmonic degree~$l$.
+Small numbers on left label the radial-mode
+($n=0$) eigenfrequencies.
+See Figure~8.10 for greater detail.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{8}
+\setcounter{figure}{9}
+\begin{sidewaysfigure}
+\rotatebox{270}
+{
+\centering
+\includegraphics{../figures/chap08/fig10.eps}
+}
+\caption[sphmodefreqs2]{
+Detailed view of the lower left corner of the
+spheroidal-mode dispersion diagram in Figure~8.9.
+Leftmost numbers 0 through 16 label
+the radial-mode ($n=0$) eigenfrequencies;
+repeated numbers 0 through 39 label
+the low-frequency and high-frequency
+ends of the various overtone branches.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{8}
+\setcounter{figure}{11}
+\begin{sidewaysfigure}
+\centering
+\rotatebox{270}
+{
+\includegraphics{../figures/chap08/fig12.eps}
+}
+\caption[threemodes]{
+Subdivision of the high-frequency, high-overtone spheroidal
+oscillations into mantle ${\rm ScS}_{\rm SV}$ modes ({\em left\/}),
+PKIKP modes ({\em middle\/}) and inner-core ${\rm J}_{\rm SV}$
+modes ({\em right\/}). The ${\rm ScS}_{\rm SV}$ modes have $f_{\mu}>0.5$
+and $f_{\mu,\mbox{\scriptsize\,inner core}}\ll f_{\mu,\mbox{\scriptsize\,mantle}}$;
+the PKIKP modes have $f_{\kappa}>0.5$;
+the ${\rm J}_{\rm SV}$ modes have $f_{\mu}>0.5$ and
+$f_{\mu,\mbox{\scriptsize\,inner core}}\gg f_{\mu,\mbox{\scriptsize\,mantle}}$.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{9}
+\setcounter{figure}{6}
+\begin{sidewaysfigure}
+\centering
+\rotatebox{270}
+{
+\scalebox{0.95}{
+\includegraphics{../figures/chap09/fig07.eps}
+}
+}
+\caption[ScS&J&PKIKPkernels]{
+Fr\'{e}chet kernels $K_{\alpha}$ ({\em dotted line\/}),
+$K_{\beta}$ ({\em dashed line\/}) and $K_{\rho}^{\prime}$
+({\em solid line\/}) for a number of ${\rm ScS}_{\rm SV}$
+modes ({\em top row\/}), PKIKP modes ({\em middle row\/}) and
+${\rm J}_{\rm SV}$ modes ({\em bottom row\/}) of degree $l=2$.
+The displacements $U$ and $V$ are displayed in
+Figure~8.14.  Each graph is scaled independently,
+so that the maximum values of the kernels are the same.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{12}
+\setcounter{figure}{14}
+\begin{sidewaysfigure}
+\centering
+\rotatebox{270}
+{
+\includegraphics{../figures/chap12/fig15.eps}
+}
+\caption[Spheroidal Dispersion]{
+Spheroidal dispersion diagrams for the crustless
+version of model 1066A.
+({\em Left\/}) Exact eigenfrequencies calculated
+by numerical integration.
+({\em Right\/}) Asymptotic eigenfreqencies
+in P-SV Regimes II--X.
+See Figure~12.16 for
+a magnified view of the upper left corner.
+(Courtesy of L. Zhao.)
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{14}
+\setcounter{figure}{23}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap14/fig24.eps}
+}
+\end{center}
+\caption[pas_spec]{
+Radial-component amplitude spectra
+%$|\hat{\bf r}\cdot{\bf a}({\bf x},\omega)|$
+of the June 9, 1994 Bolivia
+deep-focus earthquake recorded at station PAS in
+Pasadena, California.  Solid line shows observed
+spectrum; dashed line shows synthetic coupled-mode
+spectrum.  Rotation, ellipticity and the lateral variations
+in shear-wave speed $\delta\hspace{-0.2 mm}\beta$ of model
+SKS12WM13 have been accounted for in the calculations.
+The vertical arrays of mode labels identify the twenty-two
+super-multiplets considered.  A Hann taper has been applied
+to both 35-hour time series prior to Fourier transformation.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{14}
+\setcounter{figure}{24}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap14/fig25.eps}
+}
+\end{center}
+\caption[ptga_spec]{
+Radial-component amplitude spectra
+%$|\hat{\bf r}\cdot{\bf a}({\bf x},\omega)|$
+of the February 17, 1996 Irian
+Jaya earthquake recorded at station PTGA in Pitinga,
+Brazil.   Solid line shows observed
+spectrum; dashed line shows synthetic coupled-mode
+spectrum.  Rotation, ellipticity and the lateral variations
+in shear-wave speed $\delta\hspace{-0.2 mm}\beta$ of model
+SKS12WM13 have been accounted for in the calculations.
+The vertical arrays of mode labels identify the twenty-two
+super-multiplets considered.  A Hann taper has been applied
+to both 35-hour time series prior to Fourier transformation.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{15}
+\setcounter{figure}{11}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap15/fig12.eps}
+}
+\end{center}
+\caption[liu&tromp Fig 9]{
+Comparison of the exact ({\em long dashed line\/}) and
+perturbation-theoretical ({\em short dashed line\/}) ray paths
+in model SKS12WM13. The unperturbed ray path
+in PREM is also shown ({\em solid line\/}).  The source
+is situated on the equator and Greenwich Meridian, and the
+receiver is situated due east at an epicentral distance
+$\Theta=75^{\circ}$.  ({\em Top\/}) P, PcP, S and ScS
+rays projected onto a cross-section of the source-receiver
+great-circle plane. Shading depicts the relative wave-speed
+perturbations $-0.8\%\leq\delta\hspace{-0.1 mm}\alpha/\alpha\leq 0.8\%$
+and $-1.5\%\leq\delta\hspace{-0.2 mm}\beta/\beta\leq 1.5\%$.
+({\em Bottom\/}) Projection of the same ray paths onto the
+surface of the Earth.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{16}
+\setcounter{figure}{17}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap16/fig19.eps}
+}
+\end{center}
+\caption[phase_mapsL]{
+Global Love-wave phase-speed maps $\delta c/c$
+(in percent) at periods of 35, 50, 75 and 150~seconds.
+Notice that the grey scales differ from map to map.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{16}
+\setcounter{figure}{18}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap16/fig20.eps}
+}
+\end{center}
+\caption[phase_mapsR]{
+Global Rayleigh-wave phase-speed maps $\delta c/c$
+(in percent) at periods of 35, 50, 75 and 150~s.
+Notice that the grey scales differ from map to map.
+}
+\end{sidewaysfigure}
+
+\setcounter{chapter}{16}
+\setcounter{figure}{19}
+\begin{sidewaysfigure}
+\begin{center}
+\rotatebox{270}
+{
+\includegraphics{../figures/chap16/fig07.eps}
+}
+\end{center}
+\caption[crustal]{
+Relative perturbation $\delta c/c$ in the phase speed
+of fundamental-mode Love waves ({\em left\/}) and
+Rayleigh waves ({\em right\/}) due to lateral variations
+in the thickness and structure of the Earth's crust.
+The perturbations are shown at two periods: 35~s
+({\em top\/}) and 75~s ({\em bottom\/}). Note that
+the grey scales differ from map to map.
+}
+\end{sidewaysfigure}
+
+\end{document}
